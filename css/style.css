@@ -1,0 +1,21 @@
+body {
+  padding-top: 40px;  /* Adjust this value as needed */
+}
+
+.bg-teal {
+    background-color: #67ea94; /* Custom teal color */
+}
+
+.navbar {
+  z-index: 10; /* Ensure the navbar stays on top */
+}
+
+.navbar-brand, .nav-link {
+  color: black !important;
+  font-weight: bold; 
+}
+
+.navbar-nav .nav-link.active {
+  color: white;
+}
+

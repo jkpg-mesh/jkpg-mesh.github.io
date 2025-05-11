@@ -1,23 +1,35 @@
 <!-- navbar.html -->
 <nav class="navbar navbar-expand-sm bg-teal fixed-top">
     <div class="container-fluid">
-        <div class="d-flex justify-content-end align-items-center">
+        <div class="d-flex justify-content-start align-items-center">
             <img src="assets/M-PWRD_BW_Border.png" alt="Logo" style="height: 40px; margin-right: 10px;">
-            <span class="navbar-brand mb-0 h1"><a href="index.html" class="text-dark text-decoration-none">jkpg-mesh</a></span>
+            <span class="navbar-brand mb-0 h1">
+                <a href="index.html" class="text-dark text-decoration-none">jkpg-mesh</a>
+            </span>
         </div>
-        <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">Hem</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="about.html">Om</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="blog.html">Blog</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="docs.html">Docs</a>
-            </li>
-        </ul>
+
+        <!-- Toggler/collapsing button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Collapsible menu -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Hem</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">Om</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="blog.html">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="docs.html">Docs</a>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>

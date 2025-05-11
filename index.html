@@ -77,10 +77,13 @@
                     beter sig i nätverket - om den bara lyssnar, aktivt vidarebefordrar meddelanden, eller håller sig helt tyst 
                     för att spara ström. En korrekt inställd roll hjälper mesh-nätverket att fungera effektivt och gör din 
                     första upplevelse både enklare och roligare.</p>
-                <p>För nybörjare är det oftast bäst att börja med <strong>Client</strong> eller <strong>Client (Muted)</strong>. En Client lyssnar på meddelanden 
-                    och kan själv skicka meddelanden, men vidarebefordrar dem inte till andra. Det håller allt enkelt och drar 
-                    mindre ström. Client (Muted) fungerar på liknande sätt, men skickar inga meddelanden alls - den är i princip 
-                    en tyst lyssnare, perfekt för att bara följa nätverkstrafiken utan att störa eller förbruka mycket batteri.</p>
+                <p>För de flesta nybörjare är det bäst att börja med <strong>Client</strong> eller <strong>Client (Muted)</strong>. 
+                    En Client är en enhet kopplad till appen eller som fungerar fristående. Den kan skicka och ta emot meddelanden, 
+                    och vidarebefordrar även paket om ingen annan nod redan har gjort det. Den bidrar till nätverket utan att 
+                    belasta det för mycket.</p>
+                <p>En Client (Muted) däremot vidarebefordrar inte paket från andra noder. Den skickar och tar emot meddelanden 
+                    precis som en vanlig klient, men deltar inte i routing. Den här rollen passar bra om du vill minska 
+                    nätverkstrafiken eller använda enheten passivt - till exempel för att bara lyssna på vad som händer.</p>
                 <p>När du har blivit mer bekant med hur det lokala nätverket fungerar kan du överväga att byta till rollen Router. 
                     En Router-nod hjälper aktivt till att bära vidare meddelanden i nätverket genom att vidarebefordra dem till 
                     andra enheter. Den här rollen är avgörande för att förlänga räckvidden och förbättra anslutningen, särskilt 

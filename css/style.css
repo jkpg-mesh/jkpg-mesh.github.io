@@ -19,3 +19,57 @@ body {
   color: white;
 }
 
+body {
+  /* Add padding to the top of the body to account for the fixed navbar */
+  /* This prevents the main content scrollbar from overlapping with the navbar */
+  padding-top: 56px; /* Adjust if your navbar height is different */
+}
+
+#navbar-placeholder .navbar { /* Assuming your navbar.html has a .navbar class */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030; /* Bootstrap's default z-index for fixed navbars */
+}
+
+/* Custom styles for fixed sidebar */
+#sidebar {
+  position: fixed;
+  /* Set top to the height of the navbar */
+  top: 56px; /* Adjust if your navbar height is different */
+  left: 0;
+  bottom: 0;
+  /* width: inherit; <- This can be tricky with fixed positioning.
+      It's better to use the Bootstrap column width directly or a fixed width.
+      Let's rely on the col-md-2 for width and adjust margin for content. */
+  width: 16.66666667%; /* Corresponds to col-md-2. Adjust if you change the column. */
+  overflow-y: auto;
+  z-index: 1000;
+  /* The p-3 class from Bootstrap provides padding.
+      If you need specific padding on top *within* the sidebar (below navbar offset),
+      you can add it here or ensure the content inside has margin. */
+  /* padding-top: 1rem; /* Example: if you want extra space at the top of sidebar content */
+}
+
+/* Adjust main content margin to prevent it from being hidden behind the sidebar */
+#doc-content {
+  margin-left: 16.6667%; /* Adjust this based on the sidebar's column width (col-md-2 is 16.6667%) */
+  padding-top: 56px; /* Add padding to account for a fixed top navbar */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 767.98px) {
+    #sidebar {
+        position: static; /* Revert to static position on mobile */
+        height: auto; /* Auto height on mobile */
+        overflow-y: visible; /* No scrollbar on mobile */
+        padding-top: 0; /* Remove top padding on mobile */
+    }
+
+    #doc-content {
+        margin-left: 0; /* Remove left margin on mobile */
+        padding-top: 0; /* Remove top padding on mobile */
+    }
+}
+

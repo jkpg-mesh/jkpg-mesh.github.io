@@ -21,13 +21,15 @@
                 });
         </script>
 
-        <!-- Page Summary -->
+        <!-- Page top -->
         <div class="container-fluid" style="background-image: url('assets/about.jpg'); height: 400px; background-size: cover; background-position: center;">
-            <br>
-            <center>
-                <h1 style="color: white; font-weight:bold"></h1>
-            </center>
         </div>
+        <div class="container-fluid bg-teal text-center"">
+                <h1></h1>
+                <p></p>
+        </div>
+
+        <!-- Page content -->
         <div class="container-fluid text text-center">
                 <h1>Om jkpg-mesh</h1>
                 <div class="mx-auto w-50 text-start">
@@ -56,7 +58,6 @@
                 </div>
         </div>
         <br>
-        <!-- Page content -->
         <div class="row">
             <div class="col text-center">
                 <h1><i class="bi-github"></i></h1>
@@ -86,10 +87,16 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid"></div>
-            <footer style="text-align:center; padding:10px; font-size:0.9em; color:#666;">
-                &copy; 2025 jkpg-mesh Authors. All rights reserved.
-            </footer>
-        </div>
+        
+        <!-- Footer placeholder -->
+        <div id="footer-placeholder"></div>
+
+        <script>
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                });
+        </script>
     </body>
 </html>

@@ -21,24 +21,33 @@
                 });
         </script>
 
-        <!-- Page content -->
+        <!-- Page top -->
         <div class="container-fluid" style="background-image: url('assets/blog2.jpg'); height: 400px; background-size: cover; background-position: center;">
-            <br>
-            <center>
-                <h1 style="color: white; font-weight:bold"></h1>
-            </center>
         </div>
-        <div class="container-fluid bg-teal ">
-            <center>
+        <div class="container-fluid bg-teal text-center">
                 <h1>jkpg-mesh blog</h1>
                 <p>Det här området är för alla. Har du gjort ett intressant bygge eller placerat en nod på ett roligt ställe?</p>
                 <p>Skriv ner det, lägg till foton och skicka det till <a href="mailto:jkpg-mesh@protonmail.com">jkpg-mesh författarna</a> för att det ska publiceras.</p>
-            </center>
         </div>
-        <div class="container-fluid"></div>
-            <footer style="text-align:center; padding:10px; font-size:0.9em; color:#666;">
-                &copy; 2025 jkpg-mesh Authors. All rights reserved.
-            </footer>
+
+        <!-- Page content -->
+        <div class="container-fluid text-center">
+            <h1></h1>
+            <div class="mx-auto w-75 text-start">
+                <p></p>
+                <p></p>
+            </div>
         </div>
+
+        <!-- Footer placeholder -->
+        <div id="footer-placeholder"></div>
+
+        <script>
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                });
+        </script>
     </body>
 </html>

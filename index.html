@@ -23,17 +23,10 @@
 
         <!-- Page top -->
         <div class="container-fluid" style="background-image: url('assets/main.jpg'); height: 400px; background-size: cover; background-position: center;">
-            <br>
-            <center>
-                <h1 style="color: black; font-weight:bold"></h1>
-            </center>
-        </div>
-        <div class="container-fluid bg-teal ">
-            <center>
+         </div>
+        <div class="container-fluid bg-teal text-center"">
                 <h1>Välkommen till Jönköping Meshtastics</h1>
                 <p>jkpg-mesh är en informell gemenskap som verkar för ett stabilt Meshtastic-nätverk i Jönköpingsområdets.</p>
-                <!-- <p>Delta i samtalet på <a href="https://discord.gg/4r9rUrmH9b">Södra Vätterbygdens Amatörradioklubbs</a> Discord-kanal.</p>-->
-            </center>
         </div>
 
         <!-- Page content -->
@@ -70,7 +63,6 @@
                     dig i din egen takt.</p>
             </div>
         </div>
-
         <div class="container-fluid text-center">
             <h1>Vilken enhetsroll ska jag välja?</h1>
             <div class="mx-auto w-75 text-start">
@@ -90,11 +82,18 @@
                     andra enheter. Den här rollen är avgörande för att förlänga räckvidden och förbättra anslutningen, särskilt 
                     i områden med få användare - men den kräver bra planering mer ström och bör helst vara igång hela tiden. I 
                     början är det dock smartast att hålla det enkelt och börja som client.</p>
+            </div>
         </div>
-        <div class="container-fluid"></div>
-            <footer style="text-align:center; padding:10px; font-size:0.9em; color:#666;">
-                &copy; 2025 jkpg-mesh Authors. All rights reserved.
-            </footer>
-        </div>
+        
+        <!-- Footer placeholder -->
+        <div id="footer-placeholder"></div>
+
+        <script>
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                });
+        </script>
     </body>
 </html>

@@ -10,112 +10,122 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="css/style.css" rel="stylesheet">
 </head>
-<body>
-
-    <div id="navbar-placeholder"></div>
-
-    <script>
-        fetch('navbar.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navbar-placeholder').innerHTML = data;
-                // You might need to adjust the padding-top of #sidebar and #doc-content
-                // here if the navbar height is determined after it's loaded.
-                // For a fixed navbar, it's often easier to know its height beforehand.
-            });
-    </script>
-
-    <div class="d-md-none text-end p-2 bg-light border-bottom">
-        <button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar"
-                aria-expanded="false" aria-controls="sidebar">
-            <i class="bi bi-list"></i> Menu
-        </button>
-    </div>
-
-    <div class="container-fluid">
-        <div class="row">
-
-            <nav id="sidebar" class="collapse d-md-block col-md-2 bg-light border-end p-3">
-                <h5 class="mb-3">Docs</h5>
-                <ul class="nav nav-pills flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#" onclick="loadDoc('intro.html', this)">Intro</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="loadDoc('settings.html', this)">Settings</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="loadDoc('dutycycle.html', this)">Duty Cylce</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="loadDoc('meshunits.html', this)">Equipment</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="loadDoc('antenna.html', this)">Antenna</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="loadDoc('enclosures.html', this)">Enclosures</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="loadDoc('solar.html', this)">Solar-power</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="loadDoc('power.html', this)">Power</a>
-                    </li>
-                    </ul>
-            </nav>
-
-            <main class="col-md-10 ms-sm-auto px-4 pt-4" id="doc-content">
-                <p>Loading content...</p>
-            </main>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        function loadDoc(page, element) {
-            fetch('docs/' + page)
+    <body>
+        <!-- Placeholder for the navbar -->
+        <div id="navbar-placeholder"></div>
+        <script>
+            fetch('navbar.html')
                 .then(response => response.text())
                 .then(data => {
-                    document.getElementById('doc-content').innerHTML = data;
-                    // Optional: Scroll main content to top after loading new content
-                    document.getElementById('doc-content').scrollTop = 0;
-                    document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-                    element.classList.add('active');
-                })
-                .catch(error => {
-                    console.error('Error loading document:', error);
-                    document.getElementById('doc-content').innerHTML = '<p class="text-danger">Error loading content.</p>';
+                    document.getElementById('navbar-placeholder').innerHTML = data;
+                    // You might need to adjust the padding-top of #sidebar and #doc-content
+                    // here if the navbar height is determined after it's loaded.
+                    // For a fixed navbar, it's often easier to know its height beforehand.
                 });
-        }
+        </script>
 
-        // Load the default "Intro" page on load
-        window.addEventListener('DOMContentLoaded', () => {
-            // Find the initially active link to pass to loadDoc
-            const initialActiveLink = document.querySelector('#sidebar .nav-link.active');
-             if (initialActiveLink) {
-                // Extract the filename from the onclick attribute
-                const onclickAttr = initialActiveLink.getAttribute('onclick');
-                const filenameMatch = onclickAttr.match(/loadDoc\('(.*?)'/);
-                if (filenameMatch && filenameMatch[1]) {
-                    loadDoc(filenameMatch[1], initialActiveLink);
-                } else {
-                     // Fallback if onclick attribute format is unexpected
-                     loadDoc('intro.html', initialActiveLink);
-                }
-            } else {
-                // If no active link is initially set, load intro.html and mark it active
-                const introLink = document.querySelector('#sidebar .nav-item a[onclick*="intro.html"]');
-                if (introLink) {
-                     loadDoc('intro.html', introLink);
-                } else {
-                    // Even if intro.html link isn't found, attempt to load it
-                    loadDoc('intro.html', null); // Pass null if no element to mark active
-                }
+        <!-- Page content -->
+        <div class="d-md-none text-end p-2 bg-light border-bottom">
+            <button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar"
+                    aria-expanded="false" aria-controls="sidebar">
+                <i class="bi bi-list"></i> Menu
+            </button>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <nav id="sidebar" class="collapse d-md-block col-md-2 bg-light border-end p-3">
+                    <h5 class="mb-3">Docs</h5>
+                    <ul class="nav nav-pills flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" onclick="loadDoc('intro.html', this)">Intro</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="loadDoc('settings.html', this)">Settings</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="loadDoc('dutycycle.html', this)">Duty Cylce</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="loadDoc('meshunits.html', this)">Equipment</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="loadDoc('antenna.html', this)">Antenna</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="loadDoc('enclosures.html', this)">Enclosures</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="loadDoc('solar.html', this)">Solar-power</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="loadDoc('power.html', this)">Power</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <main class="col-md-10 ms-sm-auto px-4 pt-4" id="doc-content">
+                    <p>Loading content...</p>
+                </main>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            function loadDoc(page, element) {
+                fetch('docs/' + page)
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('doc-content').innerHTML = data;
+                        // Optional: Scroll main content to top after loading new content
+                        document.getElementById('doc-content').scrollTop = 0;
+                        document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+                        element.classList.add('active');
+                    })
+                    .catch(error => {
+                        console.error('Error loading document:', error);
+                        document.getElementById('doc-content').innerHTML = '<p class="text-danger">Error loading content.</p>';
+                    });
             }
-        });
-    </script>
-</body>
+
+            // Load the default "Intro" page on load
+            window.addEventListener('DOMContentLoaded', () => {
+                // Find the initially active link to pass to loadDoc
+                const initialActiveLink = document.querySelector('#sidebar .nav-link.active');
+                if (initialActiveLink) {
+                    // Extract the filename from the onclick attribute
+                    const onclickAttr = initialActiveLink.getAttribute('onclick');
+                    const filenameMatch = onclickAttr.match(/loadDoc\('(.*?)'/);
+                    if (filenameMatch && filenameMatch[1]) {
+                        loadDoc(filenameMatch[1], initialActiveLink);
+                    } else {
+                        // Fallback if onclick attribute format is unexpected
+                        loadDoc('intro.html', initialActiveLink);
+                    }
+                } else {
+                    // If no active link is initially set, load intro.html and mark it active
+                    const introLink = document.querySelector('#sidebar .nav-item a[onclick*="intro.html"]');
+                    if (introLink) {
+                        loadDoc('intro.html', introLink);
+                    } else {
+                        // Even if intro.html link isn't found, attempt to load it
+                        loadDoc('intro.html', null); // Pass null if no element to mark active
+                    }
+                }
+            });
+        </script>
+
+        <!-- Footer placeholder -->
+            <div id="footer-placeholder"></div>
+
+            <script>
+                fetch('footer.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('footer-placeholder').innerHTML = data;
+                    });
+            </script>
+    </body>
 </html>
 
 <!-- Settings with submenu -->

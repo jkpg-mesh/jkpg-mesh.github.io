@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Duty Cycle</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container my-4">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                1. Vad är arbetscykel (Duty Cycle) inom radioteknik?
+                </div>
+                <div class="card-body">
+                <p>
+                    Inom radiokommunikation syftar <strong>arbetscykel (duty cycle)</strong> på den procentandel av tiden som en radiotransmitter faktiskt sänder en signal, jämfört med den totala tid den får vara aktiv. Detta uttrycks vanligtvis som en procentandel över en fast tidsperiod, till exempel en timme.
+                </p>
+                <p>
+                    Matematiskt kan det definieras som:
+                </p>
+                <p class="text-center">
+                    <em>Arbetscykel (%) = (Sändningstid / Total tid) × 100</em>
+                </p>
+                <p>
+                    Till exempel, om en enhet får sända i 36 sekunder under en timme, blir dess arbetscykel:
+                </p>
+                <p class="text-center">
+                    <em>(36 / 3600) × 100 = 1 %</em>
+                </p>
+                <p>
+                    Begränsningar för arbetscykeln är särskilt relevanta i olicensierade frekvensband, såsom ISM-banden (Industriella, Vetenskapliga och Medicinska band) som används av många trådlösa tekniker med låg effekt. Dessa begränsningar hjälper till att minska störningar mellan flera enheter som delar samma frekvensband.
+                </p>
+                <p>
+                    Reglerna för arbetscykel varierar mellan olika regioner och övervakas ofta av tillsynsmyndigheter som ETSI (European Telecommunications Standards Institute) i Europa eller FCC (Federal Communications Commission) i USA.
+                </p>
+                </div>
+            </div>
+        </div>
+        <div class="container my-4">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                2. Varför är arbetscykeln viktig i det europeiska Meshtastic-nätverket?
+                </div>
+                <div class="card-body">
+                <p>
+                    I Europa regleras radiokommunikation i olicensierade band, såsom 868 MHz ISM-bandet, av ETSI (European Telecommunications Standards Institute). En av de viktigaste reglerna är begränsningen av arbetscykeln – den maximala procentandel av tiden som en enhet får sända på en viss frekvens.
+                </p>
+                <p>
+                    För Meshtastic-nätverket är denna begränsning särskilt viktig eftersom den direkt påverkar hur ofta noder kan skicka meddelanden.
+                </p>
+
+                <h5 class="mt-4">Meshtastics bandval i Europa</h5>
+                <p>
+                    Meshtastic-programvaran som är konfigurerad för <strong>EU_868-regionen</strong> använder sub-bandet <strong>869,4–869,65 MHz</strong>. Detta är en viktig detalj eftersom just detta sub-band tillåter en arbetscykel på <strong>10 %</strong>, vilket är mer generöst än många andra delar av 868 MHz-bandet.
+                </p>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                    <thead class="table-light">
+                        <tr>
+                        <th>Sub-band (MHz)</th>
+                        <th>Begränsning av arbetscykel</th>
+                        <th>Kommentarer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td>868,0 – 868,6</td>
+                        <td>1 %</td>
+                        <td>Vanligt för LoRa, används ej av Meshtastic</td>
+                        </tr>
+                        <tr>
+                        <td>868,7 – 869,2</td>
+                        <td>0,1 %</td>
+                        <td>Mycket begränsat, hög restriktion</td>
+                        </tr>
+                        <tr class="table-success">
+                        <td>869,4 – 869,65</td>
+                        <td>10 %</td>
+                        <td>Används av Meshtastic i EU; mer sändningstid</td>
+                        </tr>
+                        <tr>
+                        <td>869,7 – 870,0</td>
+                        <td>100 % (med LBT+AFA)</td>
+                        <td>Kräver särskilda protokoll som LBT</td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+
+                <h5 class="mt-4">Varför detta är viktigt</h5>
+                <ul>
+                    <li><strong>Mer sändningstid för kommunikation</strong><br>
+                    Med en arbetscykel på 10 % kan en Meshtastic-nod sända upp till 6 minuter per timme, vilket möjliggör fler meddelanden, kvittenser och mesh-uppdateringar jämfört med den striktare 1 %-gränsen (endast 36 sekunder per timme).
+                    </li>
+                    <li><strong>Juridisk efterlevnad</strong><br>
+                    Genom att använda bandet 869,4–869,65 MHz säkerställs att Meshtastic håller sig inom ETSI:s lagliga gränser, samtidigt som relativt frekvent kommunikation möjliggörs. Detta är viktigt för ansvarsfull och laglig användning av radioutrustning inom EU.
+                    </li>
+                    <li><strong>Tillförlitlighet i mesh-nätverket</strong><br>
+                    En högre arbetscykel bidrar till mer tillförlitlig meddelandeleverans, särskilt i dynamiska nätverk med rörliga noder eller frekventa uppdateringar. Det hjälper också till att minska köer och fördröjningar av meddelanden.
+                    </li>
+                    <li><strong>Undviker trängsel i vanliga LoRa-band</strong><br>
+                    Genom att använda ett mindre belastat sub-band med mer generös arbetscykel undviker Meshtastic att konkurrera med andra enheter (som LoRaWAN-sensorer) som arbetar i det mer trafikerade 868,0–868,6 MHz-bandet.
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container my-4">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                3. Hur mycket data kan vanligtvis skickas i Meshtastic-nätverket?
+                </div>
+                <div class="card-body">
+                <p>
+                    Meshtastic är utformat för låg bandbredd och långdistanskommunikation över LoRa-radio. Systemet är optimerat för att skicka korta, textbaserade meddelanden och telemetri, snarare än för att strömma data eller hantera stora datamängder.
+                </p>
+                <p>
+                    På grund av begränsningar i radioprotokollet och regulatoriska restriktioner (som 10 % arbetscykel i Europa) är mängden data som kan skickas relativt begränsad. Det räcker dock för många praktiska tillämpningar, såsom meddelanden, positionsdelning och sensordata.
+                </p>
+
+                <h5 class="mt-4">✅ Antaganden för denna uppskattning</h5>
+                <ul>
+                    <li><strong>Region:</strong> Europa (EU_868 med 869,4–869,65 MHz)</li>
+                    <li><strong>Arbetscykel:</strong> 10 % = 6 minuter (360 sekunder) sändningstid per timme</li>
+                    <li><strong>LoRa-inställningar (standard för Meshtastic):</strong>
+                    <ul>
+                        <li>Spreading Factor (SF): 7</li>
+                        <li>Bandbredd: 250 kHz</li>
+                        <li>Kodningsgrad: 4/5</li>
+                        <li>Payload per meddelande: ~50 byte (typiskt för textmeddelanden)</li>
+                        <li>Genomsnittlig sändningstid per meddelande: ~100 ms (varierar beroende på SF och meddelandestorlek)</li>
+                    </ul>
+                    </li>
+                </ul>
+
+                <h5 class="mt-4">📊 Uppskattning: Meddelanden och data per timme</h5>
+                <p>
+                    Med ovanstående antaganden:
+                </p>
+                <ul>
+                    <li><strong>Maximalt antal sändningar per timme:</strong><br>
+                    360 sekunder sändningstid / 0,1 sekund per meddelande ≈ <strong>3 600 meddelanden/timme</strong>
+                    </li>
+                    <li><strong>Data per meddelande:</strong> ~50 byte<br>
+                    → 3 600 meddelanden × 50 byte = <strong>~180 000 byte (~175 KB)</strong> per timme och nod
+                    </li>
+                </ul>
+
+                <h5 class="mt-4 text-warning">⚠️ Viktiga begränsningar</h5>
+                <ul>
+                    <li>Detta är ett teoretiskt maximum och förutsätter att noden använder 100 % av sin tillåtna sändningstid, vilket är ovanligt i praktiken.</li>
+                    <li>I ett verkligt mesh-nätverk delar noder på sändningstiden. Den faktiska datamängden per nod minskar därför ju fler noder som är aktiva.</li>
+                    <li>Kvittenser, omsändningar, hopp-förmedling och kontrollmeddelanden tar också upp sändningstid.</li>
+                </ul>
+
+                <h5 class="mt-4">📉 Realistisk kapacitet</h5>
+                <p>
+                    I ett praktiskt Meshtastic-nätverk med 5–10 aktiva noder gäller:
+                </p>
+                <ul>
+                    <li><strong>Användbar data per nod:</strong> cirka 10–30 KB/timme (beroende på aktivitet)</li>
+                    <li><strong>Meddelandekapacitet per nod:</strong> troligen <strong>hundratals korta meddelanden per timme</strong>, inte tusentals</li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

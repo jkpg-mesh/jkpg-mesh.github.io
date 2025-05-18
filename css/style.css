@@ -69,3 +69,21 @@ body {
     }
 }
 
+.float-right-image {
+    float: right;       /* Float the image to the right */
+    max-width: 30%;     /* Adjust this percentage to control the image size */
+    height: auto;       /* Maintain aspect ratio */
+    margin-left: 20px;  /* Add space between the image and the text wrapping on its left */
+    margin-bottom: 15px; /* Add space below the image */
+    /* The existing 'rounded' class should still work for corners */
+    /* The existing 'mb-3' class *might* add bottom margin, but explicitly adding
+       margin-bottom here ensures spacing regardless of Bootstrap usage. */
+}
+
+.float-left-image {
+    float: left;       /* Float the image to the left */
+    max-width: 30%;     /* Adjust this percentage to control the image size */
+    height: auto;       /* Maintain aspect ratio */
+    margin-right: 20px; /* Add space between the image and the text wrapping on its right */
+    margin-bottom: 15px; /* Add space below the image */
+}

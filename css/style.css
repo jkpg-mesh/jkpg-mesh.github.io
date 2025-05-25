@@ -8,6 +8,12 @@ body {
     background-color: #67ea94; /* Custom teal color */
 }
 
+/* Add hover effect */
+.btn-tealdark:hover {
+    background-color: #0aad49; /* Slightly darker teal */
+    color: white;
+}
+
 .navbar {
   z-index: 10; /* Ensure the navbar stays on top */
 }

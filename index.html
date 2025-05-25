@@ -13,18 +13,57 @@
     <body>
         <!-- Placeholder for the navbar -->
         <div id="navbar-placeholder"></div>
-        <script>
-            // Load navbar from external file
-            fetch('navbar.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('navbar-placeholder').innerHTML = data;
-                });
-        </script>
+            <script>
+                // Load navbar from external file
+                fetch('navbar.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('navbar-placeholder').innerHTML = data;
+                    });
+            </script>
 
-        <!-- Page top -->
-        <div class="container-fluid" style="background-image: url('assets/main.jpg'); height: 400px; background-size: cover; background-position: center;">
-         </div>
+            <!-- Page top -->
+            <!-- Page top with carousel -->
+            <div class="container-fluid d-flex justify-content-center align-items-center"
+                style="background-image: url('assets/main.jpg'); height: 400px; background-size: cover; background-position: center;">
+                
+            <div id="cardCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+                <div class="carousel-inner">
+
+                    <!-- Slide 1 -->
+                    <!--
+                    <div class="carousel-item active">
+                        <div class="card mx-auto"
+                            style="background-color: rgba(50, 50, 50, 0.6); border: 1px solid #ccc; border-radius: 10px; max-width: 800px;">
+                            <div class="card-header bg-teal text-black text-center">
+                                <h1 class="mb-0">SOME HEADING</h1>
+                            </div>
+                            <div class="card-body text-center text-white">
+                                <p>place text here ...</p>
+                                <a href="...." class="btn text-black bg-teal btn-tealdark mt-3">Läs mer...</a>
+                            </div>
+                        </div>
+                    </div>
+                    -->
+                    <!-- Slide 2 -->
+                    <!--
+                    <div class="carousel-item">
+                        <div class="card mx-auto"
+                            style="background-color: rgba(50, 50, 50, 0.6); border: 1px solid #ccc; border-radius: 10px; max-width: 800px;">
+                            <div class="card-header bg-teal text-black text-center">
+                                <h1 class="mb-0">SOME HEADING 2</h1>
+                            </div>
+                            <div class="card-body text-center text-white">
+                                <p>place text here ...</p>
+                                <a href="...." class="btn text-black bg-teal btn-tealdark mt-3">Läs mer...</a>
+                            </div>
+                        </div>
+                    </div>
+                    -->
+                </div>
+            </div>
+        </div>
+
         <div class="container-fluid bg-teal text-center"">
                 <h1>Välkommen till Jönköping Meshtastics</h1>
                 <p>jkpg-mesh är en informell gemenskap som verkar för ett stabilt Meshtastic-nätverk i Jönköpingsområdets.</p>

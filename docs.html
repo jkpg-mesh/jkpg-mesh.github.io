@@ -106,10 +106,19 @@
                     .then(response => response.text())
                     .then(data => {
                         document.getElementById('doc-content').innerHTML = data;
-                        // Optional: Scroll main content to top after loading new content
                         document.getElementById('doc-content').scrollTop = 0;
+
+                        // Highlight the active nav link
                         document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-                        element.classList.add('active');
+                        if (element) element.classList.add('active');
+
+                        // Close the Equipment submenu when loading a non-Equipment page
+                        if (page !== 'meshunits.html') {
+                            const equipmentMenu = document.getElementById('equipmentMenu');
+                            if (equipmentMenu.classList.contains('show')) {
+                                bootstrap.Collapse.getOrCreateInstance(equipmentMenu).hide();
+                            }
+                        }
                     })
                     .catch(error => {
                         console.error('Error loading document:', error);

@@ -23,131 +23,137 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <h3>Heltec V3</h3>
-                                    <p><strong>Beskrivning:</strong></p>
-                                    <p>Heltec V3 är allmänt ansedd som en bra startpunkt för Meshtastic, särskilt för nybörjare.
-                                        Den har en kompakt design, inbyggd OLED-skärm och full kompatibilitet med Meshtastic-firmware,
-                                        vilket gör den enkel att installera och använda för personliga, nödsituationer eller off-grid mesh-nätverk.
-                                        Enheten använder ESP32-S3-mikrokontroller och SX1262 LoRa-chip, vilket ger bra anslutning och prestanda.
-                                    </p>
-                                    <p> Det är dock viktigt att notera att Heltec V3 är mer strömkrävande jämfört med vissa andra alternativ.
-                                        Enligt feedback från communityn kan batteritiden vara betydligt kortare, särskilt om funktioner som skärmen
-                                        eller GPS används mycket. Typisk drifttid är runt 12-15 timmar på ett 1500 mAh-batteri vid måttlig användning,
-                                        men kan bli betydligt kortare vid högre aktivitet eller med extra moduler. Användare som behöver längre
-                                        batteritid för fjärrnoder eller solcellsdrift kan överväga enheter utan skärm eller med mikrocontrollers som
-                                        drar mindre ström.
-                                    </p>
-                                    <p><strong>Andra praktiska punkter att nämna:</strong></p>
-                                    <ul>
-                                        <li>Heltec V3 har ingen inbyggd GPS, men kan användas tillsammans med externa GPS-moduler.</li>
-                                        <li>Det rekommenderas att använda USB-A till USB-C-kabel för laddning, eftersom en del USB-C till USB-C-kablar kan ge problem med laddningen.</li>
-                                        <li>Kortet har robusta skyddsfunktioner och ett användarvänligt batterihanteringssystem.</li>
-                                    </ul>
-                                    <p>
-                                        Sammanfattningsvis är Heltec V3 ett populärt och tillgängligt val för att komma igång med Meshtastic,
-                                        men användare bör vara medvetna om dess relativt höga strömförbrukning och välja enhet utifrån sina behov.
-                                    </p>
-                                    <p><strong>Köp:</strong>
+                                    <section id="heltec_v3" class="doc-section">
+                                        <h3>Heltec V3</h3>
+                                        <p><strong>Beskrivning:</strong></p>
+                                        <p>Heltec V3 är allmänt ansedd som en bra startpunkt för Meshtastic, särskilt för nybörjare.
+                                            Den har en kompakt design, inbyggd OLED-skärm och full kompatibilitet med Meshtastic-firmware,
+                                            vilket gör den enkel att installera och använda för personliga, nödsituationer eller off-grid mesh-nätverk.
+                                            Enheten använder ESP32-S3-mikrokontroller och SX1262 LoRa-chip, vilket ger bra anslutning och prestanda.
+                                        </p>
+                                        <p> Det är dock viktigt att notera att Heltec V3 är mer strömkrävande jämfört med vissa andra alternativ.
+                                            Enligt feedback från communityn kan batteritiden vara betydligt kortare, särskilt om funktioner som skärmen
+                                            eller GPS används mycket. Typisk drifttid är runt 12-15 timmar på ett 1500 mAh-batteri vid måttlig användning,
+                                            men kan bli betydligt kortare vid högre aktivitet eller med extra moduler. Användare som behöver längre
+                                            batteritid för fjärrnoder eller solcellsdrift kan överväga enheter utan skärm eller med mikrocontrollers som
+                                            drar mindre ström.
+                                        </p>
+                                        <p><strong>Andra praktiska punkter att nämna:</strong></p>
                                         <ul>
-                                            <li><a href="https://heltec.org/project/wifi-lora-32-v3/">Official site</a></li>
-                                            <li><a href="https://www.aliexpress.com/item/1005006680297711.html?spm=a2g0o.store_pc_home.promoteWysiwyg_501514197.1005006680297711">AliExpress</a> : den här butiken (FlyFun Store) har ett gott rykte</li>
+                                            <li>Heltec V3 har ingen inbyggd GPS, men kan användas tillsammans med externa GPS-moduler.</li>
+                                            <li>Det rekommenderas att använda USB-A till USB-C-kabel för laddning, eftersom en del USB-C till USB-C-kablar kan ge problem med laddningen.</li>
+                                            <li>Kortet har robusta skyddsfunktioner och ett användarvänligt batterihanteringssystem.</li>
                                         </ul>
-                                    </p>
-                                </td>
+                                        <p>
+                                            Sammanfattningsvis är Heltec V3 ett populärt och tillgängligt val för att komma igång med Meshtastic,
+                                            men användare bör vara medvetna om dess relativt höga strömförbrukning och välja enhet utifrån sina behov.
+                                        </p>
+                                        <p><strong>Köp:</strong>
+                                            <ul>
+                                                <li><a href="https://heltec.org/project/wifi-lora-32-v3/">Official site</a></li>
+                                                <li><a href="https://www.aliexpress.com/item/1005006680297711.html?spm=a2g0o.store_pc_home.promoteWysiwyg_501514197.1005006680297711">AliExpress</a> : den här butiken (FlyFun Store) har ett gott rykte</li>
+                                            </ul>
+                                        </p>
+                                    </section>
+                                </td>                                
                                 <td><img src="assets/heltec_v3.png"></td>
                             </tr>
                             <tr>
                                 <td>
-                                    <h3>Lilygo T-Beam</h3>
-                                    <p><strong>Beskrivning:</strong></p> 
-                                    <p> Lilygo T-Beam är en av de mest populära och kompletta enheterna för Meshtastic, särskilt uppskattad 
-                                        för sin flexibilitet och mångsidighet. Den är byggd kring en kraftfull ESP32-mikrokontroller med dubbla 
-                                        kärnor (240 MHz), har inbyggd WiFi och Bluetooth, samt integrerar både LoRa (SX1262/SX1276) och GPS 
-                                        (Ublox NEO-6M eller NEO-M8N beroende på version). T-Beam levereras med en batterihållare för 18650-celler, 
-                                        vilket gör den enkel att använda portabelt och redo att tas i bruk direkt ur lådan. Med en 0,96" 
-                                        OLED-skärm får du enkel åtkomst till statusinformation direkt på enheten.
-                                    </p>
-                                    <p> T-Beam är särskilt lämpad för användare som vill ha en komplett lösning för spårning, off-grid-kommunikation 
-                                        eller utveckling av egna IoT-projekt. Möjligheten att ansluta extra sensorer via I2C och de många 
-                                        GPIO-pinnarna gör den mycket anpassningsbar. Den är dock inte den mest strömsnåla enheten på marknaden, 
-                                        vilket kan vara värt att tänka på för långvarig batteridrift. 
-                                    </p>
-                                    <p><strong>Batteritid och strömförbrukning:</strong></p>
-                                    <p> Eftersom T-Beam använder ESP32 och har både GPS och LoRa aktiva kan strömförbrukningen vara relativt hög, 
-                                        särskilt om GPS används kontinuerligt. Typisk batteritid med en 18650-cell (ca 3000-3500 mAh) varierar 
-                                        beroende på användningsmönster, men många rapporterar att enheten klarar en hel dags normal användning 
-                                        innan den behöver laddas. Med optimerad firmware och vilolägen kan strömförbrukningen minskas till cirka 
-                                        10 mA i vila, men i praktiken är 1-2 dagars drift vanligt vid aktiv användning. 
-                                    </p>
-                                    <p><strong>Andra praktiska punkter att nämna:</strong></p> 
-                                        <ul> 
-                                            <li>T-Beam har inbyggd GPS, vilket gör den idealisk för spårning och positionering utan behov av externa moduler.</li> 
-                                            <li>Levereras med både LoRa- och GPS-antenn samt batterihållare (batteri ingår ej).</li> 
-                                            <li>Stöd för laddning av 18650-batteri via USB tack vare inbyggd laddningskrets (AXP192).</li> 
-                                            <li>OLED-skärmen är liten men ger tydlig statusinformation direkt på enheten.</li> 
-                                            <li>Enheten programmeras via micro-USB och är fullt kompatibel med Meshtastic-firmware.</li> 
-                                            <li>Vissa användare rapporterar att GPS-antennen kan vara mindre känslig, så det kan ta tid att få GPS-lås första gången.</li> 
-                                        </ul>
-                                    <p> Sammanfattningsvis är Lilygo T-Beam ett mycket komplett och flexibelt val för Meshtastic-användare som 
-                                        vill ha både LoRa och GPS i samma enhet. Den är enkel att komma igång med och passar både nybörjare 
-                                        och mer avancerade användare som vill utveckla egna lösningar. Nackdelen är främst den högre 
-                                        strömförbrukningen jämfört med enklare noder utan skärm eller GPS, vilket gör att den lämpar sig bäst 
-                                        där portabilitet och funktionalitet prioriteras över maximal batteritid. 
-                                    </p>
-                                    <p><strong>Köp:</strong></p>
-                                        <ul>
-                                            <li><a href="https://lilygo.cc/products/t-beam-meshtastic">Official site</a></li>
-                                            <li><a href="https://lilygo.aliexpress.com/store/2090076">AliExpress</a></li>
-                                        </ul>
-                                    </p>
+                                    <section id="lilygo_t-beam" class="doc-section">
+                                        <h3>Lilygo T-Beam</h3>
+                                        <p><strong>Beskrivning:</strong></p> 
+                                        <p> Lilygo T-Beam är en av de mest populära och kompletta enheterna för Meshtastic, särskilt uppskattad 
+                                            för sin flexibilitet och mångsidighet. Den är byggd kring en kraftfull ESP32-mikrokontroller med dubbla 
+                                            kärnor (240 MHz), har inbyggd WiFi och Bluetooth, samt integrerar både LoRa (SX1262/SX1276) och GPS 
+                                            (Ublox NEO-6M eller NEO-M8N beroende på version). T-Beam levereras med en batterihållare för 18650-celler, 
+                                            vilket gör den enkel att använda portabelt och redo att tas i bruk direkt ur lådan. Med en 0,96" 
+                                            OLED-skärm får du enkel åtkomst till statusinformation direkt på enheten.
+                                        </p>
+                                        <p> T-Beam är särskilt lämpad för användare som vill ha en komplett lösning för spårning, off-grid-kommunikation 
+                                            eller utveckling av egna IoT-projekt. Möjligheten att ansluta extra sensorer via I2C och de många 
+                                            GPIO-pinnarna gör den mycket anpassningsbar. Den är dock inte den mest strömsnåla enheten på marknaden, 
+                                            vilket kan vara värt att tänka på för långvarig batteridrift. 
+                                        </p>
+                                        <p><strong>Batteritid och strömförbrukning:</strong></p>
+                                        <p> Eftersom T-Beam använder ESP32 och har både GPS och LoRa aktiva kan strömförbrukningen vara relativt hög, 
+                                            särskilt om GPS används kontinuerligt. Typisk batteritid med en 18650-cell (ca 3000-3500 mAh) varierar 
+                                            beroende på användningsmönster, men många rapporterar att enheten klarar en hel dags normal användning 
+                                            innan den behöver laddas. Med optimerad firmware och vilolägen kan strömförbrukningen minskas till cirka 
+                                            10 mA i vila, men i praktiken är 1-2 dagars drift vanligt vid aktiv användning. 
+                                        </p>
+                                        <p><strong>Andra praktiska punkter att nämna:</strong></p> 
+                                            <ul> 
+                                                <li>T-Beam har inbyggd GPS, vilket gör den idealisk för spårning och positionering utan behov av externa moduler.</li> 
+                                                <li>Levereras med både LoRa- och GPS-antenn samt batterihållare (batteri ingår ej).</li> 
+                                                <li>Stöd för laddning av 18650-batteri via USB tack vare inbyggd laddningskrets (AXP192).</li> 
+                                                <li>OLED-skärmen är liten men ger tydlig statusinformation direkt på enheten.</li> 
+                                                <li>Enheten programmeras via micro-USB och är fullt kompatibel med Meshtastic-firmware.</li> 
+                                                <li>Vissa användare rapporterar att GPS-antennen kan vara mindre känslig, så det kan ta tid att få GPS-lås första gången.</li> 
+                                            </ul>
+                                        <p> Sammanfattningsvis är Lilygo T-Beam ett mycket komplett och flexibelt val för Meshtastic-användare som 
+                                            vill ha både LoRa och GPS i samma enhet. Den är enkel att komma igång med och passar både nybörjare 
+                                            och mer avancerade användare som vill utveckla egna lösningar. Nackdelen är främst den högre 
+                                            strömförbrukningen jämfört med enklare noder utan skärm eller GPS, vilket gör att den lämpar sig bäst 
+                                            där portabilitet och funktionalitet prioriteras över maximal batteritid. 
+                                        </p>
+                                        <p><strong>Köp:</strong></p>
+                                            <ul>
+                                                <li><a href="https://lilygo.cc/products/t-beam-meshtastic">Official site</a></li>
+                                                <li><a href="https://lilygo.aliexpress.com/store/2090076">AliExpress</a></li>
+                                            </ul>
+                                        </p>
+                                    </section>
                                 </td>
                                 <td><img src="assets/Lilygo_T-beam.png"></td>
                             </tr>
                             <tr>
                                 <td>
-                                    <h3>Heltec Tracker T114</h3> 
-                                    <p><strong>Beskrivning:</strong></p> 
-                                    <p>Heltec Tracker T114 är en modern och strömsnål enhet som är särskilt framtagen för mesh-nätverk, IoT 
-                                        och Meshtastic-applikationer. Den bygger på den kraftfulla nRF52840-mikrokontrollern med stöd för Bluetooth 
-                                        5.0 och har ett avancerat SX1262 LoRa-chip för långdistanskommunikation. T114 är designad för att vara flexibel och 
-                                        robust, med stöd för flera strömkällor (USB-C, litiumbatteri och solpanel) och möjlighet till tillval som 1,14-tums 
-                                        TFT-skärm och GPS-modul. Den förbättrade Rev.2-versionen har optimerad signalstabilitet och högkvalitativ guldpläterad 
-                                        PCB för bättre prestanda och livslängd. 
-                                    </p>
-                                    <p>T114 passar både för stationära och mobila tillämpningar, exempelvis GPS-spårning, miljöövervakning eller som en del 
-                                        av ett decentraliserat kommunikationsnätverk. Enheten är enkel att integrera i olika projekt tack vare ett brett 
-                                        utbud av gränssnitt (USB, SPI, I2C, UART, PWM, GNSS), och är fullt kompatibel med Meshtastic-firmware. 
-                                    </p> 
-                                    <p><strong>Batteritid och strömförbrukning:</strong></p> 
-                                    <p> T114 utmärker sig genom sin låga strömförbrukning, särskilt i viloläge (ca 11 µA). Vid normal användning i 
-                                        tracker-läge (GPS och skärm avstängda) ligger förbrukningen runt 9 mA, medan GPS och skärm aktiverade drar 
-                                        cirka 51 mA[2]. Med ett 7000 mAh-batteri har användare rapporterat över en veckas drift med GPS påslagen, 
-                                        och med ett 2000 mAh-batteri kan man räkna med mer än två dygns drift med GPS aktivt[3][4]. Batteritiden kan 
-                                        ökas ytterligare genom att optimera GPS-pollning och använda vilolägen. 
-                                    </p> 
-                                    <p><strong>Andra praktiska punkter att nämna:</strong></p> 
-                                        <ul> 
-                                            <li>Stöd för både LoRa och Bluetooth 5.0 ger flexibilitet för olika applikationer och enkel anslutning 
-                                                till Meshtastic-appen via BLE.</li> 
-                                            <li>Kan drivas via USB-C, litiumbatteri eller solpanel – idealiskt för off-grid och långtidsdrift.</li> 
-                                            <li>GPS-modul och TFT-skärm är tillval, vilket gör det möjligt att anpassa enheten efter behov och spara 
-                                                ström om dessa inte används.</li> 
-                                            <li>Den robusta konstruktionen och skyddande höljen gör T114 lämplig för både utomhus- och inomhusbruk.</li> 
-                                            <li>Firmwareuppdateringar och konfiguration sker enkelt via USB eller Bluetooth.</li> 
-                                            <li>Vissa användare har noterat att batteriindikatorn kan behöva kalibreras för att visa korrekt laddningsnivå.</li> 
-                                        </ul> 
-                                    <p>Sammanfattningsvis är Heltec Tracker T114 ett mycket energieffektivt och flexibelt val för Meshtastic och andra 
-                                        mesh-nätverksapplikationer. Den är särskilt lämplig för användare som prioriterar lång batteritid, robust 
-                                        konstruktion och möjlighet till GPS-spårning, men som samtidigt vill ha en enhet som är lätt att anpassa och 
-                                        integrera i olika projekt. 
-                                    </p>
-                                    <p><strong>Köp:</strong></p>
-                                        <ul>
-                                            <li><a href="https://heltec.org/project/wifi-lora-32-v3/">Official site</a></li>
-                                            <li><a href="https://www.aliexpress.com/item/1005007460963705.html?spm=a2g0o.store_pc_allItems_or_groupList.0.0.768973803omoXS">AliExpress</a></li>
-                                            <li><a href="https://www.aliexpress.com/item/1005007917409559.html?spm=a2g0o.productlist.main.5.1c0bhlXrhlXrCC&algo_pvid=3aa0aa06-e11f-462d-8737-1a6850c6064f&pdp_ext_f=%7B%22order%22%3A%22161%22%2C%22eval%22%3A%221%22%7D&utparam-url=scene%3Asearch%7Cquery_from%3A">AliExpress 2</a></li>
-                                        </ul>
-                                    </p>
+                                    <section id="heltec_t114" class="doc-section">
+                                        <h3>Heltec Tracker T114</h3> 
+                                        <p><strong>Beskrivning:</strong></p> 
+                                        <p>Heltec Tracker T114 är en modern och strömsnål enhet som är särskilt framtagen för mesh-nätverk, IoT 
+                                            och Meshtastic-applikationer. Den bygger på den kraftfulla nRF52840-mikrokontrollern med stöd för Bluetooth 
+                                            5.0 och har ett avancerat SX1262 LoRa-chip för långdistanskommunikation. T114 är designad för att vara flexibel och 
+                                            robust, med stöd för flera strömkällor (USB-C, litiumbatteri och solpanel) och möjlighet till tillval som 1,14-tums 
+                                            TFT-skärm och GPS-modul. Den förbättrade Rev.2-versionen har optimerad signalstabilitet och högkvalitativ guldpläterad 
+                                            PCB för bättre prestanda och livslängd. 
+                                        </p>
+                                        <p>T114 passar både för stationära och mobila tillämpningar, exempelvis GPS-spårning, miljöövervakning eller som en del 
+                                            av ett decentraliserat kommunikationsnätverk. Enheten är enkel att integrera i olika projekt tack vare ett brett 
+                                            utbud av gränssnitt (USB, SPI, I2C, UART, PWM, GNSS), och är fullt kompatibel med Meshtastic-firmware. 
+                                        </p> 
+                                        <p><strong>Batteritid och strömförbrukning:</strong></p> 
+                                        <p> T114 utmärker sig genom sin låga strömförbrukning, särskilt i viloläge (ca 11 µA). Vid normal användning i 
+                                            tracker-läge (GPS och skärm avstängda) ligger förbrukningen runt 9 mA, medan GPS och skärm aktiverade drar 
+                                            cirka 51 mA[2]. Med ett 7000 mAh-batteri har användare rapporterat över en veckas drift med GPS påslagen, 
+                                            och med ett 2000 mAh-batteri kan man räkna med mer än två dygns drift med GPS aktivt[3][4]. Batteritiden kan 
+                                            ökas ytterligare genom att optimera GPS-pollning och använda vilolägen. 
+                                        </p> 
+                                        <p><strong>Andra praktiska punkter att nämna:</strong></p> 
+                                            <ul> 
+                                                <li>Stöd för både LoRa och Bluetooth 5.0 ger flexibilitet för olika applikationer och enkel anslutning 
+                                                    till Meshtastic-appen via BLE.</li> 
+                                                <li>Kan drivas via USB-C, litiumbatteri eller solpanel – idealiskt för off-grid och långtidsdrift.</li> 
+                                                <li>GPS-modul och TFT-skärm är tillval, vilket gör det möjligt att anpassa enheten efter behov och spara 
+                                                    ström om dessa inte används.</li> 
+                                                <li>Den robusta konstruktionen och skyddande höljen gör T114 lämplig för både utomhus- och inomhusbruk.</li> 
+                                                <li>Firmwareuppdateringar och konfiguration sker enkelt via USB eller Bluetooth.</li> 
+                                                <li>Vissa användare har noterat att batteriindikatorn kan behöva kalibreras för att visa korrekt laddningsnivå.</li> 
+                                            </ul> 
+                                        <p>Sammanfattningsvis är Heltec Tracker T114 ett mycket energieffektivt och flexibelt val för Meshtastic och andra 
+                                            mesh-nätverksapplikationer. Den är särskilt lämplig för användare som prioriterar lång batteritid, robust 
+                                            konstruktion och möjlighet till GPS-spårning, men som samtidigt vill ha en enhet som är lätt att anpassa och 
+                                            integrera i olika projekt. 
+                                        </p>
+                                        <p><strong>Köp:</strong></p>
+                                            <ul>
+                                                <li><a href="https://heltec.org/project/wifi-lora-32-v3/">Official site</a></li>
+                                                <li><a href="https://www.aliexpress.com/item/1005007460963705.html?spm=a2g0o.store_pc_allItems_or_groupList.0.0.768973803omoXS">AliExpress</a></li>
+                                                <li><a href="https://www.aliexpress.com/item/1005007917409559.html?spm=a2g0o.productlist.main.5.1c0bhlXrhlXrCC&algo_pvid=3aa0aa06-e11f-462d-8737-1a6850c6064f&pdp_ext_f=%7B%22order%22%3A%22161%22%2C%22eval%22%3A%221%22%7D&utparam-url=scene%3Asearch%7Cquery_from%3A">AliExpress 2</a></li>
+                                            </ul>
+                                        </p>
+                                    </section>
                                 </td>
                                 <td><img src="assets/heltec_T114.png"></td>
                             </tr>

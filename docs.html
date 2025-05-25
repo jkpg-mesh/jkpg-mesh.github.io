@@ -36,33 +36,61 @@
         <div class="container-fluid">
             <div class="row">
                 <nav id="sidebar" class="collapse d-md-block col-md-2 bg-light border-end p-3">
-                    <h5 class="mb-3">Docs</h5>
-                    <ul class="nav nav-pills flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#" onclick="loadDoc('intro.html', this)">Intro</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" onclick="loadDoc('settings.html', this)">Settings</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" onclick="loadDoc('dutycycle.html', this)">Duty Cylce</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" onclick="loadDoc('meshunits.html', this)">Equipment</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" onclick="loadDoc('antenna.html', this)">Antenna</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" onclick="loadDoc('enclosures.html', this)">Enclosures</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" onclick="loadDoc('solar.html', this)">Solar-power</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" onclick="loadDoc('power.html', this)">Power</a>
-                        </li>
-                    </ul>
+                    <nav id="sidebar" class="collapse d-md-block col-md-2 bg-light border-end p-3">
+                        <h5 class="mb-3">Docs</h5>
+
+                        <!-- Using accordion for sidebar submenu -->
+                        <div class="accordion" id="sidebarAccordion">
+                            <div class="accordion-item border-0">
+                                <ul class="nav nav-pills flex-column">
+
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="#" onclick="loadDoc('intro.html', this)">Intro</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#" onclick="loadDoc('settings.html', this)">Settings</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#" onclick="loadDoc('dutycycle.html', this)">Duty Cycle</a>
+                                    </li>
+
+                                    <!-- Equipment item with collapsible submenu -->
+                                    <li class="nav-item">
+                                        <button class="nav-link w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#equipmentMenu" aria-expanded="false" aria-controls="equipmentMenu" onclick="loadDoc('meshunits.html', this)">
+                                            Equipment
+                                        </button>
+                                        <div id="equipmentMenu" class="collapse ps-3" data-bs-parent="#sidebarAccordion">
+                                            <ul class="nav flex-column small">
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="#heltec_v3">Heltec v3</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="#lilygo_t-beam">Lilygo T-Beam</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="#heltec_t114">Heltec Tracker T114</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#" onclick="loadDoc('antenna.html', this)">Antenna</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#" onclick="loadDoc('enclosures.html', this)">Enclosures</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#" onclick="loadDoc('solar.html', this)">Solar-power</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#" onclick="loadDoc('power.html', this)">Power</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
                 </nav>
 
                 <main class="col-md-10 ms-sm-auto px-4 pt-4" id="doc-content">

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Blog title -->
+        <title>Everything LoRa (And Why I Chose Meshtastic)</title>
+        <link rel="icon" type="image/png" href="../assets/M-POWERED.png">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <link href="../css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <!-- Navbar -->
+        <div id="navbar-placeholder"></div>
+        <script>
+            fetch('../navbar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-placeholder').innerHTML = data;
+                });
+        </script>
+
+        <!-- Header Image -->
+        <div class="container-fluid" style="background-image: url('../assets/blog2.jpg'); height: 400px; background-size: cover; background-position: center;"></div>
+
+        <!-- Blog Title -->
+        <div class="container-fluid bg-teal text-center py-4">
+            <h1 class="display-5">Everything LoRa (And Why I Chose Meshtastic)</h1>
+            <p class="lead">A personal journey through the LoRa landscape</p>
+        </div>
+
+        <!-- Main Content -->
+        <div class="container-fluid text-center">
+            <div class="mx-auto w-75 text-start py-4">
+                <img src="../assets/research.jpg" class="img-fluid rounded mb-3 float-right-image" alt="Image">
+                <p>Over the past year or so, I’ve been diving into the world of LoRa, and it’s been a bit like 
+                    peeling an onion — layer after layer of interesting stuff, each more surprising than the last. 
+                    I figured it was time to share a bit of my research and what I’ve learned from the different 
+                    technologies. As you read through this, you’ll see this is by no means a thesis or a doctoral 
+                    paper — it’s purely to show that there is more to LoRa than just Meshtastic, and maybe also 
+                    spark a bit of interest in this technology. At the end, I’ll also explain why I ended up 
+                    choosing Meshtastic.</p>
+
+                <h2>What is LoRa, Anyway?</h2>
+                <p>If you’re new to all this, LoRa stands for <strong>Long Range</strong> (<a href="https://youtu.be/dxYY097QNs0">this is a good video explaining LoRa</a>), and it’s a way to send small bits of data really far using very little power. That makes it perfect for things like remote sensors, weather stations, and Internet of Things (IoT) applications — where devices may run for years on a single battery and still send small bits of data over large distances. In our case, that use is off-grid messaging.</p>
+                <p>LoRa is a proprietary physical radio communication technique registered by <a href="https://www.semtech.com/lora">Semtech</a> and is based on spread spectrum modulation derived from chirp spread spectrum (CSS) technology.</p>
+                <p>LoRa isn’t Wi-Fi. It’s not cellular. It’s more like a walkie-talkie for data — it uses radio frequencies to get your message from one device to another, sometimes over <strong>kilometers</strong> of distance, even in tricky environments like forests or urban areas.</p>
+
+                <h2>The Many Faces of LoRa</h2>
+                <p>What I didn’t realize at first was just how many <strong>different</strong> ways LoRa gets used. It’s not just one thing:</p>
+                <ul>
+                    <li>
+                        <strong><a href="https://www.thethingsnetwork.org/docs/lorawan/what-is-lorawan/">LoRaWAN</a></strong> is probably the most common format used in real industry applications. It’s a network protocol that connects LoRa devices to the internet via gateways. LoRaWAN uses a star-of-stars topology. It is typically used in:
+                        <ul>
+                            <li>Smart Cities: monitoring parking, waste management, street lighting, environmental conditions</li>
+                            <li>Smart Agriculture: soil moisture monitoring, livestock tracking, irrigation control</li>
+                        </ul>
+                        <p>It operates in unlicensed radio bands, reducing costs. In Sweden, the 1% duty cycle applies to the 868–868.6 MHz and 869.7–870 MHz bands.</p>
+                    </li>
+                    <li>
+                        <strong><a href="https://www.helium.com">Helium</a></strong> is a decentralized wireless network powered by LoRaWAN and blockchain. Individuals install Hotspots and earn tokens for coverage. IoT devices pay with Data Credits. The model aims to create a global community-powered network infrastructure.
+                    </li>
+                    <li>
+                        <strong><a href="https://meshtastic.org/docs/introduction/">Meshtastic</a></strong> uses mesh networking. Messages can hop from device to device until they reach their destination. It runs on inexpensive hardware and is completely independent of centralized infrastructure. In Sweden, it uses the 869.4–869.65 MHz band, allowing a 10% duty cycle — ideal for more frequent messaging.
+                    </li>
+                </ul>
+
+                <h2>So Why Meshtastic?</h2>
+                <p>When I first started exploring LoRa, I did so because I love radio communication and wanted to experiment with it. I soon realized that Meshtastic was the non-commercialized version of things, or at least the platform where community experimenting and tinkering is <strong>encouraged</strong>.</p>
+                <p>Meshtastic is designed for <strong>people</strong>, not just devices. It’s about communication, not just data. And more importantly, it’s <strong>open source</strong>, very active, and built by a community of people who are genuinely trying to make off-grid communication more accessible and fun.</p>
+                <p>With Meshtastic, I could hand someone a little box, show them the app, and say “Now we can message each other even without cell service.” And it worked! That’s powerful stuff.</p>
+                <p>I believe I still have a lot to discover and learn — and hey, feel free to explore the rest of our site or even connect with us on Discord.</p>
+
+                <p>
+                    <i>Written by JohanV
+                    <br>2025-06-01
+                    </i>
+                </p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div id="footer-placeholder"></div>
+        <script>
+            fetch('../footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                });
+        </script>
+    </body>
+</html>

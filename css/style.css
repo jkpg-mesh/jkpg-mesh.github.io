@@ -98,3 +98,25 @@ body {
 .doc-section {
     scroll-margin-top: 80px; /* Adjust based on your navbar height */
 }
+/* Place carousel arrows on the far sides */
+.custom-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1050;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.5); /* optional */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-control-prev.custom-arrow {
+    left: 0;  /* flush to left edge of page */
+}
+
+.carousel-control-next.custom-arrow {
+    right: 0; /* flush to right edge of page */
+}

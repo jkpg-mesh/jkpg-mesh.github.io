@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="icon" type="image/png" href="../assets/M-POWERED.png">
+        <title>jkpg-mesh</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <!-- Placeholder for the navbar -->
+        <div id="navbar-placeholder"></div>
+            <script>
+                // Load navbar from external file
+                fetch('navbar.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('navbar-placeholder').innerHTML = data;
+                    });
+            </script>
+
+            <!-- Page top -->
+            <!-- Page top with carousel -->
+            <div class="container-fluid d-flex justify-content-center align-items-center"
+                style="background-image: url('assets/main.jpg'); height: 400px; background-size: cover; background-position: center;">
+            <div class="position-relative w-100">
+                <!-- Carousel -->
+                <div id="cardCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+                    <div class="carousel-inner">
+                        <!-- Slide 1 -->
+                        <div class="carousel-item active">
+                            <div class="card mx-auto"
+                                style="background-color: rgba(50, 50, 50, 0.6); border: 1px solid #ccc; border-radius: 10px; max-width: 800px; max-height: 380px;">
+                                <div class="card-header bg-teal text-black text-center">
+                                    <h1 class="mb-0">Meshtastic Jkpgmesh Intro</h1>
+                                </div>
+                                <div class="card-body text-center text-white">
+                                    <div class="ratio" style="aspect-ratio: 16/9; height: 280px;">
+                                        <iframe id="youtubeVideo1" src="https://www.youtube.com/embed/Xz6xcXjco0w?enablejsapi=1&version=3&rel=0"
+                                            title="YouTube video" allowfullscreen style="height: 100%; width: 100%;"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="carousel-item">
+                            <div class="card mx-auto"
+                                style="background-color: rgba(50, 50, 50, 0.6); border: 1px solid #ccc; border-radius: 10px; max-width: 800px; max-height: 400px;">
+                                <div class="card-header bg-teal text-black text-center">
+                                    <h1 class="mb-0">Martins bygge med utsikt över Jönköping</h1>
+                                </div>
+                                <div class="card-body text-center text-white">
+                                    <p>Vår communitymedlem <strong>Martin (SM7UVT)</strong> har nyligen byggt en <strong>solcellsdriven Meshtastic-nod</strong> 
+                                        med målet att placera den vid <strong>Ekhagen Östra</strong>, med utsikt över Jönköping. Projektet har gått igenom flera 
+                                        iterationer, med hjälp från andra medlemmar i Discord-communityn.</p>
+                                    <a href="../blogs/blog5.html" class="btn text-black bg-teal btn-tealdark mt-3">Läs mer...</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Arrows outside the carousel -->
+                    <button class="carousel-control-prev custom-arrow" type="button" data-bs-target="#cardCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next custom-arrow" type="button" data-bs-target="#cardCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid bg-teal text-center">
+                <h1>Välkommen till Jönköping Meshtastics</h1>
+                <p>jkpg-mesh är en informell gemenskap som verkar för ett stabilt Meshtastic-nätverk i Jönköpingsområdets.</p>
+        </div>
+
+        <!-- Page content -->
+        <div class="container-fluid text-center">
+            <h1>Varför Meshtastic?</h1>
+            <div class="mx-auto w-75 text-start">
+                <p>Meshtastic är inte bara ännu en meddelandeapp - det är en port till en värld där öppen kommunikation 
+                    möter praktiskt experimenterande. Även om många plattformar erbjuder mer polerade meddelandetjänster, 
+                    är Meshtastic unikt i att det ger användare möjligheten att bygga och utöka sina egna decentraliserade 
+                    nätverk med prisvärd hårdvara. Det handlar inte bara om att hålla kontakten, utan om att skapa robusta, 
+                    direktanvända kommunikationssystem som fungerar där vanliga nätverk inte räcker - på bergstoppar, 
+                    avlägsna vandringsleder, avkopplande stugor utan täckning och även vid kriser när infrastrukturen faller bort.</p>
+                <p>Det som gör Meshtastic speciellt är hur det samlar en livlig gemenskap av antennbyggare, elektronikentusiaster, 
+                    mikrokontrollfantaster och mjukvaruutvecklare. Oavsett om du gillar att löda egna kretskort, skriva egen 
+                    firmware eller bara experimentera med mesh-nätverk, så välkomnar Meshtastic dig - och det krävs ingen 
+                    amatörradiolicens. Det är en plattform som befinner sig i skärningspunkten mellan praktisk teknik och 
+                    nyfikenhetsdriven utforskning - lika mycket för lärande som för kommunikation.</p>
+            </div>
+        </div>
+        <div class="container-fluid text-center">
+            <h1>Var börjar jag?</h1>
+            <div class="mx-auto w-75 text-start">
+                <p>Det bästa sättet att komma igång med Meshtastic är helt enkelt att skaffa en enhet, slå på den och se vad 
+                    som händer. Du behöver ingen djup teknisk bakgrund eller någon form av licens - bara nyfikenhet. Ju fler 
+                    som ansluter och slår på sina noder, desto starkare och mer användbart blir nätverket. Även om du inte 
+                    hör någon direkt, så ökar din närvaro chansen för andra i närheten att få kontakt - och det är så nätverket växer.</p>
+                <p>När du väl har börjat, ta gärna kontakt med andra som har experimenterat med Meshtastic ett tag. Det är en 
+                    av anledningarna till att den här webbplatsen finns - att hjälpa lokala eller regionala entusiaster att 
+                    hitta varandra, dela erfarenheter och lära sig tillsammans. Oavsett om du bygger en antenn eller vill 
+                    förstå olika firmwareinställningar, så går det snabbare (och blir roligare) när man hjälps åt.</p>
+                <p>Förutom lokalt stöd finns det också en växande mängd riktigt bra YouTube-videor och guider. Det finns 
+                    en livlig onlinegemenskap som ständigt delar tips, genomgångar och nya idéer. Och självklart är den 
+                    officiella <a href="https://meshtastic.org/">Meshtastic-webbplatsen</a> full av dokumentation, guider och forum som hjälper dig att fördjupa 
+                    dig i din egen takt.</p>
+            </div>
+        </div>
+        <div class="container-fluid text-center">
+            <h1>Vilken enhetsroll ska jag välja?</h1>
+            <div class="mx-auto w-75 text-start">
+                <p>Att välja rätt enhetsroll i Meshtastic är viktigare än det först kan verka. Varje roll bestämmer hur din nod 
+                    beter sig i nätverket - om den bara lyssnar, aktivt vidarebefordrar meddelanden, eller håller sig helt tyst 
+                    för att spara ström. En korrekt inställd roll hjälper mesh-nätverket att fungera effektivt och gör din 
+                    första upplevelse både enklare och roligare.</p>
+                <p>För de flesta nybörjare är det bäst att börja med <strong>Client</strong> eller <strong>Client (Muted)</strong>. 
+                    En Client är en enhet kopplad till appen eller som fungerar fristående. Den kan skicka och ta emot meddelanden, 
+                    och vidarebefordrar även paket om ingen annan nod redan har gjort det. Den bidrar till nätverket utan att 
+                    belasta det för mycket.</p>
+                <p>En Client (Muted) däremot vidarebefordrar inte paket från andra noder. Den skickar och tar emot meddelanden 
+                    precis som en vanlig klient, men deltar inte i routing. Den här rollen passar bra om du vill minska 
+                    nätverkstrafiken eller använda enheten passivt.  </p>
+                <p>När du har blivit mer bekant med hur det lokala nätverket fungerar kan du överväga att byta till rollen Router. 
+                    En Router-nod hjälper aktivt till att bära vidare meddelanden i nätverket genom att vidarebefordra dem till 
+                    andra enheter. Den här rollen är avgörande för att förlänga räckvidden och förbättra anslutningen, särskilt 
+                    i områden med få användare - men den kräver bra planering mer ström och bör helst vara igång hela tiden. I 
+                    början är det dock smartast att hålla det enkelt och börja som client.</p>
+            </div>
+        </div>
+        
+        <!-- Footer placeholder -->
+        <div id="footer-placeholder"></div>
+
+        <script>
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                });
+        </script>
+        <script src="https://www.youtube.com/iframe_api"></script>
+        <script>
+            // Global variables
+            const players = new Map();
+            let carousel;
+
+            // This function is called automatically by the YouTube Iframe API when it's ready.
+            function onYouTubeIframeAPIReady() {
+                initializePlayers();
+                setupCarousel();
+            }
+
+            // Create player instances for all videos
+            function initializePlayers() {
+                document.querySelectorAll('.carousel-item').forEach((item, index) => {
+                    const iframe = item.querySelector('iframe');
+                    if (!iframe) {
+                        console.warn(`Carousel item at index ${index} does not contain an iframe.`);
+                        return;
+                    }
+
+                    // Extract the YouTube video ID from the iframe's src.
+                    // Assuming your src will be something like "https://www.youtube.com/embed/VIDEO_ID"
+                    const videoIdMatch = iframe.src.match(/youtube\.com\/(?:embed\/|v\/|watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+                    const videoId = videoIdMatch ? videoIdMatch[1] : null;
+
+                    if (!videoId) {
+                        console.warn(`Could not extract video ID from iframe src: ${iframe.src}`);
+                        return; // Skip if no video ID is found
+                    }
+                    
+                    // Assign a unique ID to the iframe if it doesn't have one, crucial for YT.Player
+                    if (!iframe.id) {
+                        iframe.id = `Youtubeer-${index}`;
+                    }
+                    
+                    // Ensure API is enabled in iframe URL
+                    if (!iframe.src.includes('enablejsapi=1')) {
+                        // Create a URL object to easily add/modify parameters
+                        const url = new URL(iframe.src);
+                        url.searchParams.set('enablejsapi', '1');
+                        url.searchParams.set('rel', '0'); // To prevent related videos at the end
+                        iframe.src = url.toString();
+                    }
+
+                    players.set(index, new YT.Player(iframe.id, { // Use the iframe's ID here
+                        videoId: videoId, // Provide videoId explicitly if not already in src
+                        events: {
+                            'onReady': (event) => {
+                                // console.log(`Player ${index} is ready!`);
+                            },
+                            'onStateChange': (event) => handlePlayerStateChange(event, index)
+                        }
+                    }));
+                });
+            }
+
+            // Configure carousel interactions
+            function setupCarousel() {
+                const carouselElement = document.getElementById('cardCarousel');
+                carousel = new bootstrap.Carousel(carouselElement, { interval: 4000 });
+
+                // Listen for the 'slide' event, which fires *before* the transition starts.
+                carouselElement.addEventListener('slide.bs.carousel', event => {
+                    // Get the index of the current active item
+                    const currentActiveItem = carouselElement.querySelector('.carousel-item.active');
+                    const currentIndex = Array.from(carouselElement.querySelectorAll('.carousel-item')).indexOf(currentActiveItem);
+
+                    // Get the player associated with the current slide
+                    const currentPlayer = players.get(currentIndex);
+
+                    if (currentPlayer && typeof currentPlayer.pauseVideo === 'function') {
+                        try {
+                            currentPlayer.pauseVideo();
+                            // console.log(`Video on slide ${currentIndex} paused before transition.`);
+                        } catch (e) {
+                            console.error(`Error pausing video on slide ${currentIndex}:`, e);
+                        }
+                    }
+                });
+
+                // The 'slid' event listener is still useful if you want to perform actions
+                // after the new slide has become active (e.g., auto-play new video).
+                // For pausing, 'slide' is better.
+                carouselElement.addEventListener('slid.bs.carousel', event => {
+                    // Here you could potentially play the new video if desired, or reset state.
+                    // For this specific problem, the 'slide' event handles the pausing.
+                });
+
+                // The arrow click handlers no longer need to explicitly pause the video,
+                // as the 'slide.bs.carousel' event listener will handle it.
+                document.querySelectorAll('.carousel-control-prev, .carousel-control-next').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        // Nothing needed here, 'slide.bs.carousel' takes care of pausing.
+                    });
+                });
+            }
+
+            // Handle video state changes
+            function handlePlayerStateChange(event, playerIndex) {
+                if (event.data === YT.PlayerState.PLAYING) {
+                    if (carousel) {
+                        carousel.pause(); // Pause carousel when any video starts playing
+                        // console.log(`Carousel paused because player ${playerIndex} is playing.`);
+                    }
+                } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+                    // Check if no other video is playing before resuming carousel
+                    let anyVideoPlaying = false;
+                    for (const [index, player] of players.entries()) {
+                        if (player && typeof player.getPlayerState === 'function' && player.getPlayerState() === YT.PlayerState.PLAYING) {
+                            anyVideoPlaying = true;
+                            break;
+                        }
+                    }
+
+                    if (!anyVideoPlaying && carousel) {
+                        carousel.cycle(); // Resume carousel if no video is playing
+                        // console.log(`Carousel resumed because player ${playerIndex} paused/ended and no others are playing.`);
+                    }
+                }
+            }
+        </script>
+
+    </body>
+</html>

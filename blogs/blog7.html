@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Blog title -->
+        <title>Why Meshtastic Uses 868 MHz</title>
+        <link rel="icon" type="image/png" href="../assets/M-POWERED.png">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <link href="../css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <!-- Navbar -->
+        <div id="navbar-placeholder"></div>
+        <script>
+            fetch('../navbar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-placeholder').innerHTML = data;
+                });
+        </script>
+
+        <!-- Header Image -->
+        <div class="container-fluid" style="background-image: url('../assets/blog2.jpg'); height: 400px; background-size: cover; background-position: center;"></div>
+
+        <!-- Blog Title -->
+        <div class="container-fluid bg-teal text-center py-4">
+            <h1 class="display-5">Why Meshtastic Uses 868 MHz</h1>
+            <p class="lead">A friendly dive into the radio spectrum and why it matters for our networks</p>
+        </div>
+
+        <!-- Main Content -->
+        <div class="container-fluid text-center">
+            <div class="mx-auto w-75 text-start py-4">
+
+                <p>In previous blog posts, we’ve talked about how Meshtastic operates in the ISM band, about 
+                    duty cycles, and the specific frequencies in use. This time, I want to zoom out and give 
+                    a broader view — not just of Meshtastic, but of the radio spectrum itself.</p>
+
+                <p>Even though this topic isn’t directly about Meshtastic, I believe it can help us understand 
+                    why we use certain frequencies — like 868 MHz — and why, for example, sending audio over 
+                    Meshtastic isn’t really practical.</p>
+
+                <p>As with all my posts, this isn’t meant to be a complete guide or a technical manual. Think 
+                    of it as a spark — something to make you curious, encourage you to explore, and inspire 
+                    new ideas for what we can do with Meshtastic.</p>
+
+                <h2>What Is the Electromagnetic Spectrum?</h2>
+
+                <p>Let’s start by clearing up two terms that are often used interchangeably but mean slightly 
+                    different things: <strong>electromagnetic spectrum</strong> and <strong>radio spectrum</strong>.</p>
+
+                <h5>Electromagnetic Spectrum</h5>
+                <p>This refers to <em>all types of electromagnetic radiation</em> — everything from extremely 
+                    low-frequency radio waves to extremely high-frequency gamma rays. That includes microwaves, 
+                    infrared, visible light, ultraviolet, X-rays — all of it. These waves all travel at the 
+                    speed of light and differ only in their frequency and wavelength.</p>
+                <p><em>(And no — not all radiation is dangerous, and none of this has anything to do with nuclear bombs!)</em></p>
+
+                <h5>Radio Spectrum</h5>
+                <p>This is just a <em>small slice</em> of the electromagnetic spectrum — the portion that 
+                    includes radio waves. These waves typically have frequencies below 300 GHz and wavelengths 
+                    longer than 1 millimeter. They're especially useful for communication because they can travel 
+                    long distances, go through walls, and aren't easily blocked by weather or terrain.</p>
+                <img src="../assets/electro_spec.jpg" class="img-fluid rounded my-3 d-block mx-auto" alt="Electromagnetic Spectrum">
+
+                <h2>Why Is the Radio Spectrum Regulated?</h2>
+
+                <p>The radio spectrum is a <strong>limited and valuable resource</strong>. If anyone could 
+                    transmit anything, anywhere, at any time, radio communication would quickly become chaos 
+                    — full of interference, noise, and conflict.</p>
+
+                <p>To prevent that, international and national regulatory bodies (like the ITU and local 
+                    telecom agencies) assign specific frequency bands to specific uses. Examples include:</p>
+                <ul>
+                    <li>FM radio</li>
+                    <li>TV broadcasting</li>
+                    <li>Mobile phones</li>
+                    <li>Wi-Fi</li>
+                    <li>Air traffic control</li>
+                    <li>Satellite communication</li>
+                </ul>
+
+                <p>And these bands don’t all come with the same rules. Some require licenses and call signs. 
+                    Others are reserved for government or emergency use. A few are open to public use — as 
+                    long as you follow the rules.</p>
+
+                <h2>Different Types of Radio Bands</h2>
+
+                <p>Let’s briefly look at some of the common categories you’ll hear about:</p>
+
+                <ul>
+                    <li><strong>ISM (Industrial, Scientific, Medical):</strong> License-free, low-power use. 
+                        This is where Meshtastic operates.</li>
+                    <li><strong>Amateur Radio (Ham Radio):</strong> Requires a license and call sign. Great 
+                        for hobbyists, but with strict rules: no encryption, limited commercial use, etc.</li>
+                    <li><strong>Commercial Bands:</strong> Used by telecom providers. Heavily regulated and 
+                        often auctioned for billions.</li>
+                    <li><strong>Air/Military/Marine:</strong> Reserved for professional and mission-critical 
+                        use — not something you experiment with!</li>
+                </ul>
+
+                <p>Each of these bands has its own rules and limitations — including power limits, allowed 
+                    devices, and types of messages.</p>
+                <a href="https://www.srfa.se/" target="_blank" rel="noopener noreferrer">
+                    <img src="../assets/RFBands.png" class="img-fluid rounded my-3 d-block mx-auto" alt="Radio Spectrum Bands">
+                </a>
+
+                <h2>Why Meshtastic Uses 868 MHz (and Sometimes 433 MHz)</h2>
+
+                <p>Now we’re getting closer to our main question. Why does Meshtastic use the <strong>868 MHz 
+                    band</strong> (or <strong>915 MHz</strong> in North America, and <strong>433 MHz</strong> 
+                    in some hardware)?</p>
+
+                <p>Because these fall into the <strong>ISM bands</strong>, which are:</p>
+                <ul>
+                    <li><strong>License-free</strong></li>
+                    <li><strong>Designed for low-power devices</strong></li>
+                    <li><strong>Widely supported by affordable hardware like LoRa modules</strong></li>
+                </ul>
+
+                <p>Originally, ISM bands were meant for machines that unintentionally generate electromagnetic 
+                    noise — things like microwave ovens, arc welders, and medical equipment. But over time, 
+                    engineers realized these bands could also be used for <em>short-range, low-power communication</em>.</p>
+
+                <p>If you’ve used Wi-Fi, Bluetooth, baby monitors, or RFID tags — congratulations, you’ve already 
+                    used ISM bands.</p>
+
+                <p>That makes ISM a perfect fit for projects like Meshtastic, which rely on:</p>
+                <ul>
+                    <li>Small data packets</li>
+                    <li>Long range (but low bandwidth)</li>
+                    <li>Low power consumption</li>
+                    <li>Community-friendly, license-free deployment</li>
+                </ul>
+
+                <h2>Why Not Use Other Frequencies?</h2>
+
+                <p>You might ask: why not use <strong>amateur radio bands</strong> or even <strong>commercial ones</strong>?</p>
+
+                <p>Well, we could — but there are trade-offs:</p>
+                <ul>
+                    <li><strong>Amateur radio</strong> requires a license and doesn't allow encryption — which would limit 
+                        private messages on a Meshtastic network.</li>
+                    <li><strong>Commercial bands</strong> are off-limits unless you pay serious money and comply with 
+                        strict regulations.</li>
+                    <li><strong>Air or marine bands</strong> are strictly regulated and illegal for public use.</li>
+                </ul>
+
+                <p>So ISM gives us the best mix of <strong>freedom</strong>, <strong>range</strong>, and <strong>hardware 
+                    support</strong> — with the important caveat that we must respect <em>duty cycle</em> and <em>power limits</em>.</p>
+
+                <h2>The Takeaway</h2>
+
+                <p>So, why does Meshtastic use 868 MHz? Because it’s part of a <strong>license-free ISM band</strong> 
+                    that’s ideal for the kind of low-power, low-data communication that LoRa and Meshtastic were designed for.</p>
+
+                <p>Of course, there are many other ISM frequencies — and that’s a topic I might explore in a future blog.</p>
+
+                <p>I’ll admit: even this “friendly” overview of the radio spectrum can get technical pretty quickly. 
+                    But I hope I’ve sparked your curiosity and helped you understand just a bit more about the f
+                    ascinating world of wireless communication.</p>
+
+                <p><strong>Keep experimenting. Keep learning. And let’s keep building cool things together.</strong></p>
+
+                <p class="mt-5"><em>Written by JohanV<br>2025-07-20</em></p>
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div id="footer-placeholder"></div>
+        <script>
+            fetch('../footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                });
+        </script>
+    </body>
+</html>

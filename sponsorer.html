@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <title>Sponsorer – jkpg-mesh</title>
+    <link rel="icon" type="image/png" href="../assets/M-POWERED.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+        <!-- Placeholder for the navbar -->
+        <div id="navbar-placeholder"></div>
+        <script>
+            // Load navbar from external file
+            fetch('navbar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-placeholder').innerHTML = data;
+                });
+        </script>
+
+    <!-- Sponsors Section -->
+    <div class="container text-center my-5">
+        <img src="../assets/sitelogo3.png" alt="jkpg-msh">
+        <h1 class="mb-4">Våra sponsorer</h1>
+        <p class="mb-5">Tack till våra sponsorer som möjliggör ett öppet och communitydrivet mesh-nätverk i Jönköping!</p>
+
+        <div class="row justify-content-center">
+            <!-- Sponsor 1 -->
+            <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="p-3">
+                        <img src="assets/sponsor1-logo.png" alt="Sponsor 1" class="img-fluid" style="max-height: 100px;">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">TechCorp AB</h5>
+                        <p class="card-text">Stödjer vårt nätverksprojekt genom teknikdonationer och lokal samverkan.</p>
+                        <a href="https://techcorp.se" target="_blank" class="btn btn-outline-primary btn-sm">Besök webbplats</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sponsor 2 -->
+            <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="p-3">
+                        <img src="assets/sponsor2-logo.png" alt="Sponsor 2" class="img-fluid" style="max-height: 100px;">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Jönköping Makerspace</h5>
+                        <p class="card-text">Erbjuder lokaler, community och evenemangsplats för våra träffar.</p>
+                        <a href="https://jonkopingmakerspace.se" target="_blank" class="btn btn-outline-primary btn-sm">Läs mer</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more sponsors here -->
+        </div>
+
+        <!-- Call to Action -->
+        <div class="mt-5">
+            <h4>Vill du också sponsra jkpg-mesh?</h4>
+            <p>Vi samarbetar gärna med lokala företag och organisationer som vill främja öppen teknik och innovation i regionen.</p>
+            <p>Kontakta oss via e-post: <a href="mailto:jkpg-mesh@protonmail.com">jkpg-mesh@protonmail.com</a></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+</body>
+</html>

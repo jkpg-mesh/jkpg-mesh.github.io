@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Blog title -->
+        <title>Meshtastic in commercial applications</title>
+        <link rel="icon" type="image/png" href="../assets/M-POWERED.png">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <link href="../css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <!-- Navbar -->
+        <div id="navbar-placeholder"></div>
+        <script>
+            fetch('../navbar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-placeholder').innerHTML = data;
+                });
+        </script>
+
+        <!-- Header Image -->
+        <div class="container-fluid" style="background-image: url('../assets/blog2.jpg'); height: 400px; background-size: cover; background-position: center;"></div>
+
+        <!-- Blog Title -->
+        <div class="container-fluid bg-teal text-center py-4">
+            <h1 class="display-5">Meshtastic in commercial applications</h1>
+            <p class="lead">Can I Make Money with Meshtastic?</p>
+        </div>
+
+        <!-- Main Content -->
+        <div class="container-fluid text-center">
+            <div class="mx-auto w-75 text-start py-4">
+
+                <p>Speaking to friends and reading online, I’ve noticed a pattern: a lot of people think 
+                    <a href="https://meshtastic.org/" target="_blank">Meshtastic</a> is just a hobby gadget. 
+                    A toy. Something hikers use to stay in touch — or maybe a tool for “when the big one hits” 
+                    and the cell towers go dark.</p>
+
+                <p>That got me thinking: <em>If I had a great idea, could I — and am I even allowed to — use 
+                    Meshtastic in a real-world commercial solution?</em></p>
+
+                <p>This isn’t legal advice (I’m not a lawyer), but let’s pull apart the Meshtastic ecosystem 
+                    layer by layer and see what’s possible.</p>
+
+                <h2>The Hook: Could Meshtastic Power a Startup?</h2>
+                <p>Could you run a <strong>delivery tracking service</strong> entirely over Meshtastic?<br>
+                What about a <strong>community security alert network</strong>?<br>
+                Or even a <strong>subscription-based weather data service</strong>?</p>
+
+                <p>Before you start buying domains, we need to look under the hood — because licensing, 
+                    spectrum rules, and firmware freedoms will decide if your idea flies or fizzles.</p>
+
+                <h2>Real-World “What Ifs”</h2>
+                <ul>
+                    <li><strong>Weather Station Network</strong> – 20 nodes across a city collecting hyperlocal data. Customers subscribe to see the live feed.</li>
+                    <li><strong>Neighborhood Alert System</strong> – Residents pay a small fee for instant safety alerts sent over Meshtastic.</li>
+                    <li><strong>Farm Asset Tracking</strong> – Rental trackers on livestock and equipment, all meshing together to cover rural dead zones.</li>
+                </ul>
+
+                <p>Each of these touches different parts of the Meshtastic stack — and that’s where the rules start changing.</p>
+                
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h2>The Meshtastic Stack</h2>
+                        <ol>
+                            <li>ISM Frequency Band – The spectrum your radios transmit on.</li>
+                            <li>Hardware Layer – LoRa-enabled devices (often with Bluetooth/Wi-Fi).</li>
+                            <li>Firmware Layer – The Meshtastic firmware running on your hardware.</li>
+                            <li>Protocol Layer – How devices actually talk to each other over the air.</li>
+                            <li>API/Integration Layer – How your app or service plugs into the network.</li>
+                            <li>Application Layer – The product or service your customers see.</li>
+                        </ol>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <img src="../assets/MeshLayers.png" alt="Mesh Layers" class="img-fluid rounded shadow" style="width: 60%; height: auto;">
+                    </div>
+                </div>
+
+                <h3>1. ISM Frequency Band – The Layer Zero Checkpoint</h3>
+                <p>If you can’t legally transmit, your idea stops here.</p>
+                <p>In the EU, ISM (Industrial, Scientific, and Medical) bands <em>can</em> be used for 
+                    commercial applications — and they already power Wi-Fi, Bluetooth, RFID, smart meters, and IoT systems.</p>
+                <ul>
+                    <li><strong>License-free use</strong> (if you follow EU spectrum rules).</li>
+                    <li><strong>Must comply</strong> with harmonized standards like <a href="https://europa.eu/youreurope/business/product-requirements/labels-markings/ce-marking/index_en.htm" target="_blank">ETSI and CE requirements</a>, including power limits and duty cycle restrictions.</li>
+                    <li><strong>No protection from interference</strong> — you share the band with everyone else.</li>
+                </ul>
+
+                <h3>2. Hardware Layer – The CE Mark Gatekeeper</h3>
+                <p>From an EU perspective, your hardware needs a CE mark. Designing your own means meeting CE 
+                    requirements; using vendor hardware from companies like Heltec, RAK, LILYGO, or Seeed Studio 
+                    can shortcut the process.</p>
+                <p>LoRa note: <a href="https://www.semtech.com/lora" target="_blank">Semtech</a> owns the LoRa 
+                    trademark and patents the modulation tech, but using LoRa chips in your products does 
+                    <strong>not</strong> require royalties or per-device fees.</p>
+
+                <h3>3. Firmware Layer – The Heart of Meshtastic</h3>
+                <p>The Meshtastic firmware is licensed under <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank">GPLv3</a>, 
+                    which grants you the right to run, study, share, and modify it — as long as you share your modified source code under the same license.</p>
+                <ul>
+                    <li>If you modify the firmware, you must make your changes public.</li>
+                    <li>You can still sell hardware or services powered by it.</li>
+                    <li>You must follow the Meshtastic trademark guidelines.</li>
+                </ul>
+                <p>Fun fact: the core contributors even formed <a href="https://meshtastic.com/" target="_blank">Meshtastic Solutions</a> 
+                    to help support and scale commercial builds on Meshtastic.</p>
+
+                <h3>4. Protocol Layer – Where the Mesh Lives</h3>
+                <p>The protocol is open to build on, extend, and integrate. The challenge: balancing public access 
+                    with commercial reliability, and avoiding network flooding that could hit duty cycle limits.</p>
+                <p>I’ll dive into mesh design strategies in a future post — it’s a topic that deserves its own deep dive.</p>
+
+                <h3>5 & 6. API/Integration Layer and Application Layer – Your Playground</h3>
+                <p>The Python API uses the permissive Apache 2.0 license. Your application layer — the product or 
+                    service — is fully yours to own and monetize.</p>
+
+                <h2>Feasibility Snapshot</h2>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Layer</th>
+                            <th>License / Restriction</th>
+                            <th>Commercial Feasibility</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>ISM Band</td><td>Spectrum rules & duty cycle</td><td>✅ High</td></tr>
+                        <tr><td>Hardware</td><td>CE mark, vendor dependent</td><td>✅ High</td></tr>
+                        <tr><td>Firmware</td><td>GPLv3</td><td>⚠ Medium (share mods)</td></tr>
+                        <tr><td>Protocol</td><td>Open spec</td><td>✅ High</td></tr>
+                        <tr><td>API/Integration</td><td>Apache 2.0</td><td>✅ High</td></tr>
+                        <tr><td>Application</td><td>Your own</td><td>✅ High</td></tr>
+                    </tbody>
+                </table>
+
+                <h2>My Takeaway</h2>
+                <p>Yes — you <em>can</em> make money with Meshtastic. The hardware and protocol are business-friendly, 
+                    the ISM band is open to commercial use in the EU, and the firmware license is workable if you’re 
+                    okay sharing modifications.</p>
+                <p>The real work will be in designing your mesh for reliability — and I’ll be covering that in my next post.</p>
+                <p>So — what’s your big idea? Weather networks? Smart farming? Community safety? Whatever it is, I’d 
+                    love to see it make the world better with Meshtastic.</p>
+                
+                <p class="mt-5"><em>Written by JohanV<br>2025-08-17</em></p>  
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div id="footer-placeholder"></div>
+        <script>
+            fetch('../footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                });
+        </script>
+    </body>
+</html>

@@ -127,3 +127,42 @@ h2[id]::before {
   margin-top: -50px; /* Adjust this to the height of your navbar */
   visibility: hidden;
 }
+
+/* === Challenge Box === */
+.challenge-box {
+  background-color: #f0f9ff;
+  border-left: 5px solid #00b8ff;
+  padding: 20px 25px;
+  border-radius: 6px;
+  max-width: 800px;
+  line-height: 1.6;
+  margin: 20px 0; /* spacing between other sections */
+}
+
+.challenge-box strong {
+  color: #000;
+}
+
+.challenge-box a {
+  color: #00b8ff;
+  text-decoration: none;
+}
+
+.challenge-box a:hover {
+  text-decoration: underline;
+}
+
+.challenge-box ol {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding-left: 25px;
+}
+
+.challenge-box li {
+  margin-bottom: 6px;
+}
+
+.challenge-note {
+  color: #666;
+  font-size: 0.95rem;
+}

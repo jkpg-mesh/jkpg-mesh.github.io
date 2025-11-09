@@ -2,224 +2,221 @@
 <html lang="en">
     <head>
         <!-- Blog title -->
-        <title>Designing Your Mesh</title>
-        <link rel="icon" type="image/png" href="../assets/M-POWERED.png">
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-        <link href="../css/style.css" rel="stylesheet">
+        <title>Designing Your Mesh</title>
     </head>
     <body>
-        <!-- Navbar -->
-        <div id="navbar-placeholder"></div>
-        <script>
-            fetch('../navbar.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('navbar-placeholder').innerHTML = data;
-                });
-        </script>
-
-        <!-- Header Image -->
-        <div class="container-fluid" style="background-image: url('../assets/blog2.jpg'); height: 400px; background-size: cover; background-position: center;"></div>
-
-        <!-- Blog Title -->
-        <div class="container-fluid bg-teal text-center py-4">
-            <h1 class="display-5">Designing Your Mesh</h1>
-            <p class="lead">Roles and Locations That Matter</p>
+        <!-- header -->
+        <div id="header-placeholder">
+            <div class="text-center py-2 bg-light">Loading header...</div>
         </div>
 
-        <!-- Main Content -->
-        <div class="container-fluid text-center">
-            <div class="mx-auto w-75 text-start py-4">
+        <!-- navbar -->
+        <div id="navbar-placeholder">
+            <nav class="navbar navbar-light bg-teal text-black justify-content-center">
+            <span class="navbar-text">Loading menu...</span>
+            </nav>
+        </div>
 
-                <p>
-                    Since getting involved with Meshtastic, I've kept circling around three nagging questions:  
-                    1) How do you actually communicate effectively with just a 10% duty cycle?  
-                    2) Is there a “real” application for Meshtastic?  
-                    and 3) How do you design a mesh that works in practice?  
-                </p>
-                <p>
-                    As the title suggests, this post is my attempt to dip my toes into the last one—the art (and frustration) of designing a mesh network.  
-                </p>
-                <p>
-                    Let's also, right from the start, clear the air and say, “There is unfortunately (not as far as I've seen or researched) any silver bullet.”  
-                    This isn't one of those clickbait blogs that entices you to “keep reading to the end.”  
-                    At best, I hope you're inspired to go and build that dream network with some new viewpoints.  
-                    I'm also certain this won't be the last time I blog about this topic.  
-                </p>
+        <!--      Main Area    -->
+        <div id="main-placeholder" style="display:none;">
+            <!-- Header Image -->
+            <div class="container-fluid" style="background-image: url('../assets/blog2.jpg'); height: 400px; background-size: cover; background-position: center;"></div>
 
-                <h2>1. Network Function</h2>
-                <p>
-                    While researching this topic, the first thing I realized was that I need to understand what the network is for.  
-                    Say a group of friends goes on a hike—well, then the best option is most likely all running their units in 
-                    <a href="https://meshtastic.org/blog/choosing-the-right-device-role/" target="_blank">CLIENT</a> mode and hoping they stay in range and line of sight,  
-                    so John way ahead can hop off Bill’s unit in the middle group to reach Sam closing up the rear.
-                </p>
-                <p>
-                    Getting to the evening camp? Okay, now things might change. Let's hoist the spare unit up high into a tree and run it as a <a href="https://meshtastic.org/blog/choosing-the-right-device-role/" target="_blank">REPEATER</a>.  
-                    Oh yes, and let's not forget that maybe in this scenario, all units can be set to lower power to save battery life.  
-                    For the rest of the blog, we'll focus more on how to reach the most users in our town.
-                </p>
+            <!-- Blog Title -->
+            <div class="container-fluid bg-teal text-center py-4">
+                <h1 class="display-5">Designing Your Mesh</h1>
+                <p class="lead">Roles and Locations That Matter</p>
+            </div>
 
-                <h2>2. Understand Terrain & Line-of-Sight Limitations</h2>
-                <p>
-                    Now we move into the area where hills, buildings, or big structures are going to be our biggest enemy.  
-                    I once heard someone say, “LoRa hates buildings like vampires hate sunlight.”  
-                    Maybe just for any newcomer waltzing past this blog, Meshtastic operates on 868MHz, and the challenge with high-frequency transmissions is that the signal isn't very good at penetrating denser objects.  
-                </p>
-                <p>
-                    In addition, you're not going to bounce the signal off the stratosphere.  
-                    Oh (as if we need more), don't forget you have less than 500mW transmission power.  
-                    So in an urban environment, this is going to be a big challenge.
-                </p>
-                <p>
-                    Yes, there are some good web tools to help you, like:
-                    <ul>
-                        <li><a href="https://www.heywhatsthat.com/" target="_blank">HeyWhatsThat</a></li>
-                        <li><a href="https://site.meshtastic.org/" target="_blank">Meshtastic Site Planner</a></li>
-                    </ul>
-                    However, I believe the best way is for you and your community to get out there and run tests.  
-                    Good topology maps and even Google Earth can be very valuable tools—if you're in one of the bigger cities, Google Earth now also has buildings created in the 3D view.
-                </p>
-                <p>
-                    For Sweden, good mapping tools include:
-                    <ul>
-                        <li><a href="https://minkarta.lantmateriet.se/" target="_blank">lantmateriet.se</a></li>
-                        <li><a href="https://kartor.gokartor.se/#14/57.7836/14.1564" target="_blank">gokartor.se</a> (this site also contains a 3D scan layer)</li>
-                    </ul>
-                </p>
-                <p>
-                    Lastly, we need to take a tip from our mobile network operators: “Know our users.”  
-                    In some cases, the terrain and line of sight might present big challenges, but at the same time, we might not have (or won't have) any users in that area for now.  
-                    Let's leave that challenge for another day.
-                </p>
+            <!-- Main Content -->
+            <div class="container-fluid text-center">
+                <div class="mx-auto w-75 text-start py-4">
 
-                <h2>3. Choose Roles Carefully for Stability</h2>
-                <p>
-                    Once we've selected areas for fixed nodes (and yes, maybe even a bit before that), the selection of node role types can absolutely make or break our network.  
-                    Together with the function of the network, role selection must be balanced.  
-                    There's some really good information on role workings out there on the web.  
-                    If you haven't already, I think you should read the blog “<a href="https://meshtastic.org/blog/choosing-the-right-device-role/" target="_blank">Choosing The Right Device Role</a>” and check out the “<a href="Mesh Broadcast Algorithm" target="_blank">Mesh Broadcast Algorithm”</a> explainer.
-                </p>
-                <p>
-                    I also believe this is where it can become important to have a mesh community group where you can discuss node deployment—never regulating or mandating anything,  
-                    but ensuring everyone has “fun” rather than flooding the network and ending up with no functionality at all.
-                </p>
-                <p>
-                    And as parting advice: Don’t be afraid to change roles.
-                </p>
+                    <p>
+                        Since getting involved with Meshtastic, I've kept circling around three nagging questions:  
+                        1) How do you actually communicate effectively with just a 10% duty cycle?  
+                        2) Is there a “real” application for Meshtastic?  
+                        and 3) How do you design a mesh that works in practice?  
+                    </p>
+                    <p>
+                        As the title suggests, this post is my attempt to dip my toes into the last one—the art (and frustration) of designing a mesh network.  
+                    </p>
+                    <p>
+                        Let's also, right from the start, clear the air and say, “There is unfortunately (not as far as I've seen or researched) any silver bullet.”  
+                        This isn't one of those clickbait blogs that entices you to “keep reading to the end.”  
+                        At best, I hope you're inspired to go and build that dream network with some new viewpoints.  
+                        I'm also certain this won't be the last time I blog about this topic.  
+                    </p>
 
-                <h2>4. Optimize Hardware & Antennas</h2>
-                <p>
-                    All the planning without hardware stays just planning.  
-                    It's therefore important that selection of hardware also be done correctly (or at least planned).  
-                    It might also be necessary to swap out nodes to improve the network.  
-                    As an example, we might start with a self-built node and low-cost antenna in one place, but replace it with a donated or sponsored one like:
-                    <ul>
-                        <li><a href="https://heltec.org/project/meshtower/" target="_blank">Heltec MeshTower</a></li>
-                        <li><a href="https://www.seeedstudio.com/SenseCAP-Solar-Node-P1-Pro-for-Meshtastic-LoRa-p-6412.html" target="_blank">SenseCAP Solar Node P1-Pro for Meshtastic</a></li>
-                        <li><a href="hhttps://atlavox.com/products/atlavox-beacon-solar-meshtastic-node" target="_blank">Atlavox Beacon Solar Meshtastic Node</a></li>
-                        <li><a href="https://specfive.com/products/spec5-meshtastic-relay" target="_blank">Spec5 Relay</a></li>
-                    </ul>
-                </p>
-                <p>
-                    When it comes to antennas, yes, they also play a critical role—but even here, it's a balance between what we need to achieve.  
-                    Do we need to link two nodes? Yes, maybe a Yagi is a good idea.  
-                    Do we have financial constraints? Maybe a flexible rubber duck antenna must do (just an example).  
-                </p>
-                <p>
-                    What can be very important, however, is whether the antenna will survive outdoor use, if it's well matched, and if we're using quality 50-ohm cable to feed it.
-                </p>
-                <p>
-                    Together with the unit and antenna goes the power supply, and here again, it's not a one-fits-all solution.  
-                    In some installations, you might have power available and can supply the node directly with a DC power supply—or maybe even have a network connection and use a build that works with Power over Ethernet.  
-                    In most cases, it will still be a good idea to have a backup battery supply for if (or rather, when) the power grid goes down.
-                </p>
-                <p>
-                    As mentioned in the opening network function section, don't forget to play with transmit power and power settings, optimizing for your specific network.
-                </p>
+                    <h2>1. Network Function</h2>
+                    <p>
+                        While researching this topic, the first thing I realized was that I need to understand what the network is for.  
+                        Say a group of friends goes on a hike—well, then the best option is most likely all running their units in 
+                        <a href="https://meshtastic.org/blog/choosing-the-right-device-role/" target="_blank">CLIENT</a> mode and hoping they stay in range and line of sight,  
+                        so John way ahead can hop off Bill’s unit in the middle group to reach Sam closing up the rear.
+                    </p>
+                    <p>
+                        Getting to the evening camp? Okay, now things might change. Let's hoist the spare unit up high into a tree and run it as a <a href="https://meshtastic.org/blog/choosing-the-right-device-role/" target="_blank">REPEATER</a>.  
+                        Oh yes, and let's not forget that maybe in this scenario, all units can be set to lower power to save battery life.  
+                        For the rest of the blog, we'll focus more on how to reach the most users in our town.
+                    </p>
 
-                <h2>5. Frequency Bands & Regulatory Compliance</h2>
-                <p>
-                    Although the topic of frequency bands and regulatory compliance might be largely decided by which region you're setting up the network in, there are still some aspects to consider.  
-                    In most cases, I'd suggest starting on 868MHz, but we might need to decide if we should have a 433MHz to 868MHz bridge node.
-                </p>
-                <p>
-                    With regard to regulatory compliance, here we as a community need to make sure we stay within the limits on transmit power—and the gain of the antennas can play an important part.  
-                    Of course, the temptation will always be there to just get that extra few kilometers, but the risk of not complying can put the whole community at risk.
-                </p>
-                <p>
-                    Similarly, for the transmission duty-cycle constraint of 10% (in the EU), this limit also applies to “repeater” nodes and is possibly even more important when user density increases.  
-                    For this reason, double-check the setup and configuration of nodes in your network.
-                </p>
+                    <h2>2. Understand Terrain & Line-of-Sight Limitations</h2>
+                    <p>
+                        Now we move into the area where hills, buildings, or big structures are going to be our biggest enemy.  
+                        I once heard someone say, “LoRa hates buildings like vampires hate sunlight.”  
+                        Maybe just for any newcomer waltzing past this blog, Meshtastic operates on 868MHz, and the challenge with high-frequency transmissions is that the signal isn't very good at penetrating denser objects.  
+                    </p>
+                    <p>
+                        In addition, you're not going to bounce the signal off the stratosphere.  
+                        Oh (as if we need more), don't forget you have less than 500mW transmission power.  
+                        So in an urban environment, this is going to be a big challenge.
+                    </p>
+                    <p>
+                        Yes, there are some good web tools to help you, like:
+                        <ul>
+                            <li><a href="https://www.heywhatsthat.com/" target="_blank">HeyWhatsThat</a></li>
+                            <li><a href="https://site.meshtastic.org/" target="_blank">Meshtastic Site Planner</a></li>
+                        </ul>
+                        However, I believe the best way is for you and your community to get out there and run tests.  
+                        Good topology maps and even Google Earth can be very valuable tools—if you're in one of the bigger cities, Google Earth now also has buildings created in the 3D view.
+                    </p>
+                    <p>
+                        For Sweden, good mapping tools include:
+                        <ul>
+                            <li><a href="https://minkarta.lantmateriet.se/" target="_blank">lantmateriet.se</a></li>
+                            <li><a href="https://kartor.gokartor.se/#14/57.7836/14.1564" target="_blank">gokartor.se</a> (this site also contains a 3D scan layer)</li>
+                        </ul>
+                    </p>
+                    <p>
+                        Lastly, we need to take a tip from our mobile network operators: “Know our users.”  
+                        In some cases, the terrain and line of sight might present big challenges, but at the same time, we might not have (or won't have) any users in that area for now.  
+                        Let's leave that challenge for another day.
+                    </p>
 
-                <h2>6. Plan for Scalability & Bandwidth Constraints</h2>
-                <p>
-                    If all goes well, your network will grow—and having planned it badly will most likely force a redesign or an inefficient network.
-                </p>
-                <p>
-                    Although I'd strongly recommend that all networks start with the default LONG_FAST (this gives the highest probability that new users see and get on the network),  
-                    over time you'll have to look at going to other options.  
-                    In regard to this topic, there's a very insightful blog that you should read: “<a href="https://meshtastic.org/blog/why-your-mesh-should-switch-from-longfast/" target="_blank">Is LongFast Holding Your Mesh Back? Better LoRa Presets for Bigger Meshtastic Networks.</a>”
-                </p>
-                <p>
-                    With regard to EU Meshtastic using LONG_FAST, we have only one channel available (869.525MHz).  
-                    If we move to LONG_SLOW, however, we have two channels available—where we could possibly use channel 1 for users and channel 2 for infrastructure link channels.  
-                    If we also have “intelligent” nodes (nodes with, for example, an additional Raspberry Pi in the node case), we could use 433MHz nodes as link channels.
-                </p>
-                <p>
-                    The most important part here is: Don’t forget to plan!!
-                </p>
+                    <h2>3. Choose Roles Carefully for Stability</h2>
+                    <p>
+                        Once we've selected areas for fixed nodes (and yes, maybe even a bit before that), the selection of node role types can absolutely make or break our network.  
+                        Together with the function of the network, role selection must be balanced.  
+                        There's some really good information on role workings out there on the web.  
+                        If you haven't already, I think you should read the blog “<a href="https://meshtastic.org/blog/choosing-the-right-device-role/" target="_blank">Choosing The Right Device Role</a>” and check out the “<a href="Mesh Broadcast Algorithm" target="_blank">Mesh Broadcast Algorithm”</a> explainer.
+                    </p>
+                    <p>
+                        I also believe this is where it can become important to have a mesh community group where you can discuss node deployment—never regulating or mandating anything,  
+                        but ensuring everyone has “fun” rather than flooding the network and ending up with no functionality at all.
+                    </p>
+                    <p>
+                        And as parting advice: Don’t be afraid to change roles.
+                    </p>
 
-                <h2>7. Engage the Community & Local Stakeholders</h2>
-                <p>
-                    A good network is also only effective if you don’t have someone else wanting to break it down.  
-                    I wouldn't want the Meshtastic community to become a rogue group of hackers, trying to hide nodes in all sorts of weird and illegal places.  
-                    For this reason, I believe how we engage with locals, business owners, and local authorities (although mentioned last) could be the most important aspect of a good network.
-                </p>
-                <p>
-                    I'd also strongly recommend engaging with your local amateur radio club—these guys and girls already love radios and communication-related stuff.  
-                    They might already have their own club repeaters, and many amateurs have antenna masts that might just be in that sweet spot to enhance your Meshtastic network.  
-                    For JKPG-Mesh, we're already using the <a href="https://sk7ax.se/" target="_blank">SVARK</a>—Södra Vätterbygdens Amatörradioklubb—<a href="https://discord.gg/4r9rUrmH9b" target="_blank">Discord</a> group (with some really helpful and enthusiastic people).
-                </p>
-                <p>
-                    Engagement with businesses and local authorities might be slightly harder, but sometimes the network might grow slowly until that one new user with the right neighbor or connection gets pulled into the Meshtastic nets.  
-                    It's important to note the old saying, “What's in it for them?” when approaching these bigger stakeholders.  
-                    The essence here is that a well-developed network with good support will be even more fun for all to use.
-                </p>
+                    <h2>4. Optimize Hardware & Antennas</h2>
+                    <p>
+                        All the planning without hardware stays just planning.  
+                        It's therefore important that selection of hardware also be done correctly (or at least planned).  
+                        It might also be necessary to swap out nodes to improve the network.  
+                        As an example, we might start with a self-built node and low-cost antenna in one place, but replace it with a donated or sponsored one like:
+                        <ul>
+                            <li><a href="https://heltec.org/project/meshtower/" target="_blank">Heltec MeshTower</a></li>
+                            <li><a href="https://www.seeedstudio.com/SenseCAP-Solar-Node-P1-Pro-for-Meshtastic-LoRa-p-6412.html" target="_blank">SenseCAP Solar Node P1-Pro for Meshtastic</a></li>
+                            <li><a href="hhttps://atlavox.com/products/atlavox-beacon-solar-meshtastic-node" target="_blank">Atlavox Beacon Solar Meshtastic Node</a></li>
+                            <li><a href="https://specfive.com/products/spec5-meshtastic-relay" target="_blank">Spec5 Relay</a></li>
+                        </ul>
+                    </p>
+                    <p>
+                        When it comes to antennas, yes, they also play a critical role—but even here, it's a balance between what we need to achieve.  
+                        Do we need to link two nodes? Yes, maybe a Yagi is a good idea.  
+                        Do we have financial constraints? Maybe a flexible rubber duck antenna must do (just an example).  
+                    </p>
+                    <p>
+                        What can be very important, however, is whether the antenna will survive outdoor use, if it's well matched, and if we're using quality 50-ohm cable to feed it.
+                    </p>
+                    <p>
+                        Together with the unit and antenna goes the power supply, and here again, it's not a one-fits-all solution.  
+                        In some installations, you might have power available and can supply the node directly with a DC power supply—or maybe even have a network connection and use a build that works with Power over Ethernet.  
+                        In most cases, it will still be a good idea to have a backup battery supply for if (or rather, when) the power grid goes down.
+                    </p>
+                    <p>
+                        As mentioned in the opening network function section, don't forget to play with transmit power and power settings, optimizing for your specific network.
+                    </p>
 
-                <h2>In Summary</h2>
-                <p>
-                    I’ve mentioned in my previous posts that I believe Meshtastic has something for everyone, and after writing this one I realized it’s just as true if your passion is planning, experimenting, or coordinating.  
-                    No two city or urban networks will ever look the same—you can’t just copy someone else’s setup and expect it to work.  
-                    The real fun is that thoughtful design—choosing roles wisely, understanding terrain, balancing hardware, staying within regulations, and engaging your community—makes that 10% duty cycle not only workable, but practical.
-                </p>
-                <p>
-                    Of course, we’ve only scratched the surface here.  
-                    Two big areas I haven’t unpacked yet are visualization tools (turning your mesh into a living map) and security/privacy (keeping your network both fun and safe).  
-                    Both deserve their own deep dives, and I’ll return to them in upcoming posts.
-                </p>
-                <p>
-                    For now, the best advice I can give is: get out there, experiment, and share what you learn.  
-                    That’s how our networks—and our communities—get stronger.  
-                    And if you discover something that works brilliantly (or hilariously doesn’t), let us know in the JKPG-Mesh Discord!
-                </p>
-                <p class="mt-5"><em>Written by JohanV<br>2025-08-31</em></p>
+                    <h2>5. Frequency Bands & Regulatory Compliance</h2>
+                    <p>
+                        Although the topic of frequency bands and regulatory compliance might be largely decided by which region you're setting up the network in, there are still some aspects to consider.  
+                        In most cases, I'd suggest starting on 868MHz, but we might need to decide if we should have a 433MHz to 868MHz bridge node.
+                    </p>
+                    <p>
+                        With regard to regulatory compliance, here we as a community need to make sure we stay within the limits on transmit power—and the gain of the antennas can play an important part.  
+                        Of course, the temptation will always be there to just get that extra few kilometers, but the risk of not complying can put the whole community at risk.
+                    </p>
+                    <p>
+                        Similarly, for the transmission duty-cycle constraint of 10% (in the EU), this limit also applies to “repeater” nodes and is possibly even more important when user density increases.  
+                        For this reason, double-check the setup and configuration of nodes in your network.
+                    </p>
 
+                    <h2>6. Plan for Scalability & Bandwidth Constraints</h2>
+                    <p>
+                        If all goes well, your network will grow—and having planned it badly will most likely force a redesign or an inefficient network.
+                    </p>
+                    <p>
+                        Although I'd strongly recommend that all networks start with the default LONG_FAST (this gives the highest probability that new users see and get on the network),  
+                        over time you'll have to look at going to other options.  
+                        In regard to this topic, there's a very insightful blog that you should read: “<a href="https://meshtastic.org/blog/why-your-mesh-should-switch-from-longfast/" target="_blank">Is LongFast Holding Your Mesh Back? Better LoRa Presets for Bigger Meshtastic Networks.</a>”
+                    </p>
+                    <p>
+                        With regard to EU Meshtastic using LONG_FAST, we have only one channel available (869.525MHz).  
+                        If we move to LONG_SLOW, however, we have two channels available—where we could possibly use channel 1 for users and channel 2 for infrastructure link channels.  
+                        If we also have “intelligent” nodes (nodes with, for example, an additional Raspberry Pi in the node case), we could use 433MHz nodes as link channels.
+                    </p>
+                    <p>
+                        The most important part here is: Don’t forget to plan!!
+                    </p>
+
+                    <h2>7. Engage the Community & Local Stakeholders</h2>
+                    <p>
+                        A good network is also only effective if you don’t have someone else wanting to break it down.  
+                        I wouldn't want the Meshtastic community to become a rogue group of hackers, trying to hide nodes in all sorts of weird and illegal places.  
+                        For this reason, I believe how we engage with locals, business owners, and local authorities (although mentioned last) could be the most important aspect of a good network.
+                    </p>
+                    <p>
+                        I'd also strongly recommend engaging with your local amateur radio club—these guys and girls already love radios and communication-related stuff.  
+                        They might already have their own club repeaters, and many amateurs have antenna masts that might just be in that sweet spot to enhance your Meshtastic network.  
+                        For JKPG-Mesh, we're already using the <a href="https://sk7ax.se/" target="_blank">SVARK</a>—Södra Vätterbygdens Amatörradioklubb—<a href="https://discord.gg/4r9rUrmH9b" target="_blank">Discord</a> group (with some really helpful and enthusiastic people).
+                    </p>
+                    <p>
+                        Engagement with businesses and local authorities might be slightly harder, but sometimes the network might grow slowly until that one new user with the right neighbor or connection gets pulled into the Meshtastic nets.  
+                        It's important to note the old saying, “What's in it for them?” when approaching these bigger stakeholders.  
+                        The essence here is that a well-developed network with good support will be even more fun for all to use.
+                    </p>
+
+                    <h2>In Summary</h2>
+                    <p>
+                        I’ve mentioned in my previous posts that I believe Meshtastic has something for everyone, and after writing this one I realized it’s just as true if your passion is planning, experimenting, or coordinating.  
+                        No two city or urban networks will ever look the same—you can’t just copy someone else’s setup and expect it to work.  
+                        The real fun is that thoughtful design—choosing roles wisely, understanding terrain, balancing hardware, staying within regulations, and engaging your community—makes that 10% duty cycle not only workable, but practical.
+                    </p>
+                    <p>
+                        Of course, we’ve only scratched the surface here.  
+                        Two big areas I haven’t unpacked yet are visualization tools (turning your mesh into a living map) and security/privacy (keeping your network both fun and safe).  
+                        Both deserve their own deep dives, and I’ll return to them in upcoming posts.
+                    </p>
+                    <p>
+                        For now, the best advice I can give is: get out there, experiment, and share what you learn.  
+                        That’s how our networks—and our communities—get stronger.  
+                        And if you discover something that works brilliantly (or hilariously doesn’t), let us know in the JKPG-Mesh Discord!
+                    </p>
+                    <p class="mt-5"><em>Written by JohanV<br>2025-08-31</em></p>
+
+                </div>
             </div>
         </div>
 
-        <!-- Footer -->
-        <div id="footer-placeholder"></div>
-        <script>
-            fetch('../footer.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('footer-placeholder').innerHTML = data;
-                });
-        </script>
+        <!--      footer     -->
+        <div id="footer-placeholder">
+            <div class="text-center py-2 bg-light">Loading footer...</div>
+        </div>
+
+        <!-- JS includes -->
+        <script src="/js/includes.js"></script>
     </body>
 </html>

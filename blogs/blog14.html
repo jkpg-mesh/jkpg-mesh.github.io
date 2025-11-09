@@ -2,14 +2,8 @@
 <html lang="en">
     <head>
         <!-- Blog title -->
-        <title>Meet the Modules — Extending the Meshtastic Firmware</title>
-        <link rel="icon" type="image/png" href="../assets/M-POWERED.png">
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-        <link href="../css/style.css" rel="stylesheet">
+        <title>Meet the Modules — Extending the Meshtastic Firmware</title>
         <style>
             pre {
                 background-color: #f8f9fa;
@@ -29,204 +23,207 @@
         </style>
     </head>
     <body>
-        <!-- Navbar -->
-        <div id="navbar-placeholder"></div>
-        <script>
-            fetch('../navbar.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('navbar-placeholder').innerHTML = data;
-                });
-        </script>
-
-        <!-- Header Image -->
-        <div class="container-fluid" style="background-image: url('../assets/blog2.jpg'); height: 400px; background-size: cover; background-position: center;"></div>
-
-        <!-- Blog Title -->
-        <div class="container-fluid bg-teal text-center py-4">
-            <h1 class="display-5">Meet the Modules</h1>
-            <p class="lead">Extending the Meshtastic Firmware</p>
+        <!-- header -->
+        <div id="header-placeholder">
+            <div class="text-center py-2 bg-light">Loading header...</div>
         </div>
 
-        <!-- Main Content -->
-        <div class="container-fluid text-center">
-            <div class="mx-auto w-75 text-start py-4">
+        <!-- navbar -->
+        <div id="navbar-placeholder">
+            <nav class="navbar navbar-light bg-teal text-black justify-content-center">
+            <span class="navbar-text">Loading menu...</span>
+            </nav>
+        </div>
 
-                <p>Since looking into Meshtastic technology, I’ve become genuinely impressed by how much thought went into this project. It’s a true open-source effort — not just another “hack.”</p>
+        <!--      Main Area    -->
+        <div id="main-placeholder" style="display:none;">
+            <!-- Header Image -->
+            <div class="container-fluid" style="background-image: url('../assets/blog2.jpg'); height: 400px; background-size: cover; background-position: center;"></div>
 
-                <p>One area that I don’t see being used enough (and maybe I’ve just been looking in the wrong places) is the <strong>Module</strong> feature of the firmware. In this post, I’d like to dig a bit deeper and hopefully inspire some of you out there to create your own great modules.</p>
+            <!-- Blog Title -->
+            <div class="container-fluid bg-teal text-center py-4">
+                <h1 class="display-5">Meet the Modules</h1>
+                <p class="lead">Extending the Meshtastic Firmware</p>
+            </div>
 
-                <h2 class="mt-5">The Basics</h2>
-                <p>The important thing to remember is that a Meshtastic unit always has at least two base components: the Semtech LoRa chipset (the radio) and a controller/processor (which can be either a CPU or an MCU). Connected to the unit there may be a variety of peripherals.</p>
+            <!-- Main Content -->
+            <div class="container-fluid text-center">
+                <div class="mx-auto w-75 text-start py-4">
 
-                <p>Why this matters is that we need only minimal control software to operate the radio — and that control logic must live somewhere. When it’s compiled and executed directly on the MCU, we call it firmware; when it runs on a CPU, it’s software.</p>
+                    <p>Since looking into Meshtastic technology, I’ve become genuinely impressed by how much thought went into this project. It’s a true open-source effort — not just another “hack.”</p>
 
-                <p>Now, most of the MCUs used in Meshtastic devices don’t run out of flash or RAM when running the standard firmware, which leaves room for additional code — and that’s where <strong>Modules</strong> come in.</p>
+                    <p>One area that I don’t see being used enough (and maybe I’ve just been looking in the wrong places) is the <strong>Module</strong> feature of the firmware. In this post, I’d like to dig a bit deeper and hopefully inspire some of you out there to create your own great modules.</p>
 
-                <h2 class="mt-5">What I First Thought (and What I Learned Later)</h2>
-                <p>When I first started exploring Meshtastic, I thought “Modules” were simply names for built-in features like Canned Messages, MQTT, or Telemetry — basically, handy add-ons for the Meshtastic unit.</p>
+                    <h2 class="mt-5">The Basics</h2>
+                    <p>The important thing to remember is that a Meshtastic unit always has at least two base components: the Semtech LoRa chipset (the radio) and a controller/processor (which can be either a CPU or an MCU). Connected to the unit there may be a variety of peripherals.</p>
 
-                <p>Later, after doing what any good engineer does (first make it work, then read the manual), I discovered that those are indeed modules — just ones that have been developed to a mature state and bundled with the main firmware.</p>
+                    <p>Why this matters is that we need only minimal control software to operate the radio — and that control logic must live somewhere. When it’s compiled and executed directly on the MCU, we call it firmware; when it runs on a CPU, it’s software.</p>
 
-                <p>But we’re not limited to those. We can create our own modules and compile a custom build of the firmware that includes them, tailored for our own or our community’s nodes. That realization opened the rabbit hole that’s been keeping me busy ever since.</p>
+                    <p>Now, most of the MCUs used in Meshtastic devices don’t run out of flash or RAM when running the standard firmware, which leaves room for additional code — and that’s where <strong>Modules</strong> come in.</p>
 
-                <h2 class="mt-5">Getting Started</h2>
-                <p>To create a module, you first need a local copy of the Meshtastic firmware. The documentation on <a href="https://meshtastic.org/docs/development/firmware/build/">Building Meshtastic Firmware</a> is a good starting point.</p>
+                    <h2 class="mt-5">What I First Thought (and What I Learned Later)</h2>
+                    <p>When I first started exploring Meshtastic, I thought “Modules” were simply names for built-in features like Canned Messages, MQTT, or Telemetry — basically, handy add-ons for the Meshtastic unit.</p>
 
-                <p>It’s also worth noting that with enough polish and a compelling use case, you can propose adding your module to the main repository — something I hope to explore in the future.</p>
+                    <p>Later, after doing what any good engineer does (first make it work, then read the manual), I discovered that those are indeed modules — just ones that have been developed to a mature state and bundled with the main firmware.</p>
 
-                <p>Once the build environment is ready, the fun begins.</p>
+                    <p>But we’re not limited to those. We can create our own modules and compile a custom build of the firmware that includes them, tailored for our own or our community’s nodes. That realization opened the rabbit hole that’s been keeping me busy ever since.</p>
 
-                <h2 class="mt-5">Anatomy of a Simple Module</h2>
-                <p>For my own experiment, I created a small <strong>Beacon Module</strong> that responds to specific incoming text commands.</p>
+                    <h2 class="mt-5">Getting Started</h2>
+                    <p>To create a module, you first need a local copy of the Meshtastic firmware. The documentation on <a href="https://meshtastic.org/docs/development/firmware/build/">Building Meshtastic Firmware</a> is a good starting point.</p>
 
-                <p>A new module consists of two files:</p>
-                <ul>
-                    <li>A header file defining the class, variables, and functions</li>
-                    <li>A source file implementing the logic</li>
-                </ul>
-                <p>Also look at this Meshtastic page on <a href="https://meshtastic.org/docs/development/device/module-api/">Module API</a></p>
+                    <p>It’s also worth noting that with enough polish and a compelling use case, you can propose adding your module to the main repository — something I hope to explore in the future.</p>
 
-                <p>You also need to register your module so the firmware knows to start it. This happens in <code>Modules.cpp</code>, where all modules are created and initialized. I initially missed this step — and couldn’t figure out why my code was never called!</p>
+                    <p>Once the build environment is ready, the fun begins.</p>
 
-                <h2 class="mt-5">How Modules Are Started Inside the Firmware</h2>
-                <p>To understand where your module gets its life, it helps to look briefly at the startup sequence in the Meshtastic firmware.</p>
+                    <h2 class="mt-5">Anatomy of a Simple Module</h2>
+                    <p>For my own experiment, I created a small <strong>Beacon Module</strong> that responds to specific incoming text commands.</p>
 
-                <div class="diagram">
-┌────────────────────────┐
-│      main.cpp          │
-│  ───────────────────── │
-│  setup()               │
-│   ├─ initNodeDB()      │  ← initializes Node information    
-│   ├─ initService()     │  ← initializes the MeshService
-│   ├─ setupModules()    │  ← initializes all modules    
-│   ├─ initRadio()       │  ← initializes different radios 
-│   │                    │
-│  loop()                │
-│   ├─ service->loop()   │
-└────────────────────────┘
-                </div>
+                    <p>A new module consists of two files:</p>
+                    <ul>
+                        <li>A header file defining the class, variables, and functions</li>
+                        <li>A source file implementing the logic</li>
+                    </ul>
+                    <p>Also look at this Meshtastic page on <a href="https://meshtastic.org/docs/development/device/module-api/">Module API</a></p>
 
-                <p>And on the Modules side:</p>
-                <div class="diagram">
-┌─────────────────────────────┐
-│     Modules.cpp             │
-│  ────────────────────────── │
-│                             │
-│   ├─ include exictingModules│  ← other moduleds can actually be turned off
-│   ├─ include MyModule       │  ← you add this line
-│                             │
-│  setupModules()             │
-│   ├─ new MyModule           │  ← create new instance of your module
-└─────────────────────────────┘
-                </div>
-                <p></p>
-                <pre>
-// main.cpp
-void setup()
-{
-    // ... initialize radio, filesystem, display, etc.
-    setupModules();   // <- initialize and register modules
-}
+                    <p>You also need to register your module so the firmware knows to start it. This happens in <code>Modules.cpp</code>, where all modules are created and initialized. I initially missed this step — and couldn’t figure out why my code was never called!</p>
 
-void loop()
-{
-    // ... handle radio and mesh networking
-    #ifdef ARCH_ESP32
-        esp32Loop();
+                    <h2 class="mt-5">How Modules Are Started Inside the Firmware</h2>
+                    <p>To understand where your module gets its life, it helps to look briefly at the startup sequence in the Meshtastic firmware.</p>
+
+                    <div class="diagram">
+    ┌────────────────────────┐
+    │      main.cpp          │
+    │  ───────────────────── │
+    │  setup()               │
+    │   ├─ initNodeDB()      │  ← initializes Node information    
+    │   ├─ initService()     │  ← initializes the MeshService
+    │   ├─ setupModules()    │  ← initializes all modules    
+    │   ├─ initRadio()       │  ← initializes different radios 
+    │   │                    │
+    │  loop()                │
+    │   ├─ service->loop()   │
+    └────────────────────────┘
+                    </div>
+
+                    <p>And on the Modules side:</p>
+                    <div class="diagram">
+    ┌─────────────────────────────┐
+    │     Modules.cpp             │
+    │  ────────────────────────── │
+    │                             │
+    │   ├─ include exictingModules│  ← other moduleds can actually be turned off
+    │   ├─ include MyModule       │  ← you add this line
+    │                             │
+    │  setupModules()             │
+    │   ├─ new MyModule           │  ← create new instance of your module
+    └─────────────────────────────┘
+                    </div>
+                    <p></p>
+                    <pre>
+    // main.cpp
+    void setup()
+    {
+        // ... initialize radio, filesystem, display, etc.
+        setupModules();   // <- initialize and register modules
+    }
+
+    void loop()
+    {
+        // ... handle radio and mesh networking
+        #ifdef ARCH_ESP32
+            esp32Loop();
+        #endif
+        #ifdef ARCH_NRF52
+            nrf52Loop();
+        #endif
+        power->powerCommandsCheck();
+
+        ....
+
+        service->loop();
+    }
+                    </pre>
+
+                    <pre>
+    // Modules.cpp
+    // Existing includes
+    //... 
+    #if !MESHTASTIC_EXCLUDE_CANNEDMESSAGES
+        #include "modules/CannedMessageModule.h"
     #endif
-    #ifdef ARCH_NRF52
-        nrf52Loop();
+    //...
+    #if HAS_TELEMETRY
+        #include "modules/Telemetry/DeviceTelemetry.h"
     #endif
-    power->powerCommandsCheck();
-
-    ....
-
-    service->loop();
-}
-                </pre>
-
-                <pre>
-// Modules.cpp
-// Existing includes
-//... 
-#if !MESHTASTIC_EXCLUDE_CANNEDMESSAGES
-    #include "modules/CannedMessageModule.h"
-#endif
-//...
-#if HAS_TELEMETRY
-    #include "modules/Telemetry/DeviceTelemetry.h"
-#endif
-//...
-// before void setupModules()
-#include "modules/ReplyBeaconModule.h"
-
-void setupModules(){
-    // Existing module setups
     //...
+    // before void setupModules()
+    #include "modules/ReplyBeaconModule.h"
 
-    // Example: Put your module here
-    // new ReplyModule();
-    replyBeaconModule = new ReplyBeaconModule();
+    void setupModules(){
+        // Existing module setups
+        //...
 
-    // Rest of existing code
-    //...
-}
-                </pre>
+        // Example: Put your module here
+        // new ReplyModule();
+        replyBeaconModule = new ReplyBeaconModule();
 
-                <p>This is where your module officially becomes part of the firmware’s heartbeat. When you add your custom <code>new ReplyBeaconModule()</code> call, the system automatically initializes it during startup.</p>
+        // Rest of existing code
+        //...
+    }
+                    </pre>
 
-                <h2 class="mt-5">How the Module Responds</h2>
-                <p>Meshtastic uses a cooperative threading model, rather than full multitasking. Each module gets a slice of time when the firmware scheduler runs through its active tasks.</p>
+                    <p>This is where your module officially becomes part of the firmware’s heartbeat. When you add your custom <code>new ReplyBeaconModule()</code> call, the system automatically initializes it during startup.</p>
 
-                <pre>
-// ReplyBeaconModule.cpp
-/** Called to handle a particular incoming message **/
-virtual ProcessMessage handleReceived(const meshtastic_MeshPacket &mp) override;
+                    <h2 class="mt-5">How the Module Responds</h2>
+                    <p>Meshtastic uses a cooperative threading model, rather than full multitasking. Each module gets a slice of time when the firmware scheduler runs through its active tasks.</p>
 
-// Send the reply, check if service is valid
-if (service) {
-    service->sendToMesh(reply);
-}
-                </pre>
+                    <pre>
+    // ReplyBeaconModule.cpp
+    /** Called to handle a particular incoming message **/
+    virtual ProcessMessage handleReceived(const meshtastic_MeshPacket &mp) override;
 
-                <p>This simple structure is what makes Meshtastic extensible. You’re not hacking the main firmware logic; you’re plugging into a framework designed to give your code safe execution time.</p>
+    // Send the reply, check if service is valid
+    if (service) {
+        service->sendToMesh(reply);
+    }
+                    </pre>
 
-                <p>Your job is to implement the specific behavior your module needs — whether that’s responding to packets, reading a sensor, or sending out periodic updates.</p>
+                    <p>This simple structure is what makes Meshtastic extensible. You’re not hacking the main firmware logic; you’re plugging into a framework designed to give your code safe execution time.</p>
 
-                <h2 class="mt-5">So Why Build a Module?</h2>
-                <p>This blog isn’t meant to be a full “how-to” tutorial. The goal is to show that the Meshtastic firmware already provides hooks and structure for your own ideas — you don’t have to start from scratch.</p>
+                    <p>Your job is to implement the specific behavior your module needs — whether that’s responding to packets, reading a sensor, or sending out periodic updates.</p>
 
-                <p>With most base units offering multiple interfaces like I²C, SPI, and UART, a world of possibilities opens up:</p>
-                <ul>
-                    <li>A module reading from a radiation sensor, mapping live radiation levels across a mesh</li>
-                    <li>A motion-sensing module using an accelerometer to monitor earthquake activity</li>
-                    <li>A weather beacon reporting environmental data from remote sensors</li>
-                </ul>
+                    <h2 class="mt-5">So Why Build a Module?</h2>
+                    <p>This blog isn’t meant to be a full “how-to” tutorial. The goal is to show that the Meshtastic firmware already provides hooks and structure for your own ideas — you don’t have to start from scratch.</p>
 
-                <p>Each of these is entirely possible using the same lightweight module structure.</p>
+                    <p>With most base units offering multiple interfaces like I²C, SPI, and UART, a world of possibilities opens up:</p>
+                    <ul>
+                        <li>A module reading from a radiation sensor, mapping live radiation levels across a mesh</li>
+                        <li>A motion-sensing module using an accelerometer to monitor earthquake activity</li>
+                        <li>A weather beacon reporting environmental data from remote sensors</li>
+                    </ul>
 
-                <h2 class="mt-5">Wrapping Up</h2>
-                <p>Meshtastic’s module system is one of its most powerful — and underused — features. It allows us to take a mature, community-driven firmware and expand it in ways that suit local needs or creative experiments.</p>
+                    <p>Each of these is entirely possible using the same lightweight module structure.</p>
 
-                <p>My <a href="https://github.com/jkpg-mesh/mesh-beacon-Module">Mesh Beacon Module</a> just a small proof of concept, but it shows that extending Meshtastic isn’t reserved for firmware experts. If you can build and flash the code, you can extend it.</p>
+                    <h2 class="mt-5">Wrapping Up</h2>
+                    <p>Meshtastic’s module system is one of its most powerful — and underused — features. It allows us to take a mature, community-driven firmware and expand it in ways that suit local needs or creative experiments.</p>
 
-                <p>I’d love to see more modules emerge from the community — things that monitor, visualize, or interact in ways the core developers might never have imagined.</p>
+                    <p>My <a href="https://github.com/jkpg-mesh/mesh-beacon-Module">Mesh Beacon Module</a> just a small proof of concept, but it shows that extending Meshtastic isn’t reserved for firmware experts. If you can build and flash the code, you can extend it.</p>
 
-                <p>After all, that’s the heart of open source: not just using what exists, but building what’s missing.</p>
+                    <p>I’d love to see more modules emerge from the community — things that monitor, visualize, or interact in ways the core developers might never have imagined.</p>
 
-                <p class="mt-5"><em>Written by JohanV<br>2025-11-09</em></p>
+                    <p>After all, that’s the heart of open source: not just using what exists, but building what’s missing.</p>
+
+                    <p class="mt-5"><em>Written by JohanV<br>2025-11-09</em></p>
+                </div>
             </div>
         </div>
+        
+        <!--      footer     -->
+        <div id="footer-placeholder">
+            <div class="text-center py-2 bg-light">Loading footer...</div>
+        </div>
 
-        <!-- Footer -->
-        <div id="footer-placeholder"></div>
-        <script>
-            fetch('../footer.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('footer-placeholder').innerHTML = data;
-                });
-        </script>
+        <!-- JS includes -->
+        <script src="/js/includes.js"></script>
     </body>
 </html>

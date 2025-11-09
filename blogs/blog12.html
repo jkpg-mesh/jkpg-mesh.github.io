@@ -2,219 +2,216 @@
 <html lang="en">
     <head>
         <!-- Blog title -->
-        <title>The Dove — A Meshtastic Community Project</title>
-        <link rel="icon" type="image/png" href="../assets/M-POWERED.png">
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-        <link href="../css/style.css" rel="stylesheet">
+        <title>The Dove — A Meshtastic Community Project</title>
     </head>
     <body>
-        <!-- Navbar -->
-        <div id="navbar-placeholder"></div>
-        <script>
-            fetch('../navbar.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('navbar-placeholder').innerHTML = data;
-                });
-        </script>
-
-        <!-- Header Image -->
-        <div class="container-fluid" style="background-image: url('../assets/blog2.jpg'); height: 400px; background-size: cover; background-position: center;"></div>
-
-        <!-- Blog Title -->
-        <div class="container-fluid bg-teal text-center py-4">
-            <h1 class="display-5">"The Dove" is coming!</h1>
-            <p class="lead">A beacon for Jönköping — building community mesh infrastructure.</p>
+        <!-- header -->
+        <div id="header-placeholder">
+            <div class="text-center py-2 bg-light">Loading header...</div>
         </div>
 
-        <!-- Main Content -->
-        <div class="container-fluid text-center">
-            <div class="mx-auto w-75 text-start py-4">
+        <!-- navbar -->
+        <div id="navbar-placeholder">
+            <nav class="navbar navbar-light bg-teal text-black justify-content-center">
+            <span class="navbar-text">Loading menu...</span>
+            </nav>
+        </div>
 
-                <h2>What Started It</h2>
-                <p>
-                    As with many things in the Meshtastic community, this project began with the excitement of 
-                    <strong>creating something useful</strong>, the opportunity to <strong>serve the community</strong>, 
-                    and the possibility of <strong>collaborating with fellow enthusiasts</strong>.
-                </p>
+        <!--      Main Area    -->
+        <div id="main-placeholder" style="display:none;">
+            <!-- Header Image -->
+            <div class="container-fluid" style="background-image: url('../assets/blog2.jpg'); height: 400px; background-size: cover; background-position: center;"></div>
 
-                <p>
-                    The jkpg-mesh community consists of members who are actively working to expand the Meshtastic network, 
-                    but also to show others that Meshtastic puts the power to create <strong>hi-tech communication projects</strong> 
-                    into their hands — with <strong>low entry constraints</strong>.
-                </p>
+            <!-- Blog Title -->
+            <div class="container-fluid bg-teal text-center py-4">
+                <h1 class="display-5">"The Dove" is coming!</h1>
+                <p class="lead">A beacon for Jönköping — building community mesh infrastructure.</p>
+            </div>
 
-                <p>
-                    People wanting to participate don’t need any special radio licensing. They can buy 
-                    <strong>completely built units</strong> or modules, which are relatively <strong>inexpensive</strong>, 
-                    and gradually add components over time. Along the way, they learn about 
-                    <strong>radio communication</strong>, <strong>antennas</strong>, <strong>software integration</strong>, 
-                    <strong>electronics design</strong>, <strong>enclosure design</strong>, and much more.
-                </p>
+            <!-- Main Content -->
+            <div class="container-fluid text-center">
+                <div class="mx-auto w-75 text-start py-4">
 
-                <div class="bg-light p-3 rounded border my-4">
-                    <blockquote class="blockquote mb-0 text-center">
-                        “The Dove” was created with the hope of being a 
-                        <strong>beacon for the city of Jönköping</strong> — 
-                        a starting point for users who want to connect and interact on the <em>Mesh</em>.
-                    </blockquote>
+                    <h2>What Started It</h2>
+                    <p>
+                        As with many things in the Meshtastic community, this project began with the excitement of 
+                        <strong>creating something useful</strong>, the opportunity to <strong>serve the community</strong>, 
+                        and the possibility of <strong>collaborating with fellow enthusiasts</strong>.
+                    </p>
+
+                    <p>
+                        The jkpg-mesh community consists of members who are actively working to expand the Meshtastic network, 
+                        but also to show others that Meshtastic puts the power to create <strong>hi-tech communication projects</strong> 
+                        into their hands — with <strong>low entry constraints</strong>.
+                    </p>
+
+                    <p>
+                        People wanting to participate don’t need any special radio licensing. They can buy 
+                        <strong>completely built units</strong> or modules, which are relatively <strong>inexpensive</strong>, 
+                        and gradually add components over time. Along the way, they learn about 
+                        <strong>radio communication</strong>, <strong>antennas</strong>, <strong>software integration</strong>, 
+                        <strong>electronics design</strong>, <strong>enclosure design</strong>, and much more.
+                    </p>
+
+                    <div class="bg-light p-3 rounded border my-4">
+                        <blockquote class="blockquote mb-0 text-center">
+                            “The Dove” was created with the hope of being a 
+                            <strong>beacon for the city of Jönköping</strong> — 
+                            a starting point for users who want to connect and interact on the <em>Mesh</em>.
+                        </blockquote>
+                    </div>
+
+                    <h2>Hardware</h2>
+                    <p>
+                        At first glance, “The Dove” might appear to be a single box. But once you open the lid, you find a 
+                        <strong>closely choreographed dance</strong> between several technologies and hardware components.
+                    </p>
+
+                    <ul>
+                        <li>Heltec V3 board</li>
+                        <li>Seeed Studio Micro Node</li>
+                        <li>Raspberry Pi Zero</li>
+                        <li>POE (Power Over Ethernet) unit</li>
+                        <li>In-house developed MQTT broker</li>
+                        <li>Multiple power supplies</li>
+                        <li>INA219 module</li>
+                        <li>BME module</li>
+                        <li>Procom vertical antenna for 433 MHz</li>
+                        <li>Fiberglass antenna (10 dBm) for 868 MHz</li>
+                        <li>Weatherproof housing</li>
+                    </ul>
+
+                    <h2>Design</h2>
+                    <p>
+                        The box relies on power supplied via the Ethernet cable (POE). This power is then distributed to 
+                        <strong>buck converters</strong> (DC-to-DC step-down converters that reduce the input voltage to the desired output).  
+                        This ensures that if something fails on one module, it won’t bring down the entire system, and it also minimizes 
+                        electrical interference between devices.
+                    </p>
+
+                    <div class="text-center my-3">
+                        <img src="../assets/buck_small.png" alt="Buck Converter" class="img-fluid rounded shadow">
+                    </div>
+
+                    <p>
+                        The 868 MHz band is served by the Meshtastic unit (Seeed Studio Micro Node), acting as:
+                    </p>
+                    <ol>
+                        <li>A potential repeating node in the mesh (set up as CLIENT, following Meshtastic rebroadcast algorithms).</li>
+                        <li>A communication test beacon.</li>
+                    </ol>
+
+                    <p>
+                        The 433 MHz band is handled by the MeshCom unit (Heltec V3), focusing on:
+                    </p>
+                    <ol>
+                        <li>Supporting amateur radio users interested in MeshCom (nodes identify using callsigns, with strong integration to amateur radio networks).</li>
+                        <li>APRS (Automatic Packet Reporting System).</li>
+                    </ol>
+
+                    <p>
+                        With the integrated MQTT broker, the box can <strong>rebroadcast unit information</strong> 
+                        (when connected to the internet via Ethernet) and allow users to view selected data through a website.
+                    </p>
+
+                    <p>
+                        Additional sensor hardware provides environmental information such as <strong>temperature</strong> and 
+                        <strong>air pressure</strong>, currently integrated with the 868 MHz Meshtastic unit.
+                    </p>
+
+                    <p>
+                        The Raspberry Pi adds an extra layer of control — in the future, it may allow 
+                        <strong>flashing the units remotely</strong>, or <strong>powering modules on and off</strong> as needed.
+                    </p>
+
+                    <p>
+                        Of course, all this functionality means little if nobody can hear it or communicate with it. 
+                        That’s why the design includes:
+                    </p>
+                    <ol>
+                        <li>A Procom vertical antenna for 433 MHz.</li>
+                        <li>A fiberglass antenna (10 dBm) for 868 MHz.</li>
+                    </ol>
+
+                    <p>Everything is neatly packaged inside a <strong>repurposed, weatherproof metal box</strong>.</p>
+
+                    <div class="text-center my-3">
+                        <img src="../assets/box_small.png" alt="Box" class="img-fluid rounded shadow">
+                    </div>
+
+                    <h2>Code</h2>
+                    <p>
+                        To give the unit a bit more <em>intelligence</em>, a Python application runs on the Raspberry Pi Zero, 
+                        connected to the 868 MHz Meshtastic unit. It uses the 
+                        <a href="https://python.meshtastic.org/" target="_blank">meshtastic package</a>:
+                    </p>
+
+        <pre><code class="language-bash">pip3 install meshtastic</code></pre>
+
+                    <p>
+                        Initially, “The Dove” will only respond to a defined set of commands, but thanks to the integrated hardware, 
+                        its functionality can (and will) expand over time.
+                    </p>
+
+                    <div class="text-center my-3">
+                        <img src="../assets/Startup_small.png" alt="Startup screen" class="img-fluid rounded shadow">
+                    </div>
+
+        <pre><code class="language-python">
+        interface = meshtastic.serial_interface.SerialInterface()
+        logging.info("Meshtastic interface attempting onnection...")
+
+        def onReceive(packet, interface):
+            """
+            Handle incoming packets from the Meshtastic device.
+            :param packet: The received packet.
+            :param interface: The Meshtastic interface instance.
+            """
+            try:
+                match packet['decoded']['portnum']:
+                    case "TEXT_MESSAGE_APP":
+                        fromId = packet['fromId']
+                        body = packet['decoded']['text']
+                        logging.debug(f"Text package message: {body}")
+                        msg = command_handler(packet)
+                    case _:
+                        #Handle other portnums if needed
+                        pass
+            except Exception as e:
+                logging.warning(f"Error parsing packet: {e}")
+        </code></pre>
+
+                    <p>
+                        When a recognized command is received, it prepares a response message and instructs the unit to send it back to the requesting user.
+                    </p>
+
+                    <h2>Where Next?</h2>
+                    <p>
+                        Currently, Duvan is in the final integration and testing stage (yes, even we tinkerers don’t just build and mount things on a pole without testing!).
+                    </p>
+
+                    <p>
+                        We hope this project will inspire others to build their own nodes. 
+                        If you’d like to sponsor equipment or installation opportunities, please reach out via 
+                        <a href="https://jkpg-mesh.se" target="_blank">jkpg-mesh.se</a> or email 
+                        <a href="mailto:jkpg-mesh@protonmail.com">jkpg-mesh@protonmail.com</a>.
+                    </p>
+
+                    <p>
+                        A special thanks to Gabriel (SA7GAM) for the hard work, and Martin (SM7UVT) for components and the enclosure.
+                    </p>
+                    <p class="mt-5"><em>Written by JohanV<br>2025-10-05</em></p>
                 </div>
-
-                <h2>Hardware</h2>
-                <p>
-                    At first glance, “The Dove” might appear to be a single box. But once you open the lid, you find a 
-                    <strong>closely choreographed dance</strong> between several technologies and hardware components.
-                </p>
-
-                <ul>
-                    <li>Heltec V3 board</li>
-                    <li>Seeed Studio Micro Node</li>
-                    <li>Raspberry Pi Zero</li>
-                    <li>POE (Power Over Ethernet) unit</li>
-                    <li>In-house developed MQTT broker</li>
-                    <li>Multiple power supplies</li>
-                    <li>INA219 module</li>
-                    <li>BME module</li>
-                    <li>Procom vertical antenna for 433 MHz</li>
-                    <li>Fiberglass antenna (10 dBm) for 868 MHz</li>
-                    <li>Weatherproof housing</li>
-                </ul>
-
-                <h2>Design</h2>
-                <p>
-                    The box relies on power supplied via the Ethernet cable (POE). This power is then distributed to 
-                    <strong>buck converters</strong> (DC-to-DC step-down converters that reduce the input voltage to the desired output).  
-                    This ensures that if something fails on one module, it won’t bring down the entire system, and it also minimizes 
-                    electrical interference between devices.
-                </p>
-
-                <div class="text-center my-3">
-                    <img src="../assets/buck_small.png" alt="Buck Converter" class="img-fluid rounded shadow">
-                </div>
-
-                <p>
-                    The 868 MHz band is served by the Meshtastic unit (Seeed Studio Micro Node), acting as:
-                </p>
-                <ol>
-                    <li>A potential repeating node in the mesh (set up as CLIENT, following Meshtastic rebroadcast algorithms).</li>
-                    <li>A communication test beacon.</li>
-                </ol>
-
-                <p>
-                    The 433 MHz band is handled by the MeshCom unit (Heltec V3), focusing on:
-                </p>
-                <ol>
-                    <li>Supporting amateur radio users interested in MeshCom (nodes identify using callsigns, with strong integration to amateur radio networks).</li>
-                    <li>APRS (Automatic Packet Reporting System).</li>
-                </ol>
-
-                <p>
-                    With the integrated MQTT broker, the box can <strong>rebroadcast unit information</strong> 
-                    (when connected to the internet via Ethernet) and allow users to view selected data through a website.
-                </p>
-
-                <p>
-                    Additional sensor hardware provides environmental information such as <strong>temperature</strong> and 
-                    <strong>air pressure</strong>, currently integrated with the 868 MHz Meshtastic unit.
-                </p>
-
-                <p>
-                    The Raspberry Pi adds an extra layer of control — in the future, it may allow 
-                    <strong>flashing the units remotely</strong>, or <strong>powering modules on and off</strong> as needed.
-                </p>
-
-                <p>
-                    Of course, all this functionality means little if nobody can hear it or communicate with it. 
-                    That’s why the design includes:
-                </p>
-                <ol>
-                    <li>A Procom vertical antenna for 433 MHz.</li>
-                    <li>A fiberglass antenna (10 dBm) for 868 MHz.</li>
-                </ol>
-
-                <p>Everything is neatly packaged inside a <strong>repurposed, weatherproof metal box</strong>.</p>
-
-                <div class="text-center my-3">
-                    <img src="../assets/box_small.png" alt="Box" class="img-fluid rounded shadow">
-                </div>
-
-                <h2>Code</h2>
-                <p>
-                    To give the unit a bit more <em>intelligence</em>, a Python application runs on the Raspberry Pi Zero, 
-                    connected to the 868 MHz Meshtastic unit. It uses the 
-                    <a href="https://python.meshtastic.org/" target="_blank">meshtastic package</a>:
-                </p>
-
-    <pre><code class="language-bash">pip3 install meshtastic</code></pre>
-
-                <p>
-                    Initially, “The Dove” will only respond to a defined set of commands, but thanks to the integrated hardware, 
-                    its functionality can (and will) expand over time.
-                </p>
-
-                <div class="text-center my-3">
-                    <img src="../assets/Startup_small.png" alt="Startup screen" class="img-fluid rounded shadow">
-                </div>
-
-    <pre><code class="language-python">
-    interface = meshtastic.serial_interface.SerialInterface()
-    logging.info("Meshtastic interface attempting onnection...")
-
-    def onReceive(packet, interface):
-        """
-        Handle incoming packets from the Meshtastic device.
-        :param packet: The received packet.
-        :param interface: The Meshtastic interface instance.
-        """
-        try:
-            match packet['decoded']['portnum']:
-                case "TEXT_MESSAGE_APP":
-                    fromId = packet['fromId']
-                    body = packet['decoded']['text']
-                    logging.debug(f"Text package message: {body}")
-                    msg = command_handler(packet)
-                case _:
-                    #Handle other portnums if needed
-                    pass
-        except Exception as e:
-            logging.warning(f"Error parsing packet: {e}")
-    </code></pre>
-
-                <p>
-                    When a recognized command is received, it prepares a response message and instructs the unit to send it back to the requesting user.
-                </p>
-
-                <h2>Where Next?</h2>
-                <p>
-                    Currently, Duvan is in the final integration and testing stage (yes, even we tinkerers don’t just build and mount things on a pole without testing!).
-                </p>
-
-                <p>
-                    We hope this project will inspire others to build their own nodes. 
-                    If you’d like to sponsor equipment or installation opportunities, please reach out via 
-                    <a href="https://jkpg-mesh.se" target="_blank">jkpg-mesh.se</a> or email 
-                    <a href="mailto:jkpg-mesh@protonmail.com">jkpg-mesh@protonmail.com</a>.
-                </p>
-
-                <p>
-                    A special thanks to Gabriel (SA7GAM) for the hard work, and Martin (SM7UVT) for components and the enclosure.
-                </p>
-                <p class="mt-5"><em>Written by JohanV<br>2025-10-05</em></p>
             </div>
         </div>
+        
+        <!--      footer     -->
+        <div id="footer-placeholder">
+            <div class="text-center py-2 bg-light">Loading footer...</div>
+        </div>
 
-        <!-- Footer -->
-        <div id="footer-placeholder"></div>
-        <script>
-            fetch('../footer.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('footer-placeholder').innerHTML = data;
-                });
-        </script>
+        <!-- JS includes -->
+        <script src="/js/includes.js"></script>
     </body>
 </html>

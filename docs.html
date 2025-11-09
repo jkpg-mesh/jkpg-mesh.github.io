@@ -1,104 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>jkpg-mesh Docs</title>
-    <link rel="icon" type="image/png" href="../assets/M-POWERED.png">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <!-- Bootstrap CSS & Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link href="css/style.css" rel="stylesheet">
-</head>
+    <head>
+        <meta charset="utf-8">
+        <title>jkpg-mesh Docs</title>
+    </head>
     <body>
-        <!-- Placeholder for the navbar -->
-        <div id="navbar-placeholder"></div>
-        <script>
-            fetch('navbar.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('navbar-placeholder').innerHTML = data;
-                    // You might need to adjust the padding-top of #sidebar and #doc-content
-                    // here if the navbar height is determined after it's loaded.
-                    // For a fixed navbar, it's often easier to know its height beforehand.
-                });
-        </script>
-
-        <!-- Page content -->
-        <div class="d-md-none text-end p-2 bg-light border-bottom">
-            <button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar"
-                    aria-expanded="false" aria-controls="sidebar">
-                <i class="bi bi-list"></i> Menu
-            </button>
+        <!-- header -->
+        <div id="header-placeholder">
+            <div class="text-center py-2 bg-light">Loading header...</div>
         </div>
 
-        <div class="container-fluid">
-            <div class="row">
-                <nav id="sidebar" class="collapse d-md-block col-md-2 bg-light border-end p-3">
+        <!-- navbar -->
+        <div id="navbar-placeholder">
+            <nav class="navbar navbar-light bg-teal text-black justify-content-center">
+            <span class="navbar-text">Loading menu...</span>
+            </nav>
+        </div>
+
+        <!--      Main Area    -->
+        <div id="main-placeholder" style="display:none;">    
+            <!-- Page content -->
+            <div class="d-md-none text-end p-2 bg-light border-bottom">
+                <button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar"
+                        aria-expanded="false" aria-controls="sidebar">
+                    <i class="bi bi-list"></i> Menu
+                </button>
+            </div>
+
+            <div class="container-fluid">
+                <div class="row">
                     <nav id="sidebar" class="collapse d-md-block col-md-2 bg-light border-end p-3">
-                        <h5 class="mb-3">Docs</h5>
+                        <nav id="sidebar" class="collapse d-md-block col-md-2 bg-light border-end p-3">
+                            <h5 class="mb-3">Docs</h5>
 
-                        <!-- Using accordion for sidebar submenu -->
-                        <div class="accordion" id="sidebarAccordion">
-                            <div class="accordion-item border-0">
-                                <ul class="nav nav-pills flex-column">
+                            <!-- Using accordion for sidebar submenu -->
+                            <div class="accordion" id="sidebarAccordion">
+                                <div class="accordion-item border-0">
+                                    <ul class="nav nav-pills flex-column">
 
-                                    <li class="nav-item">
-                                        <a class="nav-link active" href="#" onclick="loadDoc('intro.html', this)">Intro</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#" onclick="loadDoc('settings.html', this)">Settings</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#" onclick="loadDoc('dutycycle.html', this)">Duty Cycle</a>
-                                    </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link active" href="#" onclick="loadDoc('intro.html', this)">Intro</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#" onclick="loadDoc('settings.html', this)">Settings</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#" onclick="loadDoc('dutycycle.html', this)">Duty Cycle</a>
+                                        </li>
 
-                                    <!-- Equipment item with collapsible submenu -->
-                                    <li class="nav-item">
-                                        <button class="nav-link w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#equipmentMenu" aria-expanded="false" aria-controls="equipmentMenu" onclick="loadDoc('meshunits.html', this)">
-                                            Equipment
-                                        </button>
-                                        <div id="equipmentMenu" class="collapse ps-3" data-bs-parent="#sidebarAccordion">
-                                            <ul class="nav flex-column small">
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#heltec_v3">Heltec v3</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#lilygo_t-beam">Lilygo T-Beam</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#heltec_t114">Heltec Tracker T114</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
+                                        <!-- Equipment item with collapsible submenu -->
+                                        <li class="nav-item">
+                                            <button class="nav-link w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#equipmentMenu" aria-expanded="false" aria-controls="equipmentMenu" onclick="loadDoc('meshunits.html', this)">
+                                                Equipment
+                                            </button>
+                                            <div id="equipmentMenu" class="collapse ps-3" data-bs-parent="#sidebarAccordion">
+                                                <ul class="nav flex-column small">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="#heltec_v3">Heltec v3</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="#lilygo_t-beam">Lilygo T-Beam</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="#heltec_t114">Heltec Tracker T114</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
 
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#" onclick="loadDoc('antenna.html', this)">Antenna</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#" onclick="loadDoc('enclosures.html', this)">Enclosures</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#" onclick="loadDoc('solar.html', this)">Solar-power</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#" onclick="loadDoc('power.html', this)">Power</a>
-                                    </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#" onclick="loadDoc('antenna.html', this)">Antenna</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#" onclick="loadDoc('enclosures.html', this)">Enclosures</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#" onclick="loadDoc('solar.html', this)">Solar-power</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#" onclick="loadDoc('power.html', this)">Power</a>
+                                        </li>
 
-                                </ul>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
+                        </nav>
                     </nav>
-                </nav>
 
-                <main class="col-md-10 ms-sm-auto px-4 pt-4" id="doc-content">
-                    <p>Loading content...</p>
-                </main>
+                    <main class="col-md-10 ms-sm-auto px-4 pt-4" id="doc-content">
+                        <p>Loading content...</p>
+                    </main>
+                </div>
             </div>
         </div>
 
+        <!-- Script fot the side navebar and content loading -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
         <script>
             function loadDoc(page, element) {
@@ -153,33 +149,12 @@
             });
         </script>
 
-        <!-- Footer placeholder -->
-            <div id="footer-placeholder"></div>
+        <!--      footer     -->
+        <div id="footer-placeholder">
+            <div class="text-center py-2 bg-light">Loading footer...</div>
+        </div>
 
-            <script>
-                fetch('footer.html')
-                    .then(response => response.text())
-                    .then(data => {
-                        document.getElementById('footer-placeholder').innerHTML = data;
-                    });
-            </script>
+        <!-- JS includes -->
+        <script src="js/includes.js"></script>
     </body>
 </html>
-
-<!-- Settings with submenu -->
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#settingsSubmenu" role="button"
-                           aria-expanded="false" aria-controls="settingsSubmenu">
-                            Settings <i class="bi bi-caret-down-fill float-end"></i>
-                        </a>
-                        <div class="collapse ps-3" id="settingsSubmenu">
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#" onclick="loadDoc('settings-general.html', this)">General</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#" onclick="loadDoc('settings-lora.html', this)">Network</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li> -->

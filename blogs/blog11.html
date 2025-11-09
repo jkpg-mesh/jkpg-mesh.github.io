@@ -2,139 +2,136 @@
 <html lang="en">
     <head>
         <!-- Blog title -->
-        <title>From Heltec V3 to V4 – My First Impressions</title>
-        <link rel="icon" type="image/png" href="../assets/M-POWERED.png">
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-        <link href="../css/style.css" rel="stylesheet">
+        <title>From Heltec V3 to V4 – My First Impressions</title>
     </head>
     <body>
-        <!-- Navbar -->
-        <div id="navbar-placeholder"></div>
-        <script>
-            fetch('../navbar.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('navbar-placeholder').innerHTML = data;
-                });
-        </script>
-
-        <!-- Header Image -->
-        <div class="container-fluid" style="background-image: url('../assets/blog2.jpg'); height: 400px; background-size: cover; background-position: center;"></div>
-
-        <!-- Blog Title -->
-        <div class="container-fluid bg-teal text-center py-4">
-            <h1 class="display-5">From Heltec V3 to V4</h1>
-            <p class="lead">My First Impressions of Heltec’s New Board</p>
+        <!-- header -->
+        <div id="header-placeholder">
+            <div class="text-center py-2 bg-light">Loading header...</div>
         </div>
 
-        <!-- Main Content -->
-        <div class="container-fluid text-center">
-            <div class="mx-auto w-75 text-start py-4">
+        <!-- navbar -->
+        <div id="navbar-placeholder">
+            <nav class="navbar navbar-light bg-teal text-black justify-content-center">
+            <span class="navbar-text">Loading menu...</span>
+            </nav>
+        </div>
 
-                <!-- Anchor Links -->
-                <div class="mb-4 p-3 border rounded bg-light">
-                    <h5>Quick Navigation</h5>
-                    <ul>
-                        <li><a href="#opening">Opening the Package</a></li>
-                        <li><a href="#light">Technical Light Conclusion</a></li>
-                        <li><a href="#under">Under the Hood</a></li>
-                        <li><a href="#final">Conclusion</a></li>
-                    </ul>
-                    <h6>References</h6>
-                    <ul>
-                        <li><a href="https://heltec.org/product-category/lora/meshtastic/" target="_blank">Heltec Official Site</a></li>
-                        <li><a href="https://dfimg.dfrobot.com/5d57611a3416442fa39bffca/wiki/85759bb076bf6bb24fd8ca5683f19603.pdf" target="_blank">CN3165 Datasheet (DFRobot)</a></li>
-                        <li><a href="https://www.geochipinc.com/uploads/23940615_1756826539.pdf" target="_blank">GC1109 Datasheet (Geochip)</a></li>
-                    </ul>
+        <!--      Main Area    -->
+        <div id="main-placeholder" style="display:none;">
+            <!-- Header Image -->
+            <div class="container-fluid" style="background-image: url('../assets/blog2.jpg'); height: 400px; background-size: cover; background-position: center;"></div>
+
+            <!-- Blog Title -->
+            <div class="container-fluid bg-teal text-center py-4">
+                <h1 class="display-5">From Heltec V3 to V4</h1>
+                <p class="lead">My First Impressions of Heltec’s New Board</p>
+            </div>
+
+            <!-- Main Content -->
+            <div class="container-fluid text-center">
+                <div class="mx-auto w-75 text-start py-4">
+
+                    <!-- Anchor Links -->
+                    <div class="mb-4 p-3 border rounded bg-light">
+                        <h5>Quick Navigation</h5>
+                        <ul>
+                            <li><a href="#opening">Opening the Package</a></li>
+                            <li><a href="#light">Technical Light Conclusion</a></li>
+                            <li><a href="#under">Under the Hood</a></li>
+                            <li><a href="#final">Conclusion</a></li>
+                        </ul>
+                        <h6>References</h6>
+                        <ul>
+                            <li><a href="https://heltec.org/product-category/lora/meshtastic/" target="_blank">Heltec Official Site</a></li>
+                            <li><a href="https://dfimg.dfrobot.com/5d57611a3416442fa39bffca/wiki/85759bb076bf6bb24fd8ca5683f19603.pdf" target="_blank">CN3165 Datasheet (DFRobot)</a></li>
+                            <li><a href="https://www.geochipinc.com/uploads/23940615_1756826539.pdf" target="_blank">GC1109 Datasheet (Geochip)</a></li>
+                        </ul>
+                    </div>
+
+                    <p>
+                        When I first dipped my toes into Meshtastic, I had no idea it would snowball into a full-blown community website (funny how that happens). Back then, choosing a device was all about the basics: it had to be affordable, well-supported by the community, and ideally feature a display. That led me to the <a href="https://heltec.org/product-category/lora/meshtastic/" target="_blank">Heltec WiFi LoRa 32 V3</a>. I bought two, and they’ve served me well—solid little workhorses for testing and tinkering on my own.
+                    </p>
+                    <p>
+                        Fast-forward to today: I’m excited (and a bit honored) to be part of the beta program for the new Heltec WiFi LoRa 32 V4. In this post, I’ll share my first impressions—what’s new, what’s familiar, and whether this board feels like a step forward for Meshtastic builders. The blog is divided into two parts: the first, a “technical light” overview, and the second, a more “technical heavy” dive (though still not a full design review).
+                    </p>
+                    <h2 id="opening">Opening the Package</h2>
+                    <!-- Image placeholder after Opening the Package -->
+                    <div class="text-center my-4">
+                        <img src="../assets/Heltec_V4_GNSS.png" class="img-fluid rounded shadow" alt="Heltec V4 GNSS" style="width: 40%;">
+                        <p class="text-muted">Heltec V4 with L76K GNSS</p>
+                    </div>
+                    <p>
+                        Upon opening the package, the first thing that caught my attention was a surprise from Heltec: a GNSS module included as a little bonus. The V4 now features a dedicated connector for the GNSS module, which I find incredibly helpful for new users who might not be comfortable soldering headers or assembling electronics. The presence of this header doesn’t prevent advanced makers from still using the serial pins on the board.
+                    </p>
+                    <p>
+                        Speaking of pins, the V4 is pin-compatible with the V3, with two notable additions. Pins 15/16 provide access to the XTAL_32K_N (negative clock signal) and XTAL_32K_P (positive clock signal) for the 32 kHz external clock input/output connected to the ESP32-S3’s oscillator. Pins 17/18 offer access to the OLED SDA and SCL lines. Things can get technical here, so for now, let’s just say these new pins add value for experienced users.
+                    </p>
+                    <p>
+                        Looking beyond the GNSS, I noticed what appeared to be two battery connectors. However, that’s not the case—one is for a 3.3V battery, while the other is for a solar panel to charge the battery if installed. For new members, note that this doesn’t mean you can run the node solely on the solar panel; a battery is still required. The USB connector can also charge the battery.
+                    </p>
+                    <p>
+                        Another welcome addition is a connector for an additional 2.4GHz antenna. With the ESP32-S3’s WiFi capability, pairing this with a good external antenna could make a node—say, one placed on a roof—easily configurable over WiFi. The spring antenna (or default Bluetooth/WiFi antenna) has been replaced with a Flexible Printed Circuit (FPC) antenna located on the side of the display.
+                    </p>
+                    <!-- Image placeholder after Opening the Package -->
+                    <div class="text-center my-4">
+                        <img src="../assets/Heltec_V4_FPC.png" class="img-fluid rounded shadow" alt="Heltec V4 FPC" style="width: 40%;">
+                        <p class="text-muted">FPC antenna</p>
+                    </div>
+                    <p>
+                        Speaking of the display, it’s now replaceable by removing four screws and using a ribbon cable connector on the board (you could even swap in different models). It remains a monochrome OLED, no larger than the V3’s, but it’s fully functional and helps keep the unit cost-effective as an entry-level Meshtastic device.
+                    </p>
+                    <p>
+                        The last visual difference is the use of a different type of program and reset button on the V4. It’s not a major change, but without a cover, these buttons are noticeably easier to press.
+                    </p>
+                    <p>
+                        The V4 board retains the same outer contour as the V3 and V2 boards. It’s also compatible with both 868MHz and 915MHz frequencies, which I personally love—making it a great travel node for me. Now, I just need to design a nice housing!
+                    </p>
+
+                    <!-- Image placeholder after Opening the Package -->
+                    <div class="text-center my-4">
+                        <img src="../assets/heltecv4.png" class="img-fluid rounded shadow" alt="Heltec V4 ">
+                        <p class="text-muted">Board features</p>
+                    </div>
+
+                    <h2 id="light">Conclusion for the Technical Light Portion</h2>
+                    <p>
+                        The V4 offers some solid updates, enough to distinguish it from a mere V3.3. It remains, in my opinion, the go-to board for new users, with an even easier path to position capability (via the dedicated MX1.25 8-pin connector) and solar panel charging. If you’re not interested in the “under the hood” section, <a href="#final">click here to jump to the conclusion</a>.
+                    </p>
+
+                    <h2 id="under">Under the Hood</h2>
+                    <p>
+                        On the more technical side, let’s start with connecting the board to my laptop via USB. Heltec has shifted from using a CP2102 USB-to-UART bridge chip (connected to UART 0 RX and TX on the V3) to leveraging the ESP32-S3R2’s full-speed USB OTG interface, which includes an integrated transceiver compliant with the USB 2.0 specification. This eliminates one chip from the board—possibly to reduce current drain, though we’ll explore that later. The USB/serial interface works flawlessly.
+                    </p>
+                    <p>
+                        As mentioned, the V4 now includes a header for a solar panel, paired with a new charger chip, the <a href="https://dfimg.dfrobot.com/5d57611a3416442fa39bffca/wiki/85759bb076bf6bb24fd8ca5683f19603.pdf" target="_blank">CN3165</a>. This is a complete constant-current/constant-voltage linear charger for single-cell Li-ion and Li-polymer batteries, optimized for solar panel charging, according to CONSONANCE (chip manufacturer).
+                    </p>
+                    <p>
+                        The microprocessor upgrade from the ESP32-S3FN8 to the ESP32-S3R2 is another change. These chips are essentially similar, but let’s address the elephant in the room: some might have hoped for a switch to the nRF52840, known for lower power consumption, which would extend battery life for nodes. However, I believe the ESP32 is a better starting point, offering WiFi alongside Bluetooth. The ESP32 also boasts with better processing speed—useful for standard users and adventurous makers adding custom features to Meshtastic firmware, even if not all leverage it fully.
+                    </p>
+                    <p>
+                        Finally, the V4 introduces a power amplifier (PA) between the SX1262 LoRa chip and the antenna, replacing the dropped USB-to-UART chip with the <a href="https://www.geochipinc.com/uploads/23940615_1756826539.pdf" target="_blank">GC1109</a> 860-930 MHz RF Front-End Module. Heltec plans two V4 versions: a standard 20dBm model and a high-power 27dBm version. The GC1109 also includes an integrated Low Noise Amplifier (LNA), adding further benefits.
+                    </p>
+
+                    <h2 id="final">Conclusion</h2>
+                    <p>
+                        So, where does this leave me with the Heltec LoRa 32 V4? It might not be the ideal base unit for ultra-low-power solar nodes, but I believe Heltec has proven its commitment as a Meshtastic partner. They’re improving their products and providing a solid starting point for new and returning users eager to explore this technology. Based on my experience with the V4, it remains my recommended choice for beginners to learn and experiment, helping them decide what exactly they want to do with Meshtastic.
+                    </p>
+                    <p>
+                        I must say, all my interactions with Heltec during this beta testing opportunity have been positive.
+                    </p>
+                    <p class="mt-5"><em>Written by JohanV<br>2025-09-20</em></p>
                 </div>
-
-                <p>
-                    When I first dipped my toes into Meshtastic, I had no idea it would snowball into a full-blown community website (funny how that happens). Back then, choosing a device was all about the basics: it had to be affordable, well-supported by the community, and ideally feature a display. That led me to the <a href="https://heltec.org/product-category/lora/meshtastic/" target="_blank">Heltec WiFi LoRa 32 V3</a>. I bought two, and they’ve served me well—solid little workhorses for testing and tinkering on my own.
-                </p>
-                <p>
-                    Fast-forward to today: I’m excited (and a bit honored) to be part of the beta program for the new Heltec WiFi LoRa 32 V4. In this post, I’ll share my first impressions—what’s new, what’s familiar, and whether this board feels like a step forward for Meshtastic builders. The blog is divided into two parts: the first, a “technical light” overview, and the second, a more “technical heavy” dive (though still not a full design review).
-                </p>
-                <h2 id="opening">Opening the Package</h2>
-                <!-- Image placeholder after Opening the Package -->
-                <div class="text-center my-4">
-                    <img src="../assets/Heltec_V4_GNSS.png" class="img-fluid rounded shadow" alt="Heltec V4 GNSS" style="width: 40%;">
-                    <p class="text-muted">Heltec V4 with L76K GNSS</p>
-                </div>
-                <p>
-                    Upon opening the package, the first thing that caught my attention was a surprise from Heltec: a GNSS module included as a little bonus. The V4 now features a dedicated connector for the GNSS module, which I find incredibly helpful for new users who might not be comfortable soldering headers or assembling electronics. The presence of this header doesn’t prevent advanced makers from still using the serial pins on the board.
-                </p>
-                <p>
-                    Speaking of pins, the V4 is pin-compatible with the V3, with two notable additions. Pins 15/16 provide access to the XTAL_32K_N (negative clock signal) and XTAL_32K_P (positive clock signal) for the 32 kHz external clock input/output connected to the ESP32-S3’s oscillator. Pins 17/18 offer access to the OLED SDA and SCL lines. Things can get technical here, so for now, let’s just say these new pins add value for experienced users.
-                </p>
-                <p>
-                    Looking beyond the GNSS, I noticed what appeared to be two battery connectors. However, that’s not the case—one is for a 3.3V battery, while the other is for a solar panel to charge the battery if installed. For new members, note that this doesn’t mean you can run the node solely on the solar panel; a battery is still required. The USB connector can also charge the battery.
-                </p>
-                <p>
-                    Another welcome addition is a connector for an additional 2.4GHz antenna. With the ESP32-S3’s WiFi capability, pairing this with a good external antenna could make a node—say, one placed on a roof—easily configurable over WiFi. The spring antenna (or default Bluetooth/WiFi antenna) has been replaced with a Flexible Printed Circuit (FPC) antenna located on the side of the display.
-                </p>
-                <!-- Image placeholder after Opening the Package -->
-                <div class="text-center my-4">
-                    <img src="../assets/Heltec_V4_FPC.png" class="img-fluid rounded shadow" alt="Heltec V4 FPC" style="width: 40%;">
-                    <p class="text-muted">FPC antenna</p>
-                </div>
-                <p>
-                    Speaking of the display, it’s now replaceable by removing four screws and using a ribbon cable connector on the board (you could even swap in different models). It remains a monochrome OLED, no larger than the V3’s, but it’s fully functional and helps keep the unit cost-effective as an entry-level Meshtastic device.
-                </p>
-                <p>
-                    The last visual difference is the use of a different type of program and reset button on the V4. It’s not a major change, but without a cover, these buttons are noticeably easier to press.
-                </p>
-                <p>
-                    The V4 board retains the same outer contour as the V3 and V2 boards. It’s also compatible with both 868MHz and 915MHz frequencies, which I personally love—making it a great travel node for me. Now, I just need to design a nice housing!
-                </p>
-
-                <!-- Image placeholder after Opening the Package -->
-                <div class="text-center my-4">
-                    <img src="../assets/heltecv4.png" class="img-fluid rounded shadow" alt="Heltec V4 ">
-                    <p class="text-muted">Board features</p>
-                </div>
-
-                <h2 id="light">Conclusion for the Technical Light Portion</h2>
-                <p>
-                    The V4 offers some solid updates, enough to distinguish it from a mere V3.3. It remains, in my opinion, the go-to board for new users, with an even easier path to position capability (via the dedicated MX1.25 8-pin connector) and solar panel charging. If you’re not interested in the “under the hood” section, <a href="#final">click here to jump to the conclusion</a>.
-                </p>
-
-                <h2 id="under">Under the Hood</h2>
-                <p>
-                    On the more technical side, let’s start with connecting the board to my laptop via USB. Heltec has shifted from using a CP2102 USB-to-UART bridge chip (connected to UART 0 RX and TX on the V3) to leveraging the ESP32-S3R2’s full-speed USB OTG interface, which includes an integrated transceiver compliant with the USB 2.0 specification. This eliminates one chip from the board—possibly to reduce current drain, though we’ll explore that later. The USB/serial interface works flawlessly.
-                </p>
-                <p>
-                    As mentioned, the V4 now includes a header for a solar panel, paired with a new charger chip, the <a href="https://dfimg.dfrobot.com/5d57611a3416442fa39bffca/wiki/85759bb076bf6bb24fd8ca5683f19603.pdf" target="_blank">CN3165</a>. This is a complete constant-current/constant-voltage linear charger for single-cell Li-ion and Li-polymer batteries, optimized for solar panel charging, according to CONSONANCE (chip manufacturer).
-                </p>
-                <p>
-                    The microprocessor upgrade from the ESP32-S3FN8 to the ESP32-S3R2 is another change. These chips are essentially similar, but let’s address the elephant in the room: some might have hoped for a switch to the nRF52840, known for lower power consumption, which would extend battery life for nodes. However, I believe the ESP32 is a better starting point, offering WiFi alongside Bluetooth. The ESP32 also boasts with better processing speed—useful for standard users and adventurous makers adding custom features to Meshtastic firmware, even if not all leverage it fully.
-                </p>
-                <p>
-                    Finally, the V4 introduces a power amplifier (PA) between the SX1262 LoRa chip and the antenna, replacing the dropped USB-to-UART chip with the <a href="https://www.geochipinc.com/uploads/23940615_1756826539.pdf" target="_blank">GC1109</a> 860-930 MHz RF Front-End Module. Heltec plans two V4 versions: a standard 20dBm model and a high-power 27dBm version. The GC1109 also includes an integrated Low Noise Amplifier (LNA), adding further benefits.
-                </p>
-
-                <h2 id="final">Conclusion</h2>
-                <p>
-                    So, where does this leave me with the Heltec LoRa 32 V4? It might not be the ideal base unit for ultra-low-power solar nodes, but I believe Heltec has proven its commitment as a Meshtastic partner. They’re improving their products and providing a solid starting point for new and returning users eager to explore this technology. Based on my experience with the V4, it remains my recommended choice for beginners to learn and experiment, helping them decide what exactly they want to do with Meshtastic.
-                </p>
-                <p>
-                    I must say, all my interactions with Heltec during this beta testing opportunity have been positive.
-                </p>
-                <p class="mt-5"><em>Written by JohanV<br>2025-09-20</em></p>
             </div>
         </div>
 
-        <!-- Footer -->
-        <div id="footer-placeholder"></div>
-        <script>
-            fetch('../footer.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('footer-placeholder').innerHTML = data;
-                });
-        </script>
+        <!--      footer     -->
+        <div id="footer-placeholder">
+            <div class="text-center py-2 bg-light">Loading footer...</div>
+        </div>
+
+        <!-- JS includes -->
+        <script src="/js/includes.js"></script>
     </body>
 </html>

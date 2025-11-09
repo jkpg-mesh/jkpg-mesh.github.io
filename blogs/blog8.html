@@ -2,144 +2,141 @@
 <html lang="en">
     <head>
         <!-- Blog title -->
-        <title>The Stadsparken Beacon – A Mobile Meshtastic Project</title>
-        <link rel="icon" type="image/png" href="../assets/M-POWERED.png">
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-        <link href="../css/style.css" rel="stylesheet">
+        <title>The Stadsparken Beacon – A Mobile Meshtastic Project</title>
     </head>
     <body>
-        <!-- Navbar -->
-        <div id="navbar-placeholder"></div>
-        <script>
-            fetch('../navbar.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('navbar-placeholder').innerHTML = data;
-                });
-        </script>
-
-        <!-- Header Image -->
-        <div class="container-fluid" style="background-image: url('../assets/blog2.jpg'); height: 400px; background-size: cover; background-position: center;"></div>
-
-        <!-- Blog Title -->
-        <div class="container-fluid bg-teal text-center py-4">
-            <h1 class="display-5">The Stadsparken Beacon</h1>
-            <p class="lead">A portable Meshtastic repeater project built over the Swedish summer vacation</p>
+        <!-- header -->
+        <div id="header-placeholder">
+            <div class="text-center py-2 bg-light">Loading header...</div>
         </div>
 
-        <!-- Main Content -->
-        <div class="container-fluid text-center">
-            <div class="mx-auto w-75 text-start py-4">
-                <h2>Testing the Summer Vacation Project</h2>
-                <div class="row align-items-center">
-                    <div class="col-md-8">
-                        <p>We’re living in an amazing time when it comes to access to technology. In 1992, I began studying 
-                        engineering, and once I got through the heavy engineering math, I discovered a love for 
-                        integrating software and hardware—or at least experimenting with it. Back then, though, things 
-                        weren’t as easy or affordable. I still remember embedding Assembler into my Delphi code just to 
-                        access the parallel port and turn on some LEDs.</p>
+        <!-- navbar -->
+        <div id="navbar-placeholder">
+            <nav class="navbar navbar-light bg-teal text-black justify-content-center">
+            <span class="navbar-text">Loading menu...</span>
+            </nav>
+        </div>
 
-                        <p>Fast forward a few years (just a few!), and this summer I used part of my four-week Swedish 
-                        vacation to build a Meshtastic beacon. Yes, I know it’s still technically called a “repeater”, 
-                        but that might change in the future. The idea was to create a node or station that could operate 
-                        off-grid, respond to messages from other users on the mesh, and periodically broadcast information. 
-                        Ideally, this node could be set up on a fixed antenna at a high location—but the concept should 
-                        also be mobile for use at events like field days, scout outings, picnics, or sports events. The 
-                        possibilities are endless.</p>
+        <!--      Main Area    -->
+        <div id="main-placeholder" style="display:none;">
+            <!-- Header Image -->
+            <div class="container-fluid" style="background-image: url('../assets/blog2.jpg'); height: 400px; background-size: cover; background-position: center;"></div>
+
+            <!-- Blog Title -->
+            <div class="container-fluid bg-teal text-center py-4">
+                <h1 class="display-5">The Stadsparken Beacon</h1>
+                <p class="lead">A portable Meshtastic repeater project built over the Swedish summer vacation</p>
+            </div>
+
+            <!-- Main Content -->
+            <div class="container-fluid text-center">
+                <div class="mx-auto w-75 text-start py-4">
+                    <h2>Testing the Summer Vacation Project</h2>
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <p>We’re living in an amazing time when it comes to access to technology. In 1992, I began studying 
+                            engineering, and once I got through the heavy engineering math, I discovered a love for 
+                            integrating software and hardware—or at least experimenting with it. Back then, though, things 
+                            weren’t as easy or affordable. I still remember embedding Assembler into my Delphi code just to 
+                            access the parallel port and turn on some LEDs.</p>
+
+                            <p>Fast forward a few years (just a few!), and this summer I used part of my four-week Swedish 
+                            vacation to build a Meshtastic beacon. Yes, I know it’s still technically called a “repeater”, 
+                            but that might change in the future. The idea was to create a node or station that could operate 
+                            off-grid, respond to messages from other users on the mesh, and periodically broadcast information. 
+                            Ideally, this node could be set up on a fixed antenna at a high location—but the concept should 
+                            also be mobile for use at events like field days, scout outings, picnics, or sports events. The 
+                            possibilities are endless.</p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <img src="../assets/johan.png" alt="Old engineering" class="img-fluid rounded shadow">
+                        </div>
                     </div>
-                    <div class="col-md-4 text-center">
-                        <img src="../assets/johan.png" alt="Old engineering" class="img-fluid rounded shadow">
+                    
+                    <h2>Hardware Setup</h2>
+                    <div class="row align-items-center">
+                        <div class="col-md-4">
+                            <img src="../assets/StadsStation.png" alt="Stadsparken station" class="img-fluid rounded shadow">
+                        </div>
+                        <div class="col-md-8">
+                            <p>I started with a Heltec V3 Meshtastic node, which I configured to <strong>CLIENT MUTE</strong> to 
+                            reduce unnecessary transmissions and stay within the 10% duty cycle limits. I also replaced the 
+                            included antenna with a self-made ¼-wave ground plane antenna. The idea was to focus the signal 
+                            more in specific directions—toward areas where I expected other nodes to be—rather than wasting 
+                            energy broadcasting in all directions, especially downward.</p>
+
+                            <p>To make the node smarter and more flexible, I connected it to a <strong>Raspberry Pi 5</strong>. 
+                            Yes, the Pi 5 is probably overkill for this use case, but it was what I had on hand. The Pi runs 
+                            Python code using the <a href="https://github.com/meshtastic/Meshtastic-python" target="_blank">
+                            Meshtastic Python module</a>. I gave the Pi a fixed IP and connected it to my laptop via 
+                            Ethernet so I could easily update settings or software.</p>
+                        </div>
                     </div>
+                    
+                    <h2>Software Features</h2>
+                    <p>The software (published at <a href="https://github.com/jkpg-mesh/mesh-repeater" target="_blank">
+                        https://github.com/jkpg-mesh/mesh-repeater</a>) consists of three main parts:</p>
+                    <ul>
+                        <li><strong>Meshtastic interface</strong> – Handles communication with the node using the Python module.</li>
+                        <li><strong>Web UI</strong> – A lightweight web interface to show mesh status, active nodes, and update configuration.</li>
+                        <li><strong>Modular extensions</strong> – Additional functionality can be added easily by including new Python modules.</li>
+                    </ul>
+
+                    <p><strong>Core Features:</strong></p>
+                    <ul>
+                        <li><strong>Periodic Broadcasts</strong> – Sends customizable messages to the mesh at defined intervals.</li>
+                        <li><strong>Node Database</strong> – Stores extended info and recent activity beyond the device’s built-in memory.</li>
+                        <li><strong>Web Dashboard</strong> – Optional web interface to view mesh activity and configuration.</li>
+                        <li><strong>Command Handling</strong> – Responds to basic user commands like <code>/info</code>, <code>/users</code>, 
+                            <code>/signal</code>, and <code>/distance</code>.</li>
+                        <li><strong>Extensibility</strong> – Designed to support additional modules and custom services.</li>
+                    </ul>
+
+                    <h2>Powering the Beacon</h2>
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <p>In the field, I powered everything using a “powerbank” setup consisting of a 
+                            <a href="https://www.husqvarna.com/se/battery-equipment/b330x/"><strong>Husqvarna BLi300 battery</strong></a> 
+                            and the <a href="https://www.husqvarna.com/se/battery-equipment/usb150x/"><strong>Husqvarna USB150X 
+                            bidirectional USB adapter</strong></a>. Admittedly, this is not the most budget-friendly option—but 
+                            I already had access to the components. It worked great and was able to power the setup for over 8 
+                            hours, according to my calculations. I mounted the whole setup on a tripod to create a portable 
+                            Meshtastic beacon.</p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <img src="../assets/HusqBatt.png" alt="Husqvarna Battery" class="img-fluid rounded shadow">
+                        </div>
+                    </div>            
+
+                    <h2>Field Test at Stadsparken</h2>
+                    <p>Of course, this all had to be tested in the real world. So, on the last Saturday of my vacation, 
+                        I packed everything up and headed to the local city park—Stadsparken—which also happens to be 
+                        one of the higher points in the area.</p>
+
+                    <p>It was a great experience. There’s something satisfying about seeing a project come together, 
+                        and even more exciting when the first reports start coming in confirming that the beacon could 
+                        be heard. Sure, there are a few missing features, and yes, there are some bugs to iron out—but it worked.</p>
+
+                    <h2>Final Thoughts</h2>
+                    <p>In today’s world—and especially within this community—what I built isn’t rocket science. And that’s 
+                        exactly the point of this blog. If you’re curious about tech, and you like building things, <em>you 
+                            can do this too</em>. Whether it’s just for fun, for learning, or to support your local mesh network, 
+                            a project like this is more approachable than ever.</p>
+
+                    <p><strong>Give it a try—and if you do, let me know. I’d love to hear how your beacon performs.</strong></p>
+                    
+                    <p class="mt-5"><em>Written by JohanV<br>2025-08-02</em></p>   
                 </div>
-                
-                <h2>Hardware Setup</h2>
-                <div class="row align-items-center">
-                    <div class="col-md-4">
-                        <img src="../assets/StadsStation.png" alt="Stadsparken station" class="img-fluid rounded shadow">
-                    </div>
-                    <div class="col-md-8">
-                        <p>I started with a Heltec V3 Meshtastic node, which I configured to <strong>CLIENT MUTE</strong> to 
-                        reduce unnecessary transmissions and stay within the 10% duty cycle limits. I also replaced the 
-                        included antenna with a self-made ¼-wave ground plane antenna. The idea was to focus the signal 
-                        more in specific directions—toward areas where I expected other nodes to be—rather than wasting 
-                        energy broadcasting in all directions, especially downward.</p>
-
-                        <p>To make the node smarter and more flexible, I connected it to a <strong>Raspberry Pi 5</strong>. 
-                        Yes, the Pi 5 is probably overkill for this use case, but it was what I had on hand. The Pi runs 
-                        Python code using the <a href="https://github.com/meshtastic/Meshtastic-python" target="_blank">
-                        Meshtastic Python module</a>. I gave the Pi a fixed IP and connected it to my laptop via 
-                        Ethernet so I could easily update settings or software.</p>
-                    </div>
-                </div>
-                
-                <h2>Software Features</h2>
-                <p>The software (published at <a href="https://github.com/jkpg-mesh/mesh-repeater" target="_blank">
-                    https://github.com/jkpg-mesh/mesh-repeater</a>) consists of three main parts:</p>
-                <ul>
-                    <li><strong>Meshtastic interface</strong> – Handles communication with the node using the Python module.</li>
-                    <li><strong>Web UI</strong> – A lightweight web interface to show mesh status, active nodes, and update configuration.</li>
-                    <li><strong>Modular extensions</strong> – Additional functionality can be added easily by including new Python modules.</li>
-                </ul>
-
-                <p><strong>Core Features:</strong></p>
-                <ul>
-                    <li><strong>Periodic Broadcasts</strong> – Sends customizable messages to the mesh at defined intervals.</li>
-                    <li><strong>Node Database</strong> – Stores extended info and recent activity beyond the device’s built-in memory.</li>
-                    <li><strong>Web Dashboard</strong> – Optional web interface to view mesh activity and configuration.</li>
-                    <li><strong>Command Handling</strong> – Responds to basic user commands like <code>/info</code>, <code>/users</code>, 
-                        <code>/signal</code>, and <code>/distance</code>.</li>
-                    <li><strong>Extensibility</strong> – Designed to support additional modules and custom services.</li>
-                </ul>
-
-                <h2>Powering the Beacon</h2>
-                <div class="row align-items-center">
-                    <div class="col-md-8">
-                        <p>In the field, I powered everything using a “powerbank” setup consisting of a 
-                        <a href="https://www.husqvarna.com/se/battery-equipment/b330x/"><strong>Husqvarna BLi300 battery</strong></a> 
-                        and the <a href="https://www.husqvarna.com/se/battery-equipment/usb150x/"><strong>Husqvarna USB150X 
-                        bidirectional USB adapter</strong></a>. Admittedly, this is not the most budget-friendly option—but 
-                        I already had access to the components. It worked great and was able to power the setup for over 8 
-                        hours, according to my calculations. I mounted the whole setup on a tripod to create a portable 
-                        Meshtastic beacon.</p>
-                    </div>
-                    <div class="col-md-4 text-center">
-                        <img src="../assets/HusqBatt.png" alt="Husqvarna Battery" class="img-fluid rounded shadow">
-                    </div>
-                </div>            
-
-                <h2>Field Test at Stadsparken</h2>
-                <p>Of course, this all had to be tested in the real world. So, on the last Saturday of my vacation, 
-                    I packed everything up and headed to the local city park—Stadsparken—which also happens to be 
-                    one of the higher points in the area.</p>
-
-                <p>It was a great experience. There’s something satisfying about seeing a project come together, 
-                    and even more exciting when the first reports start coming in confirming that the beacon could 
-                    be heard. Sure, there are a few missing features, and yes, there are some bugs to iron out—but it worked.</p>
-
-                <h2>Final Thoughts</h2>
-                <p>In today’s world—and especially within this community—what I built isn’t rocket science. And that’s 
-                    exactly the point of this blog. If you’re curious about tech, and you like building things, <em>you 
-                        can do this too</em>. Whether it’s just for fun, for learning, or to support your local mesh network, 
-                        a project like this is more approachable than ever.</p>
-
-                <p><strong>Give it a try—and if you do, let me know. I’d love to hear how your beacon performs.</strong></p>
-                
-                <p class="mt-5"><em>Written by JohanV<br>2025-08-02</em></p>   
             </div>
         </div>
 
-        <!-- Footer -->
-        <div id="footer-placeholder"></div>
-        <script>
-            fetch('../footer.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('footer-placeholder').innerHTML = data;
-                });
-        </script>
+        <!--      footer     -->
+        <div id="footer-placeholder">
+            <div class="text-center py-2 bg-light">Loading footer...</div>
+        </div>
+
+        <!-- JS includes -->
+        <script src="/js/includes.js"></script>
     </body>
 </html>

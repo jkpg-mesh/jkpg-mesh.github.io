@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Blog title -->
+        <meta charset="utf-8">
+        <title>Meet the Modules: Telemetry</title>
+        <style>
+            /* Custom CSS to simulate a dark terminal look */
+            .terminal {
+                background-color: #2b303b; /* Dark, terminal-like background (e.g., Solarized Dark) */
+                color: #c0c5ce; /* Light grey/white text */
+                padding: 15px;
+                border-radius: 5px;
+                font-family: 'Consolas', 'Monaco', 'Courier New', monospace; /* Monospace font */
+                overflow-x: auto; /* Handles long lines */
+                tab-size: 4; /* Ensures tabs are rendered correctly */
+                -moz-tab-size: 4;
+            }
+
+            /* Basic Syntax Highlighting Classes */
+            .terminal .keyword {
+                color: #b48ead; /* Purple/Magenta for keywords (try, except) */
+                font-weight: bold;
+            }
+
+            .terminal .comment {
+                color: #65737e; /* Grey/Cyan for comments */
+            }
+
+            .terminal .literal {
+                color: #8fa1b3; /* Light Blue for literals (None) */
+            }
+
+            .terminal .string {
+                color: #a3be8c; /* Green for strings */
+            }
+
+            .terminal .function {
+                color: #96b5b4; /* Teal/Cyan for function calls */
+            }
+        </style>
+    </head>
+    <body>
+        <!-- header -->
+        <div id="header-placeholder">
+            <div class="text-center py-2 bg-light">Loading header...</div>
+        </div>
+
+        <!-- navbar -->
+        <div id="navbar-placeholder">
+            <nav class="navbar navbar-light bg-teal text-black justify-content-center">
+            <span class="navbar-text">Loading menu...</span>
+            </nav>
+        </div>
+
+        <!--      Main Area    -->
+        <div id="main-placeholder" style="display:none;">
+            <!-- Header Image -->
+            <div class="container-fluid" style="background-image: url('../assets/blog2.jpg'); height: 400px; background-size: cover; background-position: center;"></div>
+
+            <!-- Blog Title -->
+            <div class="container-fluid bg-teal text-center py-4">
+                <h1 class="display-5">Meet the Modules: Telemetry</h1>
+                <p class="lead">Understanding one of Meshtastic’s most powerful built-in features</p>
+            </div>
+
+            <div class="container-fluid text-center">
+                <div class="mx-auto w-75 text-start py-4">
+
+                    <h2>Meet the Modules: Telemetry</h2>
+                    <p>
+                        As mentioned in the first <a href="blog14.html"><b><i>Meet the Modules</i></b></a> blog post, modules 
+                        are a feature included in the Meshtastic firmware allowing users to extend the onboard capabilities 
+                        of the Meshtastic node. In the last post we looked at how to create a new module, and in this blog 
+                        (and most likely a few more) we will be looking at already-included modules. One of these modules is 
+                        Telemetry, a module that creates and sends a “fancy” message filled with data from sensors connected 
+                        to the Meshtastic node.
+                    </p>
+
+                    <h2>Activating the Telemetry Module</h2>
+                    <p>
+                        Unlike the previous post, the user does not need to modify firmware or change code to activate this 
+                        module, because it is already enabled by the firmware team (who are, by the way, normal friendly people 
+                        just like you and me). However, the user does need to change some settings through the mobile app, 
+                        the web client, or the Python CLI in order to get all telemetry data to be sent.
+                    </p>
+
+                    <p>
+                        The standard firmware supports four groupings of telemetry data:
+                        <ul>
+                            <li><b>Device Metrics</b> (of the Meshtastic device)
+                                <ul>
+                                    <li>Battery Level</li>
+                                    <li>Voltage</li>
+                                    <li>Channel Utilization</li>
+                                    <li>Airtime</li>
+                                </ul>
+                            </li>
+                            <li><b>Environment Metrics</b></li>
+                            <li><b>Air Quality Metrics</b></li>
+                            <li><b>Power Measurement Metrics</b></li>
+                            <li><b>Health Metrics</b>
+                                <ul>
+                                    <li>Heart Rate</li>
+                                    <li>Oxygen Saturation</li>
+                                    <li>Body Temperature</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </p>
+
+                    <p>To fully enable telemetry to be sent over radio, the following items need to be considered:</p>
+
+                    <pre>
+Telemetry Group              Must Be Enabled     Set Update Interval     Can Be Configured From
+------------------------------------------------------------------------------------------------
+Device Metrics                   No                    Yes              A / B / C
+Environment Metrics              Yes                   Yes              A / B / C
+Air Quality Metrics              Yes                   Yes              A / B / C
+Power Measurement Metrics        Yes                   Yes              A / B / C
+Health Metrics                   Yes                   Yes              D
+
+A - Mobile App
+B - Web App
+C - CLI
+D - CLI, but user must compile custom firmware
+                    </pre>
+
+                    <p>
+                        When using the firmware unmodified, sensors need to be connected to the I²C bus of the 
+                        Meshtastic node. The reason “unmodified” is mentioned, is that if the user has 
+                        the capability, the telemetry module can be modified to retrieve data from other interfaces 
+                        available on the Meshtastic device.
+                    </p>
+                    
+                    <div class="p-3 bg-info-subtle text-info-emphasis border border-info-subtle rounded-3">
+                        <p>
+                            I²C (pronounced “eye-squared-see”) is a very popular and incredibly useful communication 
+                            method that allows different chips and components inside or connected to an electronic 
+                            device to talk to each other. Think of it as a simple, high-speed party line for electronics.
+                        </p>
+                        <p>
+                            The name stands for Inter-Integrated Circuit. It's a standard that was originally created by 
+                            Philips Semiconductors (now NXP) back in the 1980s.
+                        </p>
+                    </div>
+                    
+                    <p>
+                        For a list of supported sensors (and sensor addresses), see the 
+                        <a href="https://meshtastic.org/docs/configuration/module/telemetry/">official Meshtastic documentation</a>.
+                    </p>
+
+                    <p>
+                        It should be noted that Health telemetry was excluded from the mainline firmware releases 
+                        due to potential legal risks (for example HIPAA compliance), depending on how it is used. It remains 
+                        available for users who build custom firmware and understand how they intend to use the data.
+                    </p>
+
+                    <h2>Seeing the Data</h2>
+                    <p>
+                        So now we are collecting and sending data — but how do we see it?
+                    </p>
+
+                    <p>
+                        If your Meshtastic node has a display, you can enable telemetry display on the device itself. 
+                        However, in most cases the sensor-equipped node will be far away or inside a protective case. 
+                        For this reason the data is sent over the mesh, and other nodes will receive it. The user then 
+                        has several options for viewing the received telemetry data.
+                    </p>
+
+                    <p>
+                        Inside the Meshtastic mobile app, it is possible to click and view the details of the transmitting 
+                        node, where different logs are available. This displays the data in both graph and list-log 
+                        formats. The Meshtastic web client also shows telemetry data when selecting the sending node and 
+                        opening its details.
+                    </p>
+
+                    <p>
+                        Note that since Health Metrics are removed from mainline firmware, standard interfaces most 
+                        likely will not display them (I have not tested this).
+                    </p>
+
+                    <p>
+                        The real power of telemetry comes when a node is connected to third-party applications. A 
+                        frequently mentioned tool in the community is <a href="https://telemetryharbor.com/"><b>Telemetry Harbor</b></a> 
+                        — a comprehensive solution for ingesting, storing, and visualizing telemetry data. They provide 
+                        a <a href="https://github.com/TelemetryHarbor/harbor-meshtastic">Meshtastic integration script</a> that 
+                        lets a user connect a Meshtastic device to Telemetry Harbor by running a Python script. While 
+                        this does not visualize the data directly, it enables the user to create stunning visualizations 
+                        using something like <a href="https://grafana.com/"><b>Grafana</b></a>, an open-source analytics 
+                        and dashboarding platform.
+                    </p>
+
+                    <p>
+                        Of course, users can also build their own visualization tools in Python.
+                    </p>
+
+                    <h2>Using the Data</h2>
+                    <p>
+                        As I’ve explained previously, it is also possible to connect your Meshtastic listening node 
+                        to, for example, a Raspberry Pi and connect using the Python Meshtastic module. 
+                    </p>
+
+    <pre class="terminal">
+    <span class="function">interface</span> = <span class="literal">None</span>  <span class="comment"># Initialize interface to None outside the try block</span>
+    <span class="keyword">try</span>:
+        <span class="function">interface</span> = meshtastic.serial_interface.<span class="function">SerialInterface</span>()
+        time.<span class="function">sleep</span>(3)
+        myLongName = interface.<span class="function">getLongName</span>()
+        local_node = interface.localNode
+
+        pub.<span class="function">subscribe</span>(onReceive, <span class="string">"meshtastic.receive"</span>)
+        pub.<span class="function">subscribe</span>(onConnection, <span class="string">"meshtastic.connection.established"</span>)
+        pub.<span class="function">subscribe</span>(onConnectionLost, <span class="string">"meshtastic.connection.lost"</span>)
+
+    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:
+        MeshError = <span class="function">str</span>(e)
+    </pre>
+
+                    <p>It is then possible to check if an incoming packet is telemetry:</p>
+
+<pre class="terminal">
+<span class="keyword">def</span> <span class="function">onReceive</span>(packet, interface):
+    <span class="keyword">try</span>:
+        <span class="keyword">match</span> packet[<span class="string">'decoded'</span>][<span class="string">'portnum'</span>]:
+            <span class="keyword">case</span> <span class="string">"TELEMETRY_APP"</span>:
+                <span class="comment"># Parse packet and store in database for later visualization</span>
+            <span class="keyword">case</span> _:
+                <span class="keyword">pass</span>
+    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:
+        logging.<span class="function">warning</span>(<span class="string">f"Error parsing packet: {e}"</span>)
+</pre>
+
+                    <p>
+                        The packet can contain the following information, as defined by the telemetry protobufs (and yes, we will need a future blog to explain what protobufs actually are):
+                    </p>
+
+<div class="container my-4">
+    <div class="row">
+        
+        <div class="col-md-6 mb-4">
+            <div class="card bg-light border-primary">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">DeviceMetrics</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">battery_level</li>
+                    <li class="list-group-item">voltage</li>
+                    <li class="list-group-item">channel_utilization</li>
+                    <li class="list-group-item">air_util_tx</li>
+                    <li class="list-group-item">uptime_seconds</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="card bg-light border-warning">
+                <div class="card-header bg-warning text-dark">
+                    <h5 class="mb-0">PowerMetrics</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">ch1_voltage</li>
+                    <li class="list-group-item">ch1_current</li>
+                    <li class="list-group-item">...</li>
+                    <li class="list-group-item">ch8_voltage</li>
+                    <li class="list-group-item">ch8_current</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="col-md-6 mb-4">
+            <div class="card bg-light border-info">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">EnvironmentMetrics</h5>
+                </div>
+                <ul class="list-group list-group-flush" style="column-count: 2; column-gap: 20px;">
+                    <li class="list-group-item">temperature</li>
+                    <li class="list-group-item">relative_humidity</li>
+                    <li class="list-group-item">barometric_pressure</li>
+                    <li class="list-group-item">gas_resistance</li>
+                    <li class="list-group-item">voltage</li>
+                    <li class="list-group-item">current</li>
+                    <li class="list-group-item">iaq</li>
+                    <li class="list-group-item">distance</li>
+                    <li class="list-group-item">lux</li>
+                    <li class="list-group-item">white_lux</li>
+                    <li class="list-group-item">ir_lux</li>
+                    <li class="list-group-item">uv_lux</li>
+                    <li class="list-group-item">wind_direction</li>
+                    <li class="list-group-item">wind_speed</li>
+                    <li class="list-group-item">weight</li>
+                    <li class="list-group-item">wind_gust</li>
+                    <li class="list-group-item">wind_lull</li>
+                    <li class="list-group-item">radiation</li>
+                    <li class="list-group-item">rainfall_1h</li>
+                    <li class="list-group-item">rainfall_24h</li>
+                    <li class="list-group-item">soil_moisture</li>
+                    <li class="list-group-item">soil_temperature</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="card bg-light border-success">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">AirQualityMetrics</h5>
+                </div>
+                <ul class="list-group list-group-flush" style="column-count: 2; column-gap: 20px;">
+                    <li class="list-group-item">pm10_standard</li>
+                    <li class="list-group-item">pm25_standard</li>
+                    <li class="list-group-item">pm100_standard</li>
+                    <li class="list-group-item">pm10_environmental</li>
+                    <li class="list-group-item">pm25_environmental</li>
+                    <li class="list-group-item">pm100_environmental</li>
+                    <li class="list-group-item">particles_03um</li>
+                    <li class="list-group-item">particles_05um</li>
+                    <li class="list-group-item">particles_10um</li>
+                    <li class="list-group-item">particles_25um</li>
+                    <li class="list-group-item">particles_50um</li>
+                    <li class="list-group-item">particles_100um</li>
+                    <li class="list-group-item">co2</li>
+                    <li class="list-group-item">co2_temperature</li>
+                    <li class="list-group-item">co2_humidity</li>
+                    <li class="list-group-item">form_formaldehyde</li>
+                    <li class="list-group-item">form_humidity</li>
+                    <li class="list-group-item">form_temperature</li>
+                    <li class="list-group-item">pm40_standard</li>
+                    <li class="list-group-item">particles_40um</li>
+                    <li class="list-group-item">pm_temperature</li>
+                    <li class="list-group-item">pm_humidity</li>
+                    <li class="list-group-item">pm_voc_idx</li>
+                    <li class="list-group-item">pm_nox_idx</li>
+                    <li class="list-group-item">particles_tps</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="card bg-light border-danger">
+                <div class="card-header bg-danger text-white">
+                    <h5 class="mb-0">HealthMetrics</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">heart_bpm</li>
+                    <li class="list-group-item">spO2</li>
+                    <li class="list-group-item">temperature</li>
+                </ul>
+            </div>
+        </div>
+        
+        </div>
+</div>
+
+                    <h2>Extending the Data</h2>
+                    <p>
+                        As a last note, these data sets can be extended. It should be obvious by now that if 
+                        you know how to go “under the hood,” you can basically do anything. There is, however, 
+                        an interesting invitation if you read between the lines:
+                    </p>
+
+<pre class="p-3 bg-info-subtle text-info-emphasis border border-info-subtle rounded-3">
+Supporting Other Sensor Types:
+For other interesting sensors and use cases, we need to add a portnum for more generic
+telemetry packets, and a second MCU will be required to interact with the sensor and process
+the data to be sent over the mesh. This data will not be stored in the nodedb on the device.
+</pre>
+
+                    <p>
+                        If you have a sensor or application that could benefit the Meshtastic community, join 
+                        the Meshtastic Discord group and start talking about it — “we” might pick it up and 
+                        start integrating it as a new standard feature. Wink wink… let’s try.
+                    </p>
+
+                    <h2>Try This Tonight — Live Temperature & Humidity in Under 15 Minutes</h2>
+                    <p>
+                        If you’ve read this far, you probably already have at least one Meshtastic device. 
+                        Here’s the fastest way to get real sensor data working:
+                    </p>
+
+                    <p>
+                        1. Buy a <b>AHT20 + BMP280 module</b> sensor (or any similar one) — it’s cheap and works perfectly<br>
+                        → search AliExpress/Amazon
+                    </p>
+
+                    <p>2. Wire it to almost any common board (example: Heltec Wireless Stick Lite V3):</p>
+
+                    <pre>
+Sensor VCC → Board 3.3V (on Heltec: pin 2 of header J3)  
+Sensor GND → Board GND  (on Heltec: pin 3 of J3)
+Sensor SDA → Board SDA  (on Heltec: pin 14 GPIO 41 of header J2)
+Sensor SCL → Board SCL  (on Heltec: pin 15 GPIO 42 of header J2)  
+                    </pre>
+
+                    <p>
+                        3. In the Meshtastic mobile app:
+                        <ul>
+                            <li>Go to <i>Config → Telemetry</i></li>
+                            <li>Enable Environment telemetry</li>
+                            <li>Set update interval to 30 min (or lower via CLI if allowed by duty cycle rules)</li>
+                        </ul>
+                    </p>
+                    <p>
+                        4. Reboot the board and wait a few minutes for the first telemetry packet to arrive, 
+                        then simply tap the sensor node in the app to see:
+                        <ul>
+                            <li>Temperature</li>
+                            <li>Relative Humidity</li>
+                            <li>Barometric Pressure</li>
+                        </ul>
+                    </p>
+                    <div class="container my-4">
+                        <div class="row">
+                            
+                            <div class="col-6 col-md-6 mb-4 d-flex justify-content-center flex-column align-items-center">
+                                <img src="/assets/heltec-WSL-V3-Sensor.png" class="img-fluid rounded-3 shadow-sm" alt="Sensor">
+                                <p class="mt-2">AHT20 + BMP280 module</p>
+                            </div>
+
+                            <div class="col-6 col-md-6 mb-4 d-flex justify-content-center flex-column align-items-center">
+                                <img src="/assets/heltec-WSL-V3-Connect.png" class="img-fluid rounded-3 shadow-sm" alt="Connection">
+                                <p class="mt-2">Connection and wiring</p>
+                            </div>
+
+                            <div class="col-6 col-md-6 mb-4 d-flex justify-content-center flex-column align-items-center">
+                                <img src="/assets/telemetry1.png" class="img-fluid rounded-3 shadow-sm" alt="Telemetry 1">
+                                <p class="mt-2">Data graph and log in Meshtastic app</p>
+                            </div>
+
+                            <div class="col-6 col-md-6 mb-4 d-flex justify-content-center flex-column align-items-center">
+                                <img src="/assets/telemetry2.png" class="img-fluid rounded-3 shadow-sm" alt="Telemetry 2">
+                                <p class="mt-2">Data graph in Meshtastic app</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2>Conclusion</h2>
+                    <p>
+                        In summary, I hope I have shown enough to make you curious and start exploring this wonderful 
+                        module feature in Meshtastic. Who knows — maybe you will start a group of enthusiasts 
+                        monitoring and improving your city’s air quality, or collaborate with your local amateur 
+                        weather club to build a sophisticated local weather prediction tool.
+                    </p>
+
+                    <p>
+                        I often remind myself that people like Guglielmo Marconi and Nikola Tesla did not innovate 
+                        because someone told them what to build — they were curious and wanted to solve problems no 
+                        one had solved yet. You can be that person too. Stay curious.
+                    </p>
+
+                    <p class="mt-5"><em>Written by JohanV<br>2025-11-24</em></p>
+                </div>
+            </div>
+        </div> 
+        
+        <!--      footer     -->
+        <div id="footer-placeholder">
+            <div class="text-center py-2 bg-light">Loading footer...</div>
+        </div>
+
+        <!-- JS includes -->
+        <script src="/js/includes.js"></script>
+    </body>
+</html>

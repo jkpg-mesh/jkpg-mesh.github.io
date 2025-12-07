@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Blog title -->
+        <meta charset="utf-8">
+        <title>LoRa on 868 MHz — How the Meshtastic Settings Fit Together</title>
+    </head>
+    <body>
+        <!-- header -->
+        <div id="header-placeholder">
+            <div class="text-center py-2 bg-light">Loading header...</div>
+        </div>
+
+        <!-- navbar -->
+        <div id="navbar-placeholder">
+            <nav class="navbar navbar-light bg-teal text-black justify-content-center">
+            <span class="navbar-text">Loading menu...</span>
+            </nav>
+        </div>
+
+        <!--      Main Area    -->
+        <div id="main-placeholder" style="display:none;">
+            <!-- Header Image -->
+            <div class="container-fluid" style="background-image: url('../assets/blog2.jpg'); height: 400px; background-size: cover; background-position: center;"></div>
+            
+            <!-- Blog Title -->
+            <div class="container-fluid bg-teal text-center py-4">
+                <h1 class="display-5">LoRa on 868 MHz — How the Meshtastic Settings Fit Together</h1>
+                <p class="lead">A breakdown of how Meshtastic uses LoRa settings inside the EU 868 MHz band</p>
+            </div>
+
+            <!-- Blog -->
+            <div class="container-fluid text-center">
+                <div class="mx-auto w-75 text-start py-4">
+
+                    <h2>Introduction</h2>
+                    <p>
+                        There’s a lot of excellent information on Meshtastic.org, and that’s the beauty of open-source: 
+                        the documentation grows as the community grows. Still, many of us (myself included) are the 
+                        “experiment first, read later” type. Since helping with JKPG-MESH.se, I’ve been thinking about 
+                        how to make some of the more complex LoRa concepts a little more bite-size.
+                    </p>
+
+                    <p>
+                        This post is a follow-up to my previous entry, “<a href="blog7.html">Why Meshtastic Uses 868 MHz</a>”, 
+                        and the goal here is simple:
+                    </p>
+
+                    <ul>
+                        <li>Show how the LoRa parameters used by Meshtastic interact on the 868 MHz band</li>
+                        <li>Explain why the presets look the way they do</li>
+                        <li>Give you a better feel for what’s happening under the hood</li>
+                    </ul>
+
+                    <p>
+                        Before we dive in, one disclaimer:<br>
+                        <strong>The Meshtastic developers have already created excellent presets.</strong> If you don’t 
+                        have a specific application or experiment in mind, stick to those — they’re designed to be 
+                        reliable, compliant, and mesh-friendly.
+                    </p>
+
+                    <p>With that out of the way… let’s lift the hood.</p>
+
+                    <hr>
+
+                    <h3>1. Understanding the 868 MHz ISM Band</h3>
+                    <p>
+                        Meshtastic operates inside the 868 MHz ISM band, but that doesn’t mean we use the entire band.
+                        Even this band is subdivided, with different power and duty-cycle limits depending on the exact 
+                        frequency slice.
+                    </p>
+
+                    <p>Here’s a simplified view of the EU regulation segments:</p>
+
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Frequency Range (MHz)</th>
+                                <th>Max Power</th>
+                                <th>Duty Cycle</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>868.0–868.6</td>
+                                <td>25 mW ERP</td>
+                                <td>1%</td>
+                                <td>Low duty-cycle applications</td>
+                            </tr>
+                            <tr>
+                                <td>868.7–869.2</td>
+                                <td>25 mW ERP</td>
+                                <td>0.1%</td>
+                                <td>Very low duty-cycle</td>
+                            </tr>
+                            <tr>
+                                <td>869.4–869.65</td>
+                                <td>500 mW ERP</td>
+                                <td>10%</td>
+                                <td>Meshtastic main band</td>
+                            </tr>
+                            <tr>
+                                <td>869.7–870.0</td>
+                                <td>5 mW ERP</td>
+                                <td>No limit</td>
+                                <td>Good for sensors, low power</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p>
+                        Meshtastic’s EU region uses <strong>869.400–869.650 MHz</strong> because it’s the only high-power, 
+                        high duty-cycle segment. This is also why we casually say “868 MHz” even though the devices actually 
+                        operate around <strong>869.525 MHz</strong> — 868 MHz is just the name of the overall band 
+                        (863–870 MHz).
+                    </p>
+
+                    <hr>
+
+                    <h3>2. Bandwidth — The Real Estate You Occupy</h3>
+                    <p>
+                        Bandwidth simply describes how wide your signal is. Meshtastic EU presets use:
+                    </p>
+
+                    <ul>
+                        <li>125 kHz</li>
+                        <li>250 kHz</li>
+                        <li>(Short Turbo would require 500 kHz, but this does not fit into the EU band segment.)</li>
+                    </ul>
+
+                    <p>A useful way to visualise bandwidth:</p>
+                    <div class="text-center my-4">
+                        <img src="../assets/EU_band.png"
+                            alt="Frequency Bandwidth Illustration"
+                            class="img-fluid rounded shadow-sm"
+                            style="max-width: 800px;">
+                    </div>
+                    <ul>
+                        <li>A 250 kHz channel takes up twice as much spectral space as a 125 kHz channel.</li>
+                        <li>With 250 kHz, you can fit one channel inside the legal band.</li>
+                        <li>With 125 kHz, you can squeeze in two channels.</li>
+                        <li>With 62.5 kHz, you could theoretically manage four channels.</li>
+                    </ul>
+
+                    <p>
+                        Of course, this only works safely if the community coordinates, because Meshtastic does not check 
+                        before transmitting. You can easily jam your neighbours if you don’t plan together.
+                    </p>
+
+                    <hr>
+
+                    <h3>3. Meshtastic’s EU Preset Frequencies</h3>
+
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th rowspan="2">Name</th>
+                                <th colspan="3" class="text-center">Center Frequency</th>
+                                <th rowspan="2">Bandwidth</th>
+                            </tr>
+                            <tr>
+                                <th>Low</th>
+                                <th>Center</th>
+                                <th>High</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr><td>Long Fast</td><td></td><td>869.525 MHz</td><td></td><td>250 kHz</td></tr>
+                            <tr><td>Long Moderate</td><td>869.4625 MHz</td><td></td><td>869.5875 MHz</td><td>125 kHz</td></tr>
+                            <tr><td>Long Slow</td><td>869.4625 MHz</td><td></td><td>869.5875 MHz</td><td>125 kHz</td></tr>
+                            <tr><td>Medium Fast</td><td></td><td>869.525 MHz</td><td></td><td>250 kHz</td></tr>
+                            <tr><td>Medium Moderate</td><td colspan="3" class="text-center">Not implemented</td><td>—</td></tr>
+                            <tr><td>Medium Slow</td><td></td><td>869.525 MHz</td><td></td><td>250 kHz</td></tr>
+                            <tr><td>Short Fast</td><td></td><td>869.525 MHz</td><td></td><td>250 kHz</td></tr>
+                            <tr><td>Short Moderate</td><td colspan="3" class="text-center">Not implemented</td><td>—</td></tr>
+                            <tr><td>Short Slow</td><td></td><td>869.525 MHz</td><td></td><td>250 kHz</td></tr>
+                        </tbody>
+                    </table>
+                    
+                    <p>
+                        Note how often <strong>869.525 MHz</strong> appears — it’s the sweet spot right in the middle of 
+                        the EU high-power band and allows 250 kHz bandwidth.
+                    </p>
+
+                    <hr>
+
+                    <h3>4. Spread Factor — How Long Each Symbol Takes</h3>
+                    <p>
+                        This is where LoRa gets interesting. Spread Factor (SF) determines how long it takes to transmit 
+                        one chirp (symbol). Higher SF = longer chirps = more range, more airtime, and fewer packets per second.
+                    </p>
+
+                    <p><strong>The formula is:</strong></p>
+
+                    <div class="text-center my-4">
+                        <img src="../assets/TS_formula.png"
+                            alt="LoRa Time on Air Formula"
+                            class="img-fluid rounded shadow-sm"
+                            style="max-width: 800px;">
+                    </div>
+
+                    <p>Meaning:</p>
+
+                    <ul>
+                        <li>Increase SF → chirp gets longer</li>
+                        <li>Decrease BW → chirp also gets longer</li>
+                    </ul>
+
+                    <p>Example using typical presets:</p>
+
+                    <ul>
+                        <li><strong>Short Fast</strong> uses SF7 → short chirps → short airtime → short range</li>
+                        <li><strong>Long Fast</strong> uses SF11 → long chirps → long airtime → much longer range</li>
+                    </ul>
+
+                    <div class="text-center my-4">
+                        <img src="../assets/SF_CHIRP.png"
+                            alt="Frequency Bandwidth Illustration"
+                            class="img-fluid rounded shadow-sm"
+                            style="max-width: 600px;">
+                    </div>
+
+                    <p>
+                        Important note about naming:<br>
+                        ✔️ Short and Long refer to range, not airtime<br>
+                        ✔️ Fast refers to the fastest preset within that range category
+                    </p>
+
+                    <p>
+                        So “Long Fast” doesn’t mean “faster than Short Fast” — just the fastest within Long.
+                    </p>
+
+                    <hr>
+
+                    <h3>5. Coding Rate — The Hidden Trade-off</h3>
+                    <p>
+                        Coding Rate (CR) adds error-correction bits to each symbol. It’s written as:
+                    </p>
+
+                    <ul>
+                        <li>4/5</li>
+                        <li>4/6</li>
+                        <li>4/7</li>
+                        <li>4/8</li>
+                    </ul>
+
+                    <p>
+                        Higher coding rate → more robust → slower effective data rate.
+                    </p>
+
+                    <p>A simple way to think of it:</p>
+
+                    <ul>
+                        <li>CR 4/5 gives more usable bits per symbol</li>
+                        <li>CR 4/8 gives more protection but fewer usable bits</li>
+                        <li>Both increase airtime because the symbol carries more total bits</li>
+                    </ul>
+
+                    <p>
+                        Meshtastic typically uses 4/5 because it balances reliability and speed.
+                    </p>
+
+                    <hr>
+
+                    <h3>6. Putting It All Together</h3>
+                    <p>
+                        Once you see how frequency, bandwidth, spread factor, and coding rate interact, the presets start 
+                        to make sense:
+                    </p>
+
+                    <ul>
+                        <li>Long range → high SF + moderate CR</li>
+                        <li>Fast → lower SF</li>
+                        <li>Slow → highest SF and sometimes narrower bandwidth</li>
+                        <li>EU mode → always squeezed into one narrow legal slice</li>
+                        <li>More channels → only possible with smaller bandwidth + coordination</li>
+                    </ul>
+
+                    <p>
+                        Every setting is a compromise between airtime, range, interference, and regulation.
+                    </p>
+
+                    <hr>
+
+                    <h3>Conclusion</h3>
+                    <p>
+                        If you’ve made it this far — well done. My hope is that this post made you pause and think about 
+                        how much happens behind the scenes when you send a simple message.
+                    </p>
+
+                    <p>
+                        Meshtastic really is the Swiss Army knife of LoRa experimentation, but like any powerful tool, you 
+                        get more out of it the deeper you dig. I certainly have, and the more I learn, the more I realise 
+                        there’s still to explore.
+                    </p>
+
+                    <p>So enjoy experimenting… and enjoy digging. Until next time!</p>
+
+                    <p class="mt-5"><em>Written by JohanV<br>2025-12-07</em></p>
+                </div>
+            </div>
+        </div>
+        
+        <!--      footer     -->
+        <div id="footer-placeholder">
+            <div class="text-center py-2 bg-light">Loading footer...</div>
+        </div>
+
+        <!-- JS includes -->
+        <script src="/js/includes.js"></script>
+    </body>
+</html>

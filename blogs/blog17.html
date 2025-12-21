@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Blog title -->
+        <meta charset="utf-8">
+        <title>Meshtastic Meets Electronics – Off the Beaten Track</title>
+    </head>
+    <body>
+        <!-- header -->
+        <div id="header-placeholder">
+            <div class="text-center py-2 bg-light">Loading header...</div>
+        </div>
+
+        <!-- navbar -->
+        <div id="navbar-placeholder">
+            <nav class="navbar navbar-light bg-teal text-black justify-content-center">
+                <span class="navbar-text">Loading menu...</span>
+            </nav>
+        </div>
+
+        <!-- Main Area -->
+        <div id="main-placeholder" style="display:none;">
+            <!-- Header Image -->
+            <div class="container-fluid"
+                 style="background-image: url('../assets/blog2.jpg'); height: 400px; background-size: cover; background-position: center;">
+            </div>
+
+            <!-- Blog Title -->
+            <div class="container-fluid bg-teal text-center py-4">
+                <h1 class="display-5">Meshtastic Meets Electronics</h1>
+                <p class="lead">Exploring off-the-beaten-track hardware options</p>
+            </div>
+
+            <!-- Blog -->
+            <div class="container-fluid text-center">
+                <div class="mx-auto w-75 text-start py-4">
+
+                    <p>
+                        When I started experimenting with Meshtastic, a few brands immediately stood out:
+                        Heltec, Seeed Studio, Lilygo, and RAK. These companies offer some very nice modules,
+                        both as development kits and in compact, ready-to-use form factors.
+                    </p>
+
+                    <p>
+                        However, anyone who knows me knows that I like to optimize. How can I get the most
+                        functionality and value for the least amount of money? Can I build something that
+                        is flexible and easily extended over time? These questions sent me down a bit of a
+                        rabbit hole.
+                    </p>
+
+                    <p>
+                        In today’s blog post, I’d like to share some interesting electronic components I’ve
+                        come across that <em>could</em> be used for Meshtastic-based projects. I want to be
+                        clear from the start: I have not used any of these products yet, and this post is
+                        not sponsored by any of the brands mentioned.
+                    </p>
+
+                    <h2 class="mt-5">Elecrow</h2>
+
+                    <p>
+                        First on my list is Elecrow. Even though I include them here, it’s worth noting that
+                        they are already a Meshtastic backer and have a very wide range of electronics available.
+                        The company states that their mission is to “Make Your Making Easier”, and one of their
+                        focus areas is the Meshtastic ecosystem.
+                    </p>
+
+                    <p>
+                        In this space, they offer a broad selection of Meshtastic-compatible products, including
+                        trackers, displays, outdoor solar power solutions, and wearable devices.
+                    </p>
+
+                    <p>
+                        The product that really caught my attention is the
+                        <a href="https://www.elecrow.com/crowpanel-advance-2-8-hmi-ai-display-for-meshtastic-esp32-320x240-artificial-ips-intelligent-touchscreen.html"
+                           target="_blank" rel="noopener">
+                            CrowPanel Advance 2.8” HMI AI Display for Meshtastic
+                        </a>.
+                        This unit includes a capacitive 320×240 IPS touchscreen and uses an ESP32-S3 as its core
+                        processor. The board features 512 KB SRAM, 8 MB PSRAM, and 16 MB flash storage, along with
+                        built-in 2.4 GHz Wi-Fi and BLE using an onboard RF antenna.
+                    </p>
+
+                    <p>
+                        One particularly interesting feature is its replaceable wireless module design. This
+                        allows the user to swap modules and potentially support multiple communication protocols
+                        such as Zigbee, LoRa, nRF24L01, Matter, Thread, and even Wi-Fi 6.
+                    </p>
+
+                    <p>
+                        For anyone looking to step up their Meshtastic experience, this product looks like a bit
+                        of a goldmine. I’m fairly certain Elecrow will hear from me in the future — with an order.
+                    </p>
+
+                    <h2 class="mt-5">M5Stack</h2>
+
+                    <p>
+                        M5Stack has created numerous neatly self-contained modules that can be “stacked” into
+                        different solutions, resulting in enclosed, almost consumer-style devices. Each solution
+                        is built around a controller module and divided into the following families: Stick, Stack,
+                        Atom, and Stamp.
+                    </p>
+
+                    <p>
+                        There is also another base unit called the
+                        <a href="https://shop.m5stack.com/products/m5stack-cardputer-adv-version-esp32-s3"
+                           target="_blank" rel="noopener">
+                            Cardputer Adv
+                        </a>.
+                        While it is not fully stackable in the traditional sense, it supports attachable components,
+                        which is what initially attracted me to the platform.
+                    </p>
+
+                    <p>
+                        One such attachment is the
+                        <a href="https://shop.m5stack.com/products/lora-gps-cap-for-cardputer-adv-sx1262-atgm336h"
+                           target="_blank" rel="noopener">
+                            LoRa + GPS Cap
+                        </a>,
+                        which, when combined with the Cardputer Adv, effectively gives you a Meshtastic-capable
+                        device with a display, keyboard, GPS, and a 1750 mAh battery.
+                    </p>
+
+                    <p>
+                        Within the Stack range, M5Stack also offers a Battery Module, GPS Module, LoRa Module, and
+                        an ESP32 Basic Core IoT Development Kit, documented in their guide
+                        <a href="https://shop.m5stack.com/blogs/news/how-to-build-your-own-meshtastic-device"
+                           target="_blank" rel="noopener">
+                            How to Build Your Own Meshtastic Device
+                        </a>.
+                    </p>
+
+                    <p>
+                        M5Stack has an impressive documentation library that includes tutorials and how-to videos.
+                        For newcomers to Meshtastic and electronics in general, this could be a very good place
+                        to start. Examples include the
+                        <a href="https://docs.m5stack.com/en/module/Module-LoRa868_V1.2"
+                           target="_blank" rel="noopener">
+                            Module LoRa868 v1.2
+                        </a>
+                        and the
+                        <a href="https://docs.m5stack.com/en/core/M5CoreS3%20SE"
+                           target="_blank" rel="noopener">
+                            CoreS3 SE
+                        </a>.
+                    </p>
+
+                    <p>
+                        It does appear that the Stack LoRa module has reached end-of-life status, but I’ll be
+                        keeping an eye on what they plan next.
+                    </p>
+
+                    <h2 class="mt-5">Waveshare</h2>
+
+                    <p>
+                        With Waveshare, we start moving more toward true building blocks rather than ready-made
+                        Meshtastic devices. They offer a comprehensive range of modules that can be used together
+                        with other Waveshare products or integrated into existing electronics projects.
+                    </p>
+
+                    <p>
+                        Waveshare also maintains an extensive product wiki at
+                        <a href="https://www.waveshare.com/wiki/Main_Page"
+                           target="_blank" rel="noopener">
+                            waveshare.com/wiki
+                        </a>,
+                        which makes it significantly easier to use and integrate their hardware.
+                    </p>
+
+                    <p>
+                        For Meshtastic users, the challenge here is that Waveshare generally requires a deeper
+                        understanding of electronics, and often some familiarity with firmware configuration or
+                        compiling custom Meshtastic builds from GitHub.
+                    </p>
+
+                    <p>
+                        There are examples where the
+                        <a href="https://www.waveshare.com/wiki/SX1262_868M_LoRa_HAT"
+                           target="_blank" rel="noopener">
+                            SX1262 LoRa HAT for Raspberry Pi
+                        </a>
+                        has been used to create Linux-native Meshtastic devices, as well as LoRa expansion boards
+                        for the Raspberry Pi Pico.
+                    </p>
+
+                    <h2 class="mt-5">Clockwork Tech</h2>
+
+                    <p>
+                        Clockwork Tech states that their motivation comes from a common dream shared by many
+                        engineers and gamers: creating their own handheld devices. Their products bring together
+                        multiple technologies and offer a solid starting point for people interested in electronics.
+                    </p>
+
+                    <p>
+                        In the context of Meshtastic, some users have used the 
+                        <a href="https://www.clockworkpi.com/picocalc">PicoCalc as a MeshCore</a>PicoCalc as a MeshCore unit by
+                        housing a Heltec V3 inside the enclosure and connecting it via UART. In this setup, the
+                        Pico itself does not generate the LoRa layer but provides a sophisticated input method
+                        and enclosure.
+                    </p>
+
+                    <p>
+                        There is also the uConsole, which supports a variety of interesting add-ons. This video by
+                        Talking Sasquach is well worth watching:
+                        <a href="https://www.youtube.com/watch?v=4vNxTOFThdg"
+                           target="_blank" rel="noopener">
+                            YouTube – uConsole overview
+                        </a>.
+                    </p>
+
+                    <h2 class="mt-5">What next?</h2>
+
+                    <p>
+                        For me, these examples highlight just how accessible electronics, firmware, and software
+                        development have become. There are more ways than ever to explore Meshtastic beyond
+                        standard off-the-shelf nodes.
+                    </p>
+
+                    <p>
+                        At the same time, just because these companies have created some amazing hardware doesn’t
+                        mean my own quest for optimization is over. The goal remains the same: to experiment,
+                        to learn, and to find ways to bring these technologies to more people - young and old.
+                    </p>
+
+                    <p><strong>And as always: go and create.</strong></p>
+
+                    <p class="mt-5">
+                        <em>Written by JohanV<br>2025-12-21</em>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <div id="footer-placeholder">
+            <div class="text-center py-2 bg-light">Loading footer...</div>
+        </div>
+
+        <!-- JS includes -->
+        <script src="/js/includes.js"></script>
+    </body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Blog title -->
+        <meta charset="utf-8">
+        <title>Meshtastic Android Integration – My Android MeshHelper?</title>
+    </head>
+    <body>
+        <!-- header -->
+        <div id="header-placeholder">
+            <div class="text-center py-2 bg-light">Loading header...</div>
+        </div>
+
+        <!-- navbar -->
+        <div id="navbar-placeholder">
+            <nav class="navbar navbar-light bg-teal text-black justify-content-center">
+                <span class="navbar-text">Loading menu...</span>
+            </nav>
+        </div>
+
+        <!--      Main Area    -->
+        <div id="main-placeholder" style="display:none;">
+            <!-- Header Image -->
+            <div class="container-fluid" style="background-image: url('../assets/blog2.jpg'); height: 400px; background-size: cover; background-position: center;"></div>
+            
+            <!-- Blog Title -->
+            <div class="container-fluid bg-teal text-center py-4">
+                <h1 class="display-5">Meshtastic Android Integration</h1>
+                <p class="lead">My Android <em>MeshHelper</em>?</p>
+            </div>
+
+            <!-- Blog -->
+            <div class="container-fluid text-center">
+                <div class="mx-auto w-75 text-start py-4">
+
+                    <h2>Keeping Busy</h2>
+                    <p>
+                        For many of you who don’t know me, doing nothing is one of the scariest things I can imagine.
+                        I tend to stay busy. So over the Christmas and New Year break, with two weeks off work
+                        (and yes, spending time with family was part of the plan), the question became:
+                        <em>what will I do next?</em>
+                    </p>
+
+                    <p>
+                        Over the last few months, I’ve been playing with Android application development, and
+                        naturally I started wondering how I could integrate that with my Meshtastic units.
+                        After spending a few hours reading through the Meshtastic Android code on GitHub,
+                        I came to a fairly quick conclusion: this is solid, well-written code -
+                        and I am <strong>not</strong> going to rewrite it.
+                    </p>
+
+                    <p>
+                        Then I stumbled across a directory called
+                        <a href="https://github.com/meshtastic/Meshtastic-Android/tree/main/mesh_service_example" target="_blank"><code>mesh_service_example</code></a>.
+                        And that’s where things got interesting.
+                    </p>
+
+                    <p>
+                        My journey into <a href="https://developer.android.com/develop/background-work/services/aidl" target="_">Android Interface Definition Language</a> - AIDL - started there.
+                    </p>
+
+                    <h2>Touching the Surface</h2>
+                    <p>
+                        I know this topic won’t be within everyone’s current skill set or interest
+                        (and I say <em>current</em> intentionally - learning to read and write code is,
+                        in my opinion, one of the most useful skills you can have).
+                        I also know that talking about Android internals can very quickly turn into
+                        <em>bla bla bla…</em>
+                    </p>
+
+                    <p>
+                        So this blog only touches the surface of the topic and then points those who
+                        are curious toward a concrete proof of concept.
+                    </p>
+
+                    <h2>AIDL, in Human Terms</h2>
+                    <p>
+                        At some point, Android apps stop being “just an app”. They turn into <em>systems</em>.
+                        That’s where AIDL comes in.
+                    </p>
+
+                    <p>
+                        AIDL is Android’s way of letting <strong>different processes talk to each other</strong>,
+                        safely and in a structured way. Not different threads, and not different screens
+                        inside one app - but different apps or services entirely.
+                    </p>
+
+                    <p>
+                        One way to think about AIDL is as a contract:
+                        <br>
+                        <em>“If you call me like this, I promise to respond like that.”</em>
+                    </p>
+
+                    <p>
+                        AIDL allows one app to expose a service, and another app to call methods on that
+                        service as if it were local, even though it’s crossing a process boundary.
+                        And this functionality is already exposed by the Meshtastic Android app.
+                    </p>
+
+                    <h2>Why This Matters for Meshtastic</h2>
+                    <p>
+                        This immediately changes what’s possible.
+                    </p>
+
+                    <p>
+                        It means I can write a completely separate Android app that talks to Meshtastic,
+                        without modifying the official app, forking the project, or asking the Meshtastic
+                        developers to merge niche features.
+                    </p>
+
+                    <p>
+                        In other words: experimentation can happen <em>outside</em> the core application -
+                        which is healthier for both developers and the community.
+                    </p>
+
+                    <h2>Enter MeshHelper</h2>
+                    <img src="../assets/Android-MeshHelper.png" alt="Android-MeshHelper" class="cemter">
+                    <p>
+                        As a proof of concept, I set out to create a small companion app that could:
+                    </p>
+
+                    <ul>
+                        <li>Connect to the Meshtastic Android app via its AIDL service</li>
+                        <li>Show message types received from a connected Meshtastic unit</li>
+                        <li>Display incoming messages</li>
+                        <li>Obtain GPS location from the phone</li>
+                        <li>Send pre-packaged messages with a button click</li>
+                        <li>Scan a QR code and send its contents out over the mesh</li>
+                        <li>Later: integrate phone sensors</li>
+                    </ul>
+
+                    <p>
+                        I called this tool <strong>MeshHelper</strong> (and released the repository <a href="https://github.com/LateForTrain/MeshHelper" target="_blank"> <b>here</b></a>, please feel free to clone or fork and make it better).
+                        It’s a standalone companion app - not a replacement -
+                        designed to explore what becomes possible when Meshtastic
+                        is treated as a platform rather than just a UI.
+                    </p>
+
+                    <h2>A Concrete Example</h2>
+                    <p>
+                        I’ve incorporated MeshHelper into my local mesh setup,
+                        including the beacon I described in the blog
+                        <a href="https://jkpg-mesh.se/blogs/blog2.html" target="_blank"><em>“Testing My Base Node with a Python Sidekick”</em></a>.
+                    </p>
+
+                    <p>
+                        One simple example is the <strong>“Test distance”</strong> button in MeshHelper.
+                        When pressed, it creates a message like:
+                    </p>
+
+                    <pre>/distance &lt;lat&gt; &lt;lon&gt;</pre>
+
+                    <p>
+                        The latitude and longitude come from the phone’s location services
+                        (a combination of GPS, Wi-Fi, and mobile networks).
+                        That message is then sent over the mesh.
+                        When received by the mesh beacon, the beacon calculates the distance
+                        and sends a response back.
+                    </p>
+
+                    <p>
+                        Is this groundbreaking? No.
+                        I’ve even been asked whether similar functionality already exists
+                        in Meshtastic firmware - and yes, I’m aware it does.
+                    </p>
+
+                    <p>
+                        But this project isn’t about inventing something new.
+                        It’s about understanding how things work, learning by doing,
+                        and exploring what problems <em>could</em> be solved with this approach.
+                        And maybe - just maybe - showing one other person that moving from
+                        <em>“I can’t do this”</em> to <em>“hey, this might actually be possible”</em>
+                        isn’t as far a jump as it feels.
+                    </p>
+
+                    <h2>Honesty and What’s Next</h2>
+                    <p>
+                        If you look at the repository, you’ll quickly notice that I don’t write
+                        Android code full-time. The current solution is still a bit messy,
+                        and the integration isn’t ideal - but it works.
+                    </p>
+
+                    <p>
+                        I genuinely enjoyed this little Christmas experiment.
+                        Next, I want to explore fusing phone sensor data with the mesh -
+                        maybe triggering messages based on movement, orientation,
+                        or something else entirely.
+                    </p>
+
+                    <p>
+                        I don’t quite know yet.
+                        But that’s the fun part.
+                        I’ll know what it is when I see it.
+                    </p>
+
+                    <p class="mt-5"><em>Written by JohanV<br>2026-01-17</em></p>
+                </div>
+            </div>
+        </div>
+        
+        <!--      footer     -->
+        <div id="footer-placeholder">
+            <div class="text-center py-2 bg-light">Loading footer...</div>
+        </div>
+
+        <!-- JS includes -->
+        <script src="/js/includes.js"></script>
+    </body>
+</html>

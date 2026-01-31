@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Blog title -->
+        <meta charset="utf-8">
+        <title>Meshtastic Beginners Guide</title>
+    </head>
+    <body>
+        <!-- header -->
+        <div id="header-placeholder">
+            <div class="text-center py-2 bg-light">Loading header...</div>
+        </div>
+
+        <!-- navbar -->
+        <div id="navbar-placeholder">
+            <nav class="navbar navbar-light bg-teal text-black justify-content-center">
+                <span class="navbar-text">Loading menu...</span>
+            </nav>
+        </div>
+
+        <!--      Main Area    -->
+        <div id="main-placeholder" style="display:none;">
+            <!-- Header Image -->
+            <div class="container-fluid" style="background-image: url('../assets/blog2.jpg'); height: 400px; background-size: cover; background-position: center;"></div>
+            
+            <!-- Blog Title -->
+            <div class="container-fluid bg-teal text-center py-4">
+                <h1 class="display-5">Meshtastic Beginners Guide</h1>
+                <p class="lead">What do you want to do?</p>
+            </div>
+
+            <!-- Blog -->
+            <div class="container-fluid text-center">
+                <div class="mx-auto w-75 text-start py-4">
+
+                    <h2>Why Meshtastic?</h2>
+
+                    <p>
+                        A while ago I wrote a blog about why I chose Meshtastic as my <em>solution space</em> - a playground in which 
+                        I experiment, learn, and occasionally fail in interesting ways. In this article, I want to focus more on 
+                        <strong>why Meshtastic is such a powerful learning platform</strong>, while also pointing beginners toward 
+                        practical starting points, resources, and real-world solutions.
+                    </p>
+
+                    <p>
+                        Let’s begin the journey.
+                    </p>
+
+                    <p>
+                        Many people see Meshtastic as nothing more than small, low-power radios for sending text messages - something 
+                        our smartphones already do far better. So a fair question is: <em>why would I want to get involved with this?</em>
+                    </p>
+
+                    <p>
+                        And honestly, I don’t think Meshtastic is for everyone - and that’s perfectly fine. But if you enjoy experimenting, 
+                        building, creating, and understanding how technology really works, then Meshtastic becomes a surprisingly powerful 
+                        playground for curiosity and learning.
+                    </p>
+
+                    <p>
+                        Along the way, people often end up learning about:
+                    </p>
+
+                    <ul>
+                        <li>Electronics and embedded systems</li>
+                        <li>RF and antenna fundamentals</li>
+                        <li>Firmware and software development</li>
+                        <li>Mapping and situational awareness systems</li>
+                        <li>Power management and solar solutions</li>
+                        <li>Mechanical design and 3D printing</li>
+                    </ul>
+
+                    <p>
+                        And the best part? You don’t need to master all of it. You simply follow the threads that interest you.
+                    </p>
+
+                    <hr>
+
+                    <h2>What can you build?</h2>
+
+                    <p>
+                        <img src="../assets/Meshtastic_playground.png" alt="Meshtastic Playground" class="img-fluid">
+                    </p>
+
+                    <p>
+                        Sitting down for a moment, I started sketching a mind map (shown above). At the heart of it all is a 
+                        simple idea: <strong>building a communication solution</strong>. But the moment you start pulling on 
+                        that thread, it branches into a wide range of fascinating technical and creative paths.
+                    </p>
+
+                    <p>
+                        Suddenly, Meshtastic becomes a gateway into:
+                    </p>
+
+                    <ul>
+                        <li>Electronics, power systems, and solar solutions</li>
+                        <li>Enclosure design and 3D printing</li>
+                        <li>Antenna design and RF experimentation</li>
+                        <li>Embedded firmware and mobile applications</li>
+                        <li>Situational awareness and mapping</li>
+                        <li>GPS and triangulation experiments</li>
+                    </ul>
+
+                    <p>
+                        This is where Meshtastic really shines - it naturally connects multiple disciplines into one coherent 
+                        ecosystem. Whether your interests lean toward software, hardware, RF, mechanical design, or power systems, 
+                        there is a path here that can absorb your curiosity.
+                    </p>
+
+                    <hr>
+
+                    <h2>What is Meshtastic not?</h2>
+
+                    <p>
+                        Before we continue, and since this guide is aimed at people who may be meeting Meshtastic for the first 
+                        time, it is important to clarify <strong>what Meshtastic is not</strong>.
+                    </p>
+
+                    <p>
+                        The underlying radio transmission happens in a special frequency range known as the <strong>ISM band</strong> 
+                        - a license-free part of the electromagnetic spectrum reserved for low-power devices. Because the radio 
+                        spectrum is a <strong>finite shared resource</strong>, its use is regulated to ensure fair access and minimal 
+                        interference. So while this band does not require a license, it is definitely <strong>not regulation-free</strong>.
+                    </p>
+
+                    <p>
+                        In the EU 868 MHz band, three rules are especially important:
+                    </p>
+
+                    <ul>
+                        <li>
+                            <strong>Frequency range:</strong> Different sub-bands exist, each with their own limitations on power and 
+                            duty cycle. The next two rules apply in the frequency range 869.4 - 869.65 MHz
+                        </li>
+                        <li>
+                            <strong>Duty cycle:</strong> A station is limited to a <strong>maximum 10% duty cycle</strong>, which in 
+                            practical terms means transmitting for no more than <strong>6 minutes per hour</strong>. This ensures that 
+                            many devices can fairly share the same frequencies.
+                        </li>
+                        <li>
+                            <strong>Effective Radiated Power (ERP):</strong> Transmit power is limited to maximum <strong>500 mW 
+                                ERP</strong>, meaning you cannot simply increase power indefinitely to extend range - although this is 
+                                exactly where LoRa technology excels in efficiency.
+                        </li>
+                    </ul>
+
+                    <p>
+                        So what does this mean in practice? Meshtastic is <strong>not a replacement for WiFi or mobile cellular 
+                            networks</strong>. Instead, it excels at <strong>low-bandwidth, long-range, low-power communication</strong>, 
+                            particularly in environments where traditional infrastructure is unavailable, impractical, or undesirable.
+                    </p>
+
+                    <hr>
+
+                    <h2>Where should you start?</h2>
+
+                    <p>
+                        I can almost hear people asking: <em>“Sign me up - but where do I start?”</em> And that is not an easy question, 
+                        because it depends entirely on what path you want to follow.
+                    </p>
+
+                    <p>
+                        That said, one of the best starting points is often <strong>finding a local group or community</strong>. Meshtastic 
+                        benefits enormously from shared experience, collective troubleshooting, and the exchange of ideas. Being part of a 
+                        group gives you access to knowledge, inspiration, and sometimes even spare hardware. My experience with the 
+                        Meshtastic community has been overwhelmingly positive - welcoming, friendly, and eager to help.
+                    </p>
+
+                    <p>
+                        You might not want to build radios at all. Maybe you enjoy designing and 3D printing enclosures. Trust me - many 
+                        of us have naked circuit boards and wires scattered across our desks, and we would welcome your design skills with 
+                        open arms and big smiles.
+                    </p>
+
+                    <p>
+                        Learning alone is absolutely possible, but I would strongly recommend starting with <strong>at least two 
+                            devices</strong>. While impressive long-distance links do happen, they usually depend on controlled setups 
+                            and favorable terrain. It’s best not to assume there will be another node nearby when you begin experimenting.
+                    </p>
+
+                    <hr>
+
+                    <h2>Hardware suggestions</h2>
+
+                    <p>
+                        When it comes to recommending hardware, things quickly become complicated. Availability, price, performance, 
+                        power consumption, and local regulations all play a role. Instead of declaring a single “best” device, I’ve listed 
+                        vendors and models that enjoy <strong>strong community support</strong> - which makes troubleshooting, learning, 
+                        and experimenting far easier.
+                    </p>
+
+                    <p>
+                        Before ordering, always check:
+                    </p>
+
+                    <ul>
+                        <li>Is the device version for <strong>868 MHz</strong>? (required in Sweden and much of Europe)</li>
+                        <li>Is an <strong>antenna included</strong>?</li>
+                        <li>Is it <strong>NOT</strong> a <strong>1W transmitter</strong>? (important for regulatory compliance)</li>
+                    </ul>
+
+                    <h3>Heltec</h3>
+
+                    <p>
+                        Official website: <a href="https://heltec.cn/product-category/lora/meshtastic/">heltec.cn</a><br>
+                        AliExpress: <a href="https://heltecautomation.aliexpress.com/store/3213115">Heltec Official Store</a>
+                    </p>
+
+                    <p><strong>Good base products:</strong></p>
+                    <ul>
+                        <li>Heltec WiFi LoRa 32 (V4)</li>
+                        <li>Heltec Wireless Stick Lite (V3)</li>
+                    </ul>
+
+                    <p><strong>Ready out-of-the-box:</strong></p>
+                    <ul>
+                        <li>Heltec MeshPocket Qi2</li>
+                    </ul>
+
+                    <h3>Seeed Studio</h3>
+
+                    <p>
+                        Official website: <a href="https://www.seeedstudio.com/LoRa-and-Meshtastic-and-4G-c-2423.html">seeedstudio.com</a><br>
+                        AliExpress: <a href="https://seeedstudio.aliexpress.com/store/1103741821">Seeed Official Store</a>
+                    </p>
+
+                    <p>
+                        Check that the unit is explicitly marked <strong>“for Meshtastic”</strong>.
+                    </p>
+
+                    <p><strong>Good base products:</strong></p>
+                    <ul>
+                        <li>XIAO ESP32S3 &amp; Wio-SX1262 (focus on lowest cost)</li>
+                        <li>XIAO nRF52840 &amp; Wio-SX1262 (focus on lowest power consumption)</li>
+                    </ul>
+
+                    <p><strong>Ready out-of-the-box:</strong></p>
+                    <ul>
+                        <li>SenseCAP Card Tracker T1000-E</li>
+                    </ul>
+
+                    <h3>LILYGO</h3>
+
+                    <p>
+                        Official website: <a href="https://lilygo.cc/en-us/collections/lora-or-gps">lilygo.cc</a><br>
+                        AliExpress: <a href="https://lilygo.aliexpress.com/store/2090076">LILYGO Official Store</a>
+                    </p>
+
+                    <p><strong>Good base products:</strong></p>
+                    <ul>
+                        <li>T3 S3 Meshtastic</li>
+                        <li>T-Beam Meshtastic</li>
+                    </ul>
+
+                    <p><strong>Ready out-of-the-box:</strong></p>
+                    <ul>
+                        <li>T-Deck Plus Meshtastic</li>
+                        <li>T-Echo Meshtastic</li>
+                    </ul>
+
+                    <h3>RAK Wireless</h3>
+
+                    <p>
+                        Official website: <a href="https://store.rakwireless.com/collections/meshtastic">rakwireless.com</a><br>
+                        AliExpress: <a href="https://www.aliexpress.com/store/2805180">RAK Official Store</a>
+                    </p>
+
+                    <p><strong>Good base products:</strong></p>
+                    <ul>
+                        <li>WisMesh RAK3312 Starter Kit (multiple configurations available)</li>
+                    </ul>
+
+                    <p><strong>Ready out-of-the-box:</strong></p>
+                    <ul>
+                        <li>WisMesh Pocket V2</li>
+                        <li>WisMesh TAP</li>
+                    </ul>
+
+                    <hr>
+
+                    <h2>Next steps</h2>
+
+                    <p>
+                        With all this information, my strongest recommendation is simple: <strong>reach out and start talking 
+                            to people</strong>. The Meshtastic community is full of helpful, curious, and welcoming individuals 
+                            who genuinely enjoy sharing their knowledge.
+                    </p>
+
+                    <p>
+                        Start small. You might discover a new passion - or simply gain a better understanding of wireless 
+                        communication and embedded systems. Either outcome is a win.
+                    </p>
+
+                    <p>
+                        There is also a wealth of documentation, tutorials, and inspiration available directly on the Meshtastic 
+                        website, which is well worth exploring.
+                    </p>
+
+                    <p>
+                        Whatever path you take, keep experimenting, keep learning, and most of all - enjoy the process. I would 
+                        love to see some of your projects in upcoming community meetings.
+                    </p>
+
+                    <p class="mt-5">
+                        <em>Written by JohanV<br>2026-01-31</em>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        
+        <!--      footer     -->
+        <div id="footer-placeholder">
+            <div class="text-center py-2 bg-light">Loading footer...</div>
+        </div>
+
+        <!-- JS includes -->
+        <script src="/js/includes.js"></script>
+    </body>
+</html>

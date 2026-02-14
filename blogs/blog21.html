@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Blog title -->
+        <meta charset="utf-8">
+        <title>Antennas, SWR, and Impedance</title>
+    </head>
+    <body>
+        <!-- header -->
+        <div id="header-placeholder">
+            <div class="text-center py-2 bg-light">Loading header...</div>
+        </div>
+
+        <!-- navbar -->
+        <div id="navbar-placeholder">
+            <nav class="navbar navbar-light bg-teal text-black justify-content-center">
+                <span class="navbar-text">Loading menu...</span>
+            </nav>
+        </div>
+
+        <!--      Main Area    -->
+        <div id="main-placeholder" style="display:none;">
+            <!-- Header Image -->
+            <div class="container-fluid" style="background-image: url('../assets/blog2.jpg'); height: 400px; background-size: cover; background-position: center;"></div>
+            
+            <!-- Blog Title -->
+            <div class="container-fluid bg-teal text-center py-4">
+                <h1 class="display-5">Antennas, SWR, and Impedance</h1>
+                <p class="lead">Looking beyond the SWR number</p>
+            </div>
+
+            <!-- Blog -->
+            <div class="container-fluid text-center">
+                <div class="mx-auto w-75 text-start py-4">
+
+                    <p>
+                        When I first started measuring antennas for Meshtastic, I had a simple belief:
+                    </p>
+
+                    <p><strong>Low SWR = good antenna.</strong></p>
+
+                    <p>
+                        That belief isn’t wrong - but it’s incomplete.
+                    </p>
+
+                    <p>
+                        What changed things for me wasn’t reading more theory. It was putting different antennas
+                        on a NanoVNA, one after another, and seeing how wildly different they looked behind the SWR number.
+                    </p>
+
+                    <p>
+                        Before getting into the measurements, it helps to briefly talk about what the NanoVNA is actually
+                        showing - not in a textbook sense, but just enough to make sense of the numbers that follow.
+                    </p>
+
+                    <h2 class="mt-5">What SWR really tells us</h2>
+
+                    <p>
+                        SWR (Standing Wave Ratio) is often treated as <em>the</em> antenna quality number.
+                        In reality, it only tells you how much power is reflected back toward the radio,
+                        not how well the antenna radiates.
+                    </p>
+
+                    <table class="table table-bordered table-sm mt-3">
+                        <thead class="table-light">
+                            <tr>
+                                <th>SWR</th>
+                                <th>Reflected Power</th>
+                                <th>Delivered Power</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1.0</td>
+                                <td>0%</td>
+                                <td>100%</td>
+                            </tr>
+                            <tr>
+                                <td>1.2</td>
+                                <td>~1%</td>
+                                <td>~99%</td>
+                            </tr>
+                            <tr>
+                                <td>1.5</td>
+                                <td>~4%</td>
+                                <td>~96%</td>
+                            </tr>
+                            <tr>
+                                <td>2.0</td>
+                                <td>~11%</td>
+                                <td>~89%</td>
+                            </tr>
+                            <tr>
+                                <td>3.0</td>
+                                <td>~25%</td>
+                                <td>~75%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p>
+                        Two things stand out immediately:
+                    </p>
+
+                    <ul>
+                        <li>Even an SWR of 2:1 still delivers most of the power</li>
+                        <li>Below about 1.5:1, improvements quickly reach diminishing returns</li>
+                    </ul>
+
+                    <p>
+                        This explains why Meshtastic nodes keep working even with antennas that aren’t great -
+                        LoRa is incredibly forgiving.
+                    </p>
+
+                    <h2 class="mt-5">What the NanoVNA is actually showing</h2>
+
+                    <p>
+                        When we measure an antenna, what we’re really measuring is its <strong>impedance</strong>,
+                        usually written as:
+                    </p>
+
+                    <p class="text-center fs-5"><strong>Z = R<sub>s</sub> + jX<sub>s</sub></strong></p>
+
+                    <div class="alert alert-info mt-4">
+                        <strong>Don’t worry about the “j”.</strong><br>
+                        It simply means the value is reactive, not resistive.
+                        <ul class="mb-0 mt-2">
+                            <li><strong>R<sub>s</sub></strong> is the resistive part</li>
+                            <li><strong>X<sub>s</sub></strong> is the reactive part</li>
+                        </ul>
+                        You don’t need complex math here - just remember:
+                        <em>R<sub>s</sub> is about radiation and loss, X<sub>s</sub> is about resonance.</em>
+                    </div>
+
+                    <h3 class="mt-4">R<sub>s</sub> - the resistive part</h3>
+
+                    <p>
+                        R<sub>s</sub> includes both radiation resistance (the good part) and loss resistance (the bad part).
+                        The NanoVNA doesn’t separate these - it only shows the total.
+                    </p>
+
+                    <p>
+                        Very roughly:
+                    </p>
+
+                    <ul>
+                        <li>Values near 50&nbsp;Ω are easy to work with</li>
+                        <li>Very low R<sub>s</sub> often hints at size compromises or hidden losses</li>
+                        <li>Higher R<sub>s</sub> isn’t automatically bad, but can signal misuse</li>
+                    </ul>
+
+                    <h3 class="mt-4">X<sub>s</sub> - the reactive part</h3>
+
+                    <p>
+                        X<sub>s</sub> tells you whether the antenna is resonant at the measured frequency:
+                    </p>
+
+                    <ul>
+                        <li>X<sub>s</sub> ≈ 0 → resonant</li>
+                        <li>Positive X<sub>s</sub> → inductive (often electrically long)</li>
+                        <li>Negative X<sub>s</sub> → capacitive (often electrically short)</li>
+                    </ul>
+
+                    <p>
+                        You can have a decent SWR while X<sub>s</sub> is still large - which usually means
+                        the antenna is being “helped” into behaving.
+                    </p>
+
+                    <h2 class="mt-5">Measured antennas</h2>
+
+                    <h3 class="mt-4">The reference dipole</h3>
+
+                    <p>
+                        A full-size dipole cut for 869.5&nbsp;MHz measured:
+                    </p>
+
+                    <table>
+                        <tr>
+                            <td><img src="../assets/Dipole_pic.png" alt="869MHz Dipole" height="400px"></td>
+                            <td><img src="../assets/869MHz Dipole.png" alt="869MHz Dipole" height="400px"></td>
+                            <td>
+                                <ul>
+                                    <li>SWR: 1.06</li>
+                                    <li>R<sub>s</sub>: 48.6&nbsp;Ω</li>
+                                    <li>X<sub>s</sub>: -2.4&nbsp;Ω</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                    <p>
+                        It’s boring - and that’s a compliment. Resonant by geometry, not by tricks.
+                    </p>
+
+                    <h3 class="mt-4">¼-wave ground plane</h3>
+
+                    <p>
+                        Initial measurement:
+                    </p>
+                    
+                    <table>
+                        <tr>
+                            <td><img src="../assets/Qwave_pic.png" alt="869MHz Qwave 1" height="400px"></td>
+                            <td><img src="../assets/869MHz Qwave 1.png" alt="869MHz Qwave 1" height="400px"></td>
+                            <td>
+                                <ul>
+                                    <li>SWR: 1.4</li>
+                                    <li>R<sub>s</sub>: 40.3&nbsp;Ω</li>
+                                    <li>X<sub>s</sub>: 13.1&nbsp;Ω</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                    
+
+                    <p>
+                        After drooping the radials:
+                    </p>
+
+                    <table>
+                        <tr>
+                            <td><img src="../assets/Qwave_pic.png" alt="869MHz Qwave 1" height="400px"></td>
+                            <td><img src="../assets/869MHz Qwave 2.png" alt="869MHz Qwave 2" height="400px"></td>
+                            <td>
+                                <ul>
+                                    <li>SWR: 1.23</li>
+                                    <li>R<sub>s</sub>: 46.5&nbsp;Ω</li>
+                                    <li>X<sub>s</sub>: 9.5&nbsp;Ω</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <p>
+                        No matching network. No added loss. Just letting the antenna behave naturally.
+                    </p>
+
+                    <h3 class="mt-4">The stock omni</h3>
+
+                    <table>
+                        <tr>
+                            <td><img src="../assets/RubberD_pic.png" alt="869MHz Rubber Duck" height="400px"></td>
+                            <td><img src="../assets/869MHz RubberD.png" alt="869MHz Rubber Duck" height="400px"></td>
+                            <td>
+                                <ul>
+                                    <li>SWR: 1.52</li>
+                                    <li>R<sub>s</sub>: 33.5&nbsp;Ω</li>
+                                    <li>X<sub>s</sub>: -4.7&nbsp;Ω</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <p>
+                        It works, and it’s safe - but clearly compromised for size and convenience.
+                    </p>
+
+                    <h3 class="mt-4">The antenna that made me stop</h3>
+
+                    <table>
+                        <tr>
+                            <td><img src="../assets/Lipstick_pic.png" alt="869MHz Lipstick" height="400px"></td>
+                            <td>
+                                <ul>
+                                    <li>SWR: 2.36</li>
+                                    <li>R<sub>s</sub>: 73.5&nbsp;Ω</li>
+                                    <li>X<sub>s</sub>: -48.5&nbsp;Ω</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                    
+                    <p>
+                        Electrically safe, but far from resonant at the intended frequency.
+                        A lot of link budget is quietly being lost here.
+                    </p>
+
+                    <h2 class="mt-5">Why this matters for Meshtastic</h2>
+
+                    <p>
+                        Meshtastic doesn’t win by brute force - it wins on link budget.
+                        A few dB lost in an antenna can mean fewer hops, weaker links,
+                        and a network that only works “most of the time”.
+                    </p>
+
+                    <p>
+                        Replacing a compromised antenna with a simple, resonant one is often
+                        the single biggest improvement you can make to a node.
+                    </p>
+
+                    <h2 class="mt-5">Final thoughts</h2>
+
+                    <p>
+                        I’m not arguing against stock antennas.
+
+                    <p>
+                        Once you start looking beyond SWR and pay attention to R<sub>s</sub> and X<sub>s</sub>,
+                        the NanoVNA stops being a go/no-go tool and becomes a window into what your antenna
+                        is really doing.
+                    </p>
+
+                    <p>
+                        And sometimes, the most boring (ugly duckling) antenna on the bench turns out to be the strongest one in the field.
+                    </p>
+
+                    <p>
+                        It is possible to experiment with antenna builds on this frequency.
+                    </p>
+
+                    <p class="mt-5">
+                        <em>Written by JohanV<br>2026-02-14</em>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!--      footer     -->
+        <div id="footer-placeholder">
+            <div class="text-center py-2 bg-light">Loading footer...</div>
+        </div>
+
+        <!-- JS includes -->
+        <script src="/js/includes.js"></script>
+    </body>
+</html>
